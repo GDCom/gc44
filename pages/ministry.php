@@ -31,14 +31,22 @@ else {
                     <td class="enum">
                         <a href="index.php?page=ministry&id=<?=$ministry[$i]['id']?>">
                             <h3><?=$ministry[$i]['title']?></h3>
-                            <img src="img/m/smal_<?=$ministry[$i]['img']?>">
+                            <div class="rect1">
+                                <div class="rect2">
+                                    <img src="img/m/smal_<?=$ministry[$i]['img']?>">
+                                </div>
+                            </div>
                         </a>
                     </td>
                     <td class="enum">
                         <?php if($i + 1 < count($ministry)) {?>
                         <a href="index.php?page=ministry&id=<?=$ministry[$i + 1]['id']?>">
                             <h3><?=$ministry[$i + 1]['title']?></h3>
-                            <img src="img/m/smal_<?=$ministry[$i + 1]['img']?>">
+                            <div class="rect1">
+                                <div class="rect2">
+                                    <img src="img/m/smal_<?=$ministry[$i + 1]['img']?>">
+                                </div>
+                            </div>
                         </a>
                         <?php }?>
                     </td>
@@ -46,7 +54,11 @@ else {
                         <?php if($i + 2 < count($ministry)) {?>
                         <a href="index.php?page=ministry&id=<?=$ministry[$i + 2]['id']?>">
                             <h3><?=$ministry[$i + 2]['title']?></h3>
-                            <img src="img/m/smal_<?=$ministry[$i + 2]['img']?>">
+                            <div class="rect1">
+                                <div class="rect2">
+                                    <img src="img/m/smal_<?=$ministry[$i + 2]['img']?>">
+                                </div>
+                            </div>
                         </a>
                         <?php }?>
                     </td>
@@ -56,7 +68,7 @@ else {
                 <h3><?=$ministry[0]['title']?></h3> <!--Заголовок-->
                 <tr>
                     <td class="foto1">
-                        <a href="img/<?=$ministry[0]['img']?>" target="_blank" class="prevew">
+                        <a rel="group" href="img/<?=$ministry[0]['img']?>" class="prevew">
                             <img src="img/m/smal_<?=$ministry[0]['img']?>">
                         </a> <!--Фотка-->
                         <div class="date_publ"><?=$ministry[0]['alt']?></div> <!--Подпись к фото-->

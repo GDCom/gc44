@@ -58,7 +58,7 @@ switch ($article) {
             <tbody>
                 <tr>
                     <td class="foto1">
-                        <a href="img/<?=$array[0]['foto']?>" target="_blank" class="prevew"><img src="img/m/smal_<?=$array[0]['foto']?>"></a>
+                        <a rel="group" href="img/<?=$array[0]['foto']?>" class="prevew"><img src="img/m/smal_<?=$array[0]['foto']?>"></a>
                     </td>
                     <td class="enum_min">
                         <?=$array[0]['article']?>

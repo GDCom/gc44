@@ -21,7 +21,7 @@ else {
             <tr>
                 <?php if ($news[0]['img1'] != NULL) { // Если есть первое изображение ?>
                 <td class="enum">
-                    <a href="img/<?=$news[0]['img1']?>" target="_blank" class="prevew"><img class="first" src="img/m/smal_<?=$news[0]['img1']?>"></a>
+                    <a rel="group" href="img/<?=$news[0]['img1']?>" class="prevew"><img class="first" src="img/m/smal_<?=$news[0]['img1']?>"></a>
                 </td>
                 <?php }?>
                 <td class="enum" colspan="2" width="100%">
@@ -39,7 +39,7 @@ else {
             <?php for ($t = 0; $t < $i; $t = $t + 3) { //Для всех изображений с шагом 3 ?>
             <tr>
                 <td class="enum">
-                    <a href="img/<?=$s[$t]?>" target="_blank" class="prevew">
+                    <a rel="group" href="img/<?=$s[$t]?>" class="prevew">
                         <div class="sq1">
                             <div class="sq2">
                                 <img src="img/m/smal_<?=$s[$t]?>">
@@ -49,7 +49,7 @@ else {
                 </td>
                 <td class="enum">
                     <?php if($t + 1 < $i) {?>
-                    <a href="img/<?=$s[$t+1]?>" target="_blank" class="prevew">
+                    <a rel="group" href="img/<?=$s[$t+1]?>" class="prevew">
                         <div class="sq1">
                             <div class="sq2">
                                 <img src="img/m/smal_<?=$s[$t+1]?>">
@@ -60,7 +60,7 @@ else {
                 </td>
                 <td class="enum">
                     <?php if($t + 2 < $i) {?>
-                    <a href="img/<?=$s[$t+2]?>" target="_blank" class="prevew">
+                    <a rel="group" href="img/<?=$s[$t+2]?>" class="prevew">
                         <div class="sq1">
                             <div class="sq2">
                                 <img src="img/m/smal_<?=$s[$t+2]?>">

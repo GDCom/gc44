@@ -206,7 +206,6 @@ if (isset($_GET['type'])) {
                                 <div>
                                     <?php $file = dapost(get_youtube($tbl[$i]['file'])); ?>
                                     <iframe src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen width="100%"></iframe>
-                                    
                                     <br><?=dapost($tbl[$i]['name'])?>
                                 </div>
                             </td>
@@ -215,7 +214,6 @@ if (isset($_GET['type'])) {
                                 <div>
                                     <?php $file = dapost(get_youtube($tbl[$i+1]['file'])); ?>
                                     <iframe src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen width="100%"></iframe>
-                                    
                                     <br><?=dapost($tbl[$i+1]['name'])?>
                                 </div>
                             <?php }?>
@@ -225,7 +223,6 @@ if (isset($_GET['type'])) {
                                 <div>
                                     <?php $file = dapost(get_youtube($tbl[$i+2]['file'])); ?>
                                     <iframe src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen width="100%"></iframe>
-                                    
                                     <br><?=dapost($tbl[$i+2]['name'])?>
                                 </div>
                             <?php }?>
