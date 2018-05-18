@@ -1,7 +1,7 @@
 <?php
 $type = $_GET['type'];
 
-$albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."'"); //Выбираем название альбомов для определенного типа
+$albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER BY date DESC"); //Выбираем название альбомов для определенного типа
     
 switch ($type) { //В зависимости от типа материалов
     case 'foto': //Фото

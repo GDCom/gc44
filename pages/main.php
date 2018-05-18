@@ -42,12 +42,12 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
         <tbody>
             <tr>
                 <td width = 59% class = "Text">
-                    <h2>Социальная концепция.</h2>
+                    <h2>Социальная концепция:</h2>
                     <?=dapost($array[0]['concept'])?>
                 </td>
                 <td></td>
                 <td width= 40% class = "Text">
-                    <h2>Богослужения</h2>
+                    <h2>Богослужения:</h2>
                     <?=dapost($array[0]['service'])?>
                 </td>
             </tr>
