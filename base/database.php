@@ -46,18 +46,41 @@ function run_command($link, $query) {
 }
 
 //Функция загрузки файла на сервер
-function upload_file($file, $puth, $width, $height, $link) {
+function upload_file($file, $puth, $size=400, $link, $type) {
     $tbl = get_table($link, "SELECT pref FROM info"); //Брем значение префикса из базы
     $s = $tbl[0]['pref']; //Записываем в пременную
     
     if ($s == '') $s = 0; //Если префикс пустой, присваиваем значение ноль.
     
     if ($file['name'] != '') { //Если имя файла не пустое
+
         $name = $s."_".strtolower(translit($file['name'])); //Получаем имя файла
         if (!move_uploaded_file($file['tmp_name'], '../'.$puth.$name)) echo "Ошибка загрузки файла"; //Копируем файл
         
-        $f = img_resize('../'.$puth.$name, '../'.$puth.'m/smal_'.$name, $width, $height); //делаем миниатюру файла
-        if ($f == false) echo "Ошибка обрезания файла";
+        $width = 0; //Нулевое значение ширины для миниатюры
+        $width_b = 0; //Нулевое значение ширины для большой картинки
+        $height = 0; //Нулевое значение высоты для миниатюры
+        $height_b = 0; //Нулевое значение высоты для большой картинки
+        
+        if ($type = "img") { //Если это изображение
+            $s_im = getimagesize('../'.$puth.$name); //Размер изображения
+
+            if ($s_im[0] > $s_im[1]) { //Если ширина больше уменьшаем по ширине
+                $width = $size;
+                $width_b = 1080;
+            }
+            else { //Иначе уменьшаем по высоте
+                $height = $size;
+                $height_b = 1080;
+            }
+            
+            $f = img_resize('../'.$puth.$name, '../'.$puth.$name, $width_b, $height_b); //Меняем размер основного изображения
+            $f = img_resize('../'.$puth.$name, '../'.$puth.'m/smal_'.$name, $width, $height); //делаем миниатюру файла
+            if ($f == false) echo "Ошибка обрезания файла";
+        }
+        else { //Иначе
+            if (!move_uploaded_file($file['tmp_name'], '../'.$puth.$name)) echo "Ошибка загрузки файла"; //Копируем файл    
+        }
     }
     else $name = NULL; //Иначе имя равно NULL
     
@@ -68,7 +91,7 @@ function upload_file($file, $puth, $width, $height, $link) {
 }
 
 //Функция загрузки файлов на сервер
-function upload_files($files, $puth, $width, $height, $link) {
+function upload_files($files, $puth, $size=400, $link, $type="") {
     
     $tbl = get_table($link, "SELECT pref FROM info"); //Брем значение префикса из базы
     $s = $tbl[0]['pref']; //Записываем в пременную
@@ -84,7 +107,29 @@ function upload_files($files, $puth, $width, $height, $link) {
                 $filename = $s."_".strtolower(translit(basename($files['name'][$i]))); //Имя файла
                 if (!move_uploaded_file($files['tmp_name'][$i], '../'.$puth.$filename)) echo "Ошибка загрузки файла"; //Копируем файл
                 
-                if (!img_resize('../'.$puth.$filename, '../'.$puth.'m/smal_'.$filename, $width, $height)) echo "Ошибка обрезания файлов"; //делаем миниатюру файла
+                $width = 0; //Нулевое значение ширины для миниатюры
+                $width_b = 0; //Нулевое значение ширины для большой картинки
+                $height = 0; //Нулевое значение высоты для миниатюры
+                $height_b = 0; //Нулевое значение высоты для большой картинки
+                
+                if ($type = "img") { //Если это изображение
+                    $s_im = getimagesize('../'.$puth.$filename); //Размер изображения
+
+                    if ($s_im[0] > $s_im[1]) { //Если ширина больше уменьшаем по ширине
+                        $width = $size;
+                        $width_b = 1080;
+                    }
+                    else { //Иначе уменьшаем по высоте
+                        $height = $size;
+                        $height_b = 1080;
+                    }
+                    
+                    if (!img_resize('../'.$puth.$filename, '../'.$puth.$filename, $width_b, $height_b)) echo "Ошибка обрезания файлов"; //Меняем размер основного изображения
+                    if (!img_resize('../'.$puth.$filename, '../'.$puth.'m/smal_'.$filename, $width, $height)) echo "Ошибка обрезания файлов"; //делаем миниатюру файла
+                }
+                else { //Иначе
+                    if (!move_uploaded_file($files['tmp_name'][$i], '../'.$puth.$filename)) echo "Ошибка загрузки файла"; //Иначе просто копируем файл
+                }
                 
                 $nm[] = $filename; //Добавляем в архив
             }
@@ -206,26 +251,27 @@ function img_resize($src, $dest, $width, $height, $rgb = 0xFFFFFF, $quality = 10
 }
 
 //Функция удаления первого файла
-function del_img($link, $base, $col, $id, $puth, $putn_m) {
+function del_img($link, $base, $col, $id, $puth, $puth_m) {
     $img_d = get_table($link, "SELECT ".$col." FROM ".$base." WHERE id=".$id); //Выбираем названия первого файла из базы для удаления
     
     $file_name = dapost($puth.$img_d[0][$col]);
-    
+    $file_name_m = dapost($puth_m.$img_d[0][$col]);
+        
     if ($img_d[0][$col] != '') { //Если поле не пустое
         if (!unlink($file_name)) echo 'Ошибка удаления первого файла'; //Удаляем первый файл
-        if (!unlink($putn_m.$file_name)) echo 'Ошибка удаления миниатюры первого файла'; //Удаляем миниатюру первого файла
+        if (!unlink($file_name_m)) echo 'Ошибка удаления миниатюры первого файла'; //Удаляем миниатюру первого файла
     }
 }
     
 //Функция удаления остальных файлов
-function del_imgs($link, $base, $col, $id, $puth, $putn_m) {
+function del_imgs($link, $base, $col, $id, $puth, $puth_m) {
     $img_d = get_table($link, "SELECT ".$col." FROM ".$base." WHERE id=".$id); //Выбираем названия файлов из удаляемой новости
             
     $s = explode(";", dapost($img_d[0][$col])); //Разбиваем спсок изображений в массив
             
     for ($i = 0; $i < count($s); $i++) { //Для каждого файла в массиве
         if (!unlink($puth.$s[$i])) echo 'Ошибка удаления '.$s[$i].' файла'; //Удаляем остальные файлы
-        if (!unlink($putn_m.$s[$i])) echo 'Ошибка удаления миниатюры '.$s[$i].' файла'; //Удаляем миниатюры остальных файлов
+        if (!unlink($puth_m.$s[$i])) echo 'Ошибка удаления миниатюры '.$s[$i].' файла'; //Удаляем миниатюры остальных файлов
     }
 }
 

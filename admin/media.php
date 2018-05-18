@@ -28,7 +28,7 @@ if (isset($_GET['action'])) { //Если доступна переменная a
                 if (isset($_FILES['files']))
                 {
                     if ($type == 'foto') { //Если это фотки
-                        $files = upload_files($_FILES['files'], 'media/'.$type.'/', 300, 0, $link); //Копируем файлы и получаем строку для базы
+                        $files = upload_files($_FILES['files'], 'media/'.$type.'/', 300, $link, "img"); //Копируем файлы и получаем строку для базы
 
                         for ($i = 0; $i < count($files); $i++) { //Для каждого элемента массива с названиями файлов
                             $f = apost($files[$i]);
@@ -48,7 +48,7 @@ if (isset($_GET['action'])) { //Если доступна переменная a
 
                     }
                     else { //Иначе только один файл
-                        $f = apost(upload_file($_FILES['files'], 'media/'.$type.'/', 0, 0, $link)); //Копируем файлы и получаем строку для базы
+                        $f = apost(upload_file($_FILES['files'], 'media/'.$type.'/', 0, $link)); //Копируем файлы и получаем строку для базы
 
                         $s = apost($_POST['name']); //Название записи
 

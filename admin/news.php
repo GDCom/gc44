@@ -4,13 +4,13 @@ if (isset($_GET['action'])) {
     //Если доступен первый файл
     if (isset($_POST['img1_check']) && $_POST['img1_check'] == 'YES' && isset($_FILES['img1'])) //Если чекбокс отмечен и файл передан
     {
-         $img1 = upload_file($_FILES['img1'], 'img/', 400, 0, $link); //Копируем файл и получаем строку для базы
+         $img1 = upload_file($_FILES['img1'], 'img/', 400, $link, "img"); //Копируем файл и получаем строку для базы
     }
     
     //Если доступны остальные файлы
     if (isset($_POST['imgs_check']) && $_POST['imgs_check'] == 'YES' && isset($_FILES['imgs'])) //Если чекбокс отмечен и файлы переданы
     {
-        $imgs = upload_files($_FILES['imgs'], 'img/', 400, 0, $link); //Копируем файлы и получаем массив для базы
+        $imgs = upload_files($_FILES['imgs'], 'img/', 400, $link, "img"); //Копируем файлы и получаем массив для базы
     }
     
     $action = $_GET['action'];
