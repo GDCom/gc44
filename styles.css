@@ -367,33 +367,51 @@ h4 {
     vertical-align: top;
 }
 
+@keyframes zoom {
+    from {
+        transform: perspective(0px) rotateX(0deg) rotateY(0deg) scale(1);
+    }
+    
+    25% {
+        transform: perspective(300px) rotateX(5deg) rotateY(-5deg) scale(0.95);
+    }
+    
+    50% {
+        transform: perspective(0px) rotateX(0deg) rotateY(0deg) scale(0.95);
+    }
+    
+    75% {
+        transform: perspective(300px) rotateX(-5deg) rotateY(5deg) scale(0.9);
+    }
+    
+    to {
+        transform: perspective(0px) rotateX(0deg) rotateY(0deg) scale(0.9);
+    }
+}
+
 @keyframes rotate {
     from {
         transform: rotate(0deg) scale(1);
     }
     
-    10% {
-        transform: rotate(5deg) scale(0.9);
-    }
-    
     20% {
-        transform: rotate(-5deg) scale(0.8);
-    }
-    
-    30% {
-        transform: rotate(5deg) scale(0.7);
+        transform: rotate(3deg) scale(0.98);
     }
     
     40% {
-        transform: rotate(-5deg) scale(0.6);
+        transform: rotate(-3deg) scale(0.96);
     }
     
-    50% {
-        transform: rotate(0deg) scale(0.5);
+    60% {
+        transform: rotate(3deg) scale(0.94);
+    }
+    
+    80% {
+        transform: rotate(-3deg) scale(0.92);
     }
     
     to {
-        transform: scale(0.9);
+        transform: rotate(0deg) scale(0.9);
     }
 }
 
@@ -402,8 +420,7 @@ h4 {
     transform: scale(0.9);
     opacity: 1;
     cursor: zoom-in;
-    animation: rotate 1s ease-out;
-    animation-direction: alternate;
+    animation: zoom 1s linear;
 }
 
 /*Картинка в ячейке таблицы*/
@@ -731,37 +748,3 @@ footer a{
     height: 60px;
     opacity: 0.8;
 }
-
-/*.popup {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    display: none;
-    text-align: center;
-}
-
-
-.popup_bg {
-    background: rgba(0,0,0,0.4);
-    position: fixed;
-    z-index: 1;
-    height: 100%;
-    width: 100%;
-}
- 
-
-.popup_img {
-    display: block;
-    position: fixed;
-    margin: 0 auto;
-    z-index: 2;
-    max-height: 94%;
-    max-width: 94%;
-    margin: 0 0 0 0;
-    border-style: inset;
-    border-color: white;
-    left: 25px;
-    top: 25px;
-}*/

@@ -40,8 +40,8 @@ else {
             <tr>
                 <td class="enum">
                     <a rel="group" href="img/<?=$s[$t]?>" class="prevew">
-                        <div class="sq1">
-                            <div class="sq2">
+                        <div class="rect1">
+                            <div class="rect2">
                                 <img src="img/m/smal_<?=$s[$t]?>">
                             </div>
                         </div>
@@ -50,8 +50,8 @@ else {
                 <td class="enum">
                     <?php if($t + 1 < $i) {?>
                     <a rel="group" href="img/<?=$s[$t+1]?>" class="prevew">
-                        <div class="sq1">
-                            <div class="sq2">
+                        <div class="rect1">
+                            <div class="rect2">
                                 <img src="img/m/smal_<?=$s[$t+1]?>">
                             </div>
                         </div>
@@ -61,8 +61,8 @@ else {
                 <td class="enum">
                     <?php if($t + 2 < $i) {?>
                     <a rel="group" href="img/<?=$s[$t+2]?>" class="prevew">
-                        <div class="sq1">
-                            <div class="sq2">
+                        <div class="rect1">
+                            <div class="rect2">
                                 <img src="img/m/smal_<?=$s[$t+2]?>">
                             </div>
                         </div>
