@@ -1,6 +1,5 @@
 <?php
 $array = NULL;
-$podp = 'Выберите раздел медиа';
 
 if (isset($_GET['album'])) {
     $album = $_GET['album'];

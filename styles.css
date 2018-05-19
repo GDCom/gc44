@@ -243,6 +243,44 @@ h4 {
 	padding-top: 56.25%;
 }
 
+/*Анимация сдвига влево*/
+@keyframes slider {
+    from {
+        transform: translate(0) scale(1);
+    }
+    
+    25% {
+        transform: translate(0) scale(0.9);
+    }
+    
+    75% {
+        transform: translate(-50%) scale(0.9);
+    }
+    
+    to {
+        transform: translate(-50%) scale(1);
+    }
+}
+
+/*Анимация сдвига назад*/
+@keyframes slider_r {
+    from {
+        transform: translate(-50%) scale(1);
+    }
+    
+    25% {
+        transform: translate(-50%) scale(0.9);
+    }
+    
+    75% {
+        transform: translate(0) scale(0.9);
+    }
+    
+    to {
+        transform: translate(0) scale(1);
+    }
+}
+
 /*Второй блок для создания прямоугольника последних новостей*/
 .top_news2 {
     position: absolute;
@@ -254,19 +292,21 @@ h4 {
     bottom: 0;
     right: 0;
     
-    transform: translateX(0);
-    transition: all 1s;
+    animation: slider_r 1s linear;
+    transform: translateX(0) scale(1);
 }
 
 /*Контейнер в новостном блоке*/
 .top_news2 div {
     width: 50%;
+    padding: 2px;
 }
 
 /*При наведении мыши на новостной блок*/
 .top_news2:hover {
-    transform: translateX(-50%);
-    transition: all 1s;
+    animation: slider 1s linear;
+    transform: translateX(-50%) scale(1);
+
 }
 
 /*Изображение в ссылке таблицы из трех столбцов*/
@@ -361,6 +401,7 @@ h4 {
     z-index: 2;
 }
 
+/*При наведении курсора на картинку в квадрате*/
 .sq2 img:hover {
     opacity: 0.3;
     z-index: 0;
@@ -508,8 +549,8 @@ td img:hover {
     filter: none;
     filter: none; /* IE 6-9 */
     
-    transform: scale(0.9);
-    transition: all 1s;
+    /*transform: scale(0.9);
+    transition: all 1s;*/
 }
 
 /*Основное поле контента*/
