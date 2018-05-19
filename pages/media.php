@@ -58,41 +58,55 @@ if (isset($_GET['type'])) {
                     <td class="enum5">
                         <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i]?>">
                             <?php if ($type == 'foto') { //Если тип данных фото ?>
-                            <div class="sq1">
-                                <div class="sq2">
-                                    <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i])?>">
-                                    
+                            <div class="alb_main">
+                                <div class="sq1">
+                                    <div class="sq2">
+                                        <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i])?>">
+                                    </div>
                                 </div>
+                                <div class="alb_title"><?=$array['album'][$i]?></div>
                             </div>
-                            <?php }?>
+                            <?php }
+                            else { //Иначе ?>
                             <?=$array['album'][$i]?>
+                            <?php }?>                            
                         </a>
                     </td>
                     <td class="enum5">
                         <?php if ($i + 1 < count($array['album'])) { //Если в массиве еще есть записи ?>
                         <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i+1]?>">
-                        <?php if ($type == 'foto') { //Если тип данных фото ?>
-                            <div class="sq1">
-                                <div class="sq2">
-                                    <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+1])?>">
+                            <?php if ($type == 'foto') { //Если тип данных фото ?>
+                            <div class="alb_main">
+                                <div class="sq1">
+                                    <div class="sq2">
+                                        <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+1])?>">
+                                    </div>
                                 </div>
+                                <div class="alb_title"><?=$array['album'][$i+1]?></div>
                             </div>
-                            <?php }?>
+                            <?php }
+                            else { //Иначе ?>
                             <?=$array['album'][$i+1]?>
+                            <?php }?>
                         </a>
                         <?php }?>
                     </td>
                     <td class="enum5">
                         <?php if ($i + 2 < count($array['album'])) { //Если в массиве еще есть записи ?>
                         <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i+2]?>">
-                        <?php if ($type == 'foto') { //Если тип данных фото ?>
-                            <div class="sq1">
-                                <div class="sq2">
-                                    <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+2])?>">
+                            <?php if ($type == 'foto') { //Если тип данных фото ?>
+                            <div class="alb_main">
+                                <div class="sq1">
+                                    <div class="sq2">
+                                        <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+2])?>">
+                                    </div>
                                 </div>
+                                <div class="alb_title"><?=$array['album'][$i+2]?></div>
                             </div>
-                            <?php }?>
+                            <?php }
+                            else { //Иначе ?>
                             <?=$array['album'][$i+2]?>
+                            <?php }?>
                         </a>
                         <?php }?>
                     </td>
@@ -100,13 +114,18 @@ if (isset($_GET['type'])) {
                         <?php if ($i + 3 < count($array['album'])) { //Если в массиве еще есть записи ?>
                         <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i+3]?>">
                             <?php if ($type == 'foto') { //Если тип данных фото ?>
-                            <div class="sq1">
-                                <div class="sq2">    
-                                    <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+3])?>">
+                            <div class="alb_main">
+                                <div class="sq1">
+                                    <div class="sq2">    
+                                        <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+3])?>">
+                                    </div>
                                 </div>
+                                <div class="alb_title"><?=$array['album'][$i+3]?></div>
                             </div>
-                            <?php }?>
+                            <?php }
+                            else { //Иначе ?>
                             <?=$array['album'][$i+3]?>
+                            <?php }?>
                         </a>
                         <?php }?>
                     </td>
@@ -114,13 +133,18 @@ if (isset($_GET['type'])) {
                         <?php if ($i + 4 < count($array['album'])) { //Если в массиве еще есть записи ?>
                         <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i+4]?>">
                             <?php if ($type == 'foto') { //Если тип данных фото ?>
-                            <div class="sq1">
-                                <div class="sq2">
-                                    <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+4])?>">
+                            <div class="alb_main">
+                                <div class="sq1">
+                                    <div class="sq2">
+                                        <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+4])?>">
+                                    </div>
                                 </div>
+                                <div class="alb_title"><?=$array['album'][$i+4]?></div>
                             </div>
-                            <?php }?>
+                            <?php }
+                            else { //Иначе ?>
                             <?=$array['album'][$i+4]?>
+                            <?php }?>
                         </a>
                         <?php }?>
                     </td>
