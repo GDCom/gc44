@@ -26,7 +26,8 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
                                             <div><img src="img/m/smal_<?=$a['img1']?>"></div>
                                             <div><?=$a['content']?></div>
                                             <?php } else {?>
-                                            <?=$a['content']?>
+                                            <div><?=$a['content']?></div>
+                                            <div><?=$a['content']?></div>
                                             <?php }?>
                                         </div>
                                     </div>
