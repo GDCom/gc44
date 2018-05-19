@@ -231,6 +231,42 @@ h4 {
     right: 0;
 }
 
+/*Первый блок для создания прямоугольника последних новостей*/
+.top_news1 {
+    position: relative;
+	width: 100%;
+}
+
+/*Первый блок для создания прямоугольника последних новостей*/
+.top_news1::before {
+    content: "";
+	display: block;
+	padding-top: 56.25%;
+}
+
+/*Второй блок для создания прямоугольника последних новостей*/
+.top_news2 {
+    position: absolute;
+    display: flex;
+    width: 200%;
+    flex-direction: row;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/*Контейнер в новостном блоке*/
+.top_news2 div {
+    width: 50%;
+}
+
+/*При наведении мыши на новостной блок*/
+.top_news2:hover {
+    transform: translateX(-50%);
+    transition: all 1s;
+}
+
 /*Изображение в ссылке таблицы из трех столбцов*/
 .enum a img {
     width: 100%;
@@ -252,6 +288,7 @@ h4 {
     transition: all 1s;*/
 }
 
+/*Первое изображение в новости*/
 .enum a img.first {
     width: 100%;
     object-fit: none;
@@ -278,12 +315,14 @@ h4 {
     text-align: center;
 }
 
+/*Блок основной в списке альбомов фото*/
 .alb_main {
     position: relative;
     display: block;
     overflow: hidden;
 }
 
+/*Блок для подписи альбома*/
 .alb_title {
     position: absolute;
     display: table-cell;

@@ -20,10 +20,11 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
                                 <a href="index.php?page=news&id=<?=$a['id']?>">
                                     <h3><?=$a['title']?></h3> <!--Заголовок новости-->
                                     <p class="date_publ">Опубликовано: <?=$a['date']?></p><br> <!--Дата публикации-->
-                                    <div class="rect1">
-                                        <div class="rect2">
+                                    <div class="top_news1">
+                                        <div class="top_news2">
                                             <?php if ($a['img1'] != NULL) { ?> 
-                                            <img src="img/m/smal_<?=$a['img1']?>">
+                                            <div><img src="img/m/smal_<?=$a['img1']?>"></div>
+                                            <div><?=$a['content']?></div>
                                             <?php } else {?>
                                             <?=$a['content']?>
                                             <?php }?>
