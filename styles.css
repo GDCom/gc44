@@ -189,7 +189,7 @@ h4 {
 
 /*Таблица из трех столбцов*/
 .enum {
-    width: calc(100%/3);
+    width: 33.33%;
     padding: 7px;
     text-align: justify;
     vertical-align: top;
@@ -201,7 +201,6 @@ h4 {
 .enum a {
     text-decoration: none;
     color: black;
-    /*text-align: center;*/
 }
 
 /*Отстур сверху для параграфа в таблице из трех столбцов*/
@@ -300,8 +299,7 @@ h4 {
 /*Таблица из пяти столбцов*/
 .enum5 {
     position: relative;
-    width: calc(100%/5);
-    max-width: calc(100%/5);
+    width: 20%;
     margin: 0px;
     padding: 7px;
     background-color: white;
