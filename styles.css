@@ -549,8 +549,38 @@ td img:hover {
     filter: none;
     filter: none; /* IE 6-9 */
     
-    /*transform: scale(0.9);
-    transition: all 1s;*/
+    transform: scale(0.9);
+    transition: all 1s;
+}
+
+/*Список страниц*/
+.page_num {
+    margin: 5px;
+    padding: 0;
+
+}
+
+/*Номера рядом стоящих страниц*/
+.page_list {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+/*Ссылка в списке страниц*/
+.page_list a {
+    text-decoration: none;
+    color: #19149a;
+    font-size: 20px;
+    font-family: Book;
+}
+
+/*Текущая страница*/
+.page_main {
+    display: inline-flex;
+    flex-direction: row;
+    color: #5f5f5f;
+    font-size: 27px;
+    font-family: Book;
 }
 
 /*Основное поле контента*/

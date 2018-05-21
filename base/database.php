@@ -144,7 +144,7 @@ function upload_files($files, $puth, $size=400, $link, $type="") {
 }
 
 //Функция для создания массива альбомов аудио, видео, фото
-function albums ($link, $base_table) {
+function albums ($link, $base_table, $pp, $pn) {
     $name_album = get_table($link, "SELECT name FROM albums WHERE type='".$base_table."' ORDER BY date DESC"); //Названия всех альбомов с сортировкой по дате от новых к старым
 
     if (count($name_album) > 0) { //Если база не пустая
@@ -152,9 +152,15 @@ function albums ($link, $base_table) {
         $t = 0; //Переменная для массива альбомов
         
         for ($i = 0; $i < count($name_album); $i++) { //Для каждого альбома
-            $tbl_tmp = get_table($link, "SELECT * FROM ".$base_table." WHERE album='".$name_album[$i]['name']."' ORDER BY date DESC"); //Все фотки из этого альбома во временный массив
+            $tbl_tmp = get_table($link, "SELECT * FROM ".$base_table." WHERE album='".$name_album[$i]['name']."' ORDER BY date DESC");
             
-            if (count($tbl_tmp) > 0) { //Если фотки есть в альбоме
+            if (count($tbl_tmp) > 0) { //Если медиа есть в альбоме    
+                $tbl_count = get_table($link, "SELECT FLOOR((COUNT(*)+".($pp-1).")/".$pp.") AS count FROM ".$base_table." WHERE album='".$name_album[$i]['name']."' ORDER BY date DESC"); //Кол-во полных страниц для альбома согласно ограничению кол-ва эл-ов на страницу
+            
+                $array['count'][$t] = $tbl_count[0]['count']; //Записываем в массив
+            
+                $tbl_tmp = get_table($link, "SELECT * FROM ".$base_table." WHERE album='".$name_album[$i]['name']."' ORDER BY date DESC LIMIT ".($pn-1)*$pp.", ".$pp); //Все фотки из этого альбома во временный массив согласно выбранной страницы и кол-ва записей
+            
                 $array['album'][$t] = $name_album[$i]['name']; //Имя альбома
 
                 $array['table'][$t] = $tbl_tmp; //Все фотки из этого альбома в массив table

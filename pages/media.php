@@ -1,6 +1,9 @@
 <?php
 $array = NULL;
 
+if (isset($_GET['p'])) $pn = $_GET['p']; //Если доступен параметр номера страницы, записываем в переменную
+else $pn = 1; //Иначе первая страница
+
 if (isset($_GET['album'])) {
     $album = $_GET['album'];
 }
@@ -9,19 +12,22 @@ else $album = '';
 if (isset($_GET['type'])) {
     $type = $_GET['type'];
     
-    if ($type != '') $array = albums($link, $type);
-    
     switch ($type) {
         case 'foto':
             $podp = "Фотографии";
+            $pp = 30;
             break;
         case 'video':
             $podp = "Видеофайлы";
+            $pp = 15;
             break;
         case 'audio':
             $podp = "Аудиофайлы";
+            $pp = 30;
             break;
     }
+    
+    if ($type != '') $array = albums($link, $type, $pp, $pn);
 }
 
 ?>
@@ -155,6 +161,7 @@ if (isset($_GET['type'])) {
         <?php } else { //Иначе показываем элементы альбома ?>
         <?php for($t = 0; $t < count($array['album']); $t++) { //Для каждого альбома ?>
         <?php if ($array['album'][$t] == $album) { //Если выбранный альбом равняется текущему ?>
+        <?php $pc = $array['count'][$t]; //Кол-во страниц ?>
         <table class="listBack">
             <tbody>
                 <tr class="listHead">
@@ -271,7 +278,44 @@ if (isset($_GET['type'])) {
                 }?>
             </tbody>
         </table>
-        <div class='space'></div>
+        
+        <!--Навигация по страницам-->
+        <div class="space"></div>
+        <?php if ($pc > 1) { //Если страниц больше одной ?>
+        <?php
+        //Высчитываем первую ссылку
+        if ($pn <= 4) $first = 1;
+        elseif ($pn > 4 && ($pc - 4) >= $pn) $first = $pn - 3;
+        else $first = $pc - 6;
+        
+        //Высчитываем последнюю ссылку
+        if (($first + 6) <= $pc) $last = $first + 6;
+        else $last = $pc;
+        ?>
+        
+        <ul class="page_num">
+            <?php if ($first > 1) { //Если первая ссылка больше первой страницы, создаем ссылку на первую страницу ?>
+            <li class="page_list"><a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$t]?>&p=1">&lt;&lt;</a></li> &hellip;
+            <?php }?>
+
+            <?php for ($c = $first; $c <= $last; $c++) { //выводим ссылки 7 страниц ?>
+
+            <?php if ($c == $pn) { ?>
+            <li class="page_main"><?=$c?></li>
+            <?php } else { ?>
+            <li class="page_list"><a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$t]?>&p=<?=$c?>"><?=$c?></a></li>
+            <?php }?>
+
+            <?php }?>
+
+            <?php if ($last < $pc) { //Если последняя страница больше последней ссылки, создаем ссылку на последнюю страницу ?>
+            &hellip; <li class="page_list"><a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$t]?>&p=<?=$pc?>">&gt;&gt;</a></li>
+            <?php }?>
+        </ul>
+        <div class="space"></div>
+        <?php }?>
+        <!--Конец навигации по страницам-->
+        
         <?php }?>
         <?php }?>
         <?php }?>
