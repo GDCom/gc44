@@ -144,18 +144,25 @@ function upload_files($files, $puth, $size=400, $link, $type="") {
 }
 
 //Функция для создания массива альбомов аудио, видео, фото
-function albums ($link, $base_table, $pp, $pn) {
-    $name_album = get_table($link, "SELECT name FROM albums WHERE type='".$base_table."' ORDER BY date DESC"); //Названия всех альбомов с сортировкой по дате от новых к старым
+function albums ($link, $base_table, $pp, $pn, $ppa, $pna) {
+    $name_album = get_table($link, "SELECT name FROM albums WHERE type='".$base_table."'"); //Названия всех альбомов
 
     if (count($name_album) > 0) { //Если база не пустая
+        
+        $alb_count = get_table($link, "SELECT FLOOR((COUNT(*)+".($ppa-1).")/".$ppa.") AS count FROM albums WHERE type='".$base_table."'"); //Кол-во страниц альбомов
+        
+        $array['al_count'] = $alb_count[0]['count']; //Записываем в массив количество страниц альбомов
+        
+        $name_album = get_table($link, "SELECT name FROM albums WHERE type='".$base_table."' ORDER BY date DESC LIMIT ".($pna-1)*$ppa.", ".$ppa); //Названия всех альбомов согласно выбранной странице с сортировкой по дате от новых к старым
         
         $t = 0; //Переменная для массива альбомов
         
         for ($i = 0; $i < count($name_album); $i++) { //Для каждого альбома
+            
             $tbl_tmp = get_table($link, "SELECT * FROM ".$base_table." WHERE album='".$name_album[$i]['name']."' ORDER BY date DESC");
             
             if (count($tbl_tmp) > 0) { //Если медиа есть в альбоме    
-                $tbl_count = get_table($link, "SELECT FLOOR((COUNT(*)+".($pp-1).")/".$pp.") AS count FROM ".$base_table." WHERE album='".$name_album[$i]['name']."' ORDER BY date DESC"); //Кол-во полных страниц для альбома согласно ограничению кол-ва эл-ов на страницу
+                $tbl_count = get_table($link, "SELECT FLOOR((COUNT(*)+".($pp-1).")/".$pp.") AS count FROM ".$base_table." WHERE album='".$name_album[$i]['name']."' ORDER BY date DESC"); //Кол-во страниц для альбома согласно ограничению кол-ва эл-ов на страницу
             
                 $array['count'][$t] = $tbl_count[0]['count']; //Записываем в массив
             

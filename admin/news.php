@@ -1,4 +1,8 @@
 <?php
+$pp = 30; //Новостей на страницу
+
+if (isset($_GET['p'])) $pn = $_GET['p']; //Если доступен параметр номера страницы, записываем в переменную
+else $pn = 1; //Иначе первая страница
 
 if (isset($_GET['action'])) {
     //Если доступен первый файл
@@ -28,7 +32,7 @@ if (isset($_GET['action'])) {
             }
             else $imgs_t = ''; //Иначе пропускаем
             
-            $t = "INSERT INTO news (title, date, content, img1, imgs) VALUES ('".$_POST['title']."', '".date("Y-m-d H:i:s")."', '".$_POST['content']."', '".$img1_t."', '".$imgs_t."')"; //Команда на добавление новой записи
+            $t = "INSERT INTO news (title, date, content, img1, imgs) VALUES ('".$_POST['title']."', '".date("Y-m-d")."', '".$_POST['content']."', '".$img1_t."', '".$imgs_t."')"; //Команда на добавление новой записи
             
             break;
         case "edit": //Редактирование записи
@@ -75,7 +79,10 @@ if (isset($_GET['action'])) {
     header('Location: index.php?page=news');
 }
 
-$news = get_table($link, "SELECT * FROM `news` Order By id DESC"); //Считываем таблицу новостей
+$tbl_count = get_table($link, "SELECT FLOOR((COUNT(*)+".($pp-1).")/".$pp.") AS count FROM `news` Order By id DESC"); //Кол-во страниц новостей
+$pc = $tbl_count[0]['count']; //Записываем в переменную
+
+$news = get_table($link, "SELECT * FROM `news` Order By id DESC LIMIT ".($pn-1)*$pp.", ".$pp); //Считываем таблицу новостей согласно выбранной странице
 ?>
 
 <h2>Создание и редактирование раздела "Новости"</h2>
@@ -112,3 +119,41 @@ $news = get_table($link, "SELECT * FROM `news` Order By id DESC"); //Считы�
         <?php endforeach ?>
     </tbody>
 </table>
+
+<!--Навигация по страницам-->
+<div class="space"></div>
+<?php if ($pc > 1) { //Если страниц больше одной ?>
+<?php
+//Высчитываем первую ссылку
+if ($pn <= 4) $first = 1;
+elseif ($pn > 4 && ($pc - 4) >= $pn) $first = $pn - 3;
+else $first = $pc - 6;
+        
+//Высчитываем последнюю ссылку
+if (($first + 6) <= $pc) $last = $first + 6;
+else $last = $pc;
+?>
+
+<ul class="page_num">
+    <?php if ($first > 1) { //Если первая ссылка больше первой страницы, создаем ссылку на первую страницу ?>
+    <li class="page_list"><a href="index.php?page=news&p=1">&lt;&lt;</a></li> &hellip;
+    <?php }?>
+
+    <?php for ($c = $first; $c <= $last; $c++) { //выводим ссылки 7 страниц ?>
+
+    <?php if ($c == $pn) { ?>
+    <li class="page_main"><?=$c?></li>
+    <?php } else { ?>
+    <li class="page_list"><a href="index.php?page=news&p=<?=$c?>"><?=$c?></a></li>
+    <?php }?>
+
+    <?php }?>
+
+    <?php if ($last < $pc) { //Если последняя страница больше последней ссылки, создаем ссылку на последнюю страницу ?>
+    &hellip; <li class="page_list"><a href="index.php?page=news&p=<?=$pc?>">&gt;&gt;</a></li>
+    <?php }?>
+</ul>
+
+<div class="space"></div>
+<?php }?>
+<!--Конец навигации по страницам-->

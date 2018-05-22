@@ -1,8 +1,12 @@
 <?php
 $array = NULL;
+$ppa = 15; //Альбомов на страницу
 
 if (isset($_GET['p'])) $pn = $_GET['p']; //Если доступен параметр номера страницы, записываем в переменную
 else $pn = 1; //Иначе первая страница
+
+if (isset($_GET['pa'])) $pna = $_GET['pa']; //Если доступен параметр номера страницы альбома, записываем в переменную
+else $pna = 1; //Иначе первая страница
 
 if (isset($_GET['album'])) {
     $album = $_GET['album'];
@@ -27,7 +31,10 @@ if (isset($_GET['type'])) {
             break;
     }
     
-    if ($type != '') $array = albums($link, $type, $pp, $pn);
+    if ($type != '') { //Если тип медиа определен
+        $array = albums($link, $type, $pp, $pn, $ppa, $pna); //Выборка альбомов согласно страниц
+        $pca = $array['al_count']; //Кол-во страниц альбомов
+    }
 }
 
 ?>
@@ -49,7 +56,7 @@ if (isset($_GET['type'])) {
         <h1>Медиа материалы</h1>
         <h3><?=$podp?></h3>
         <?php if ($album != '') { //Если выбран альбом, показываем кнопку к списку альбомов ?>
-        <a href="index.php?page=media&type=<?=$type?>"><img src="i/back.ico" width="40px" title="Вернуться к списку альбомов"></a><br><br>
+        <a href="index.php?page=media&type=<?=$type?>&pa=<?=$pna?>"><img src="i/back.ico" width="40px" title="Вернуться к списку альбомов"></a><br><br>
         <?php }?>
         <?php if (count($array['album']) > 0) { //Если массив не пустой ?>
         <?php if ($album == '') { //Если альбом не выбран ?>
@@ -61,7 +68,7 @@ if (isset($_GET['type'])) {
                 <?php for($i = 0; $i < count($array['album']); $i +=5) { //Для каждого альбома ?>
                 <tr class="listHead">
                     <td class="enum5">
-                        <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i]?>">
+                        <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i]?>&pa=<?=$pna?>">
                             <?php if ($type == 'foto') { //Если тип данных фото ?>
                             <div class="alb_main">
                                 <div class="sq1">
@@ -79,7 +86,7 @@ if (isset($_GET['type'])) {
                     </td>
                     <td class="enum5">
                         <?php if ($i + 1 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i+1]?>">
+                        <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i+1]?>&pa=<?=$pna?>">
                             <?php if ($type == 'foto') { //Если тип данных фото ?>
                             <div class="alb_main">
                                 <div class="sq1">
@@ -98,7 +105,7 @@ if (isset($_GET['type'])) {
                     </td>
                     <td class="enum5">
                         <?php if ($i + 2 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i+2]?>">
+                        <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i+2]?>&pa=<?=$pna?>">
                             <?php if ($type == 'foto') { //Если тип данных фото ?>
                             <div class="alb_main">
                                 <div class="sq1">
@@ -117,7 +124,7 @@ if (isset($_GET['type'])) {
                     </td>
                     <td class="enum5">
                         <?php if ($i + 3 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i+3]?>">
+                        <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i+3]?>&pa=<?=$pna?>">
                             <?php if ($type == 'foto') { //Если тип данных фото ?>
                             <div class="alb_main">
                                 <div class="sq1">
@@ -136,7 +143,7 @@ if (isset($_GET['type'])) {
                     </td>
                     <td class="enum5">
                         <?php if ($i + 4 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i+4]?>">
+                        <a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$i+4]?>&pa=<?=$pna?>">
                             <?php if ($type == 'foto') { //Если тип данных фото ?>
                             <div class="alb_main">
                                 <div class="sq1">
@@ -157,6 +164,49 @@ if (isset($_GET['type'])) {
                 <?php }?>
             </tbody>
         </table>
+        
+        <!--Навигация по страницам-->
+        <div class="space"></div>
+        <?php if ($pca > 1) { //Если страниц больше одной ?>
+        <?php
+        if ($pca >= 7) { //Если количество страниц больше либо равно 7
+            //Высчитываем первую ссылку
+            if ($pna <= 4) $first = 1;
+            elseif ($pna > 4 && ($pca - 4) >= $pna) $first = $pna - 3;
+            else $first = $pca - 6;
+
+            //Высчитываем последнюю ссылку
+            if (($first + 6) <= $pca) $last = $first + 6;
+            else $last = $pca;
+        }
+        else { //Иначе
+            $first = 1;
+            $last = $pca;
+        }
+        ?>
+        
+        <ul class="page_num">
+            <?php if ($first > 1) { //Если первая ссылка больше первой страницы, создаем ссылку на первую страницу ?>
+            <li class="page_list"><a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$t]?>&pa=1">&lt;&lt;</a></li> &hellip;
+            <?php }?>
+
+            <?php for ($c = $first; $c <= $last; $c++) { //выводим ссылки 7 страниц ?>
+
+            <?php if ($c == $pna) { ?>
+            <li class="page_main"><?=$c?></li>
+            <?php } else { ?>
+            <li class="page_list"><a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$t]?>&pa=<?=$c?>"><?=$c?></a></li>
+            <?php }?>
+
+            <?php }?>
+
+            <?php if ($last < $pca) { //Если последняя страница больше последней ссылки, создаем ссылку на последнюю страницу ?>
+            &hellip; <li class="page_list"><a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$t]?>&pa=<?=$pca?>">&gt;&gt;</a></li>
+            <?php }?>
+        </ul>
+        <div class="space"></div>
+        <?php }?>
+        <!--Конец навигации по страницам-->
         
         <?php } else { //Иначе показываем элементы альбома ?>
         <?php for($t = 0; $t < count($array['album']); $t++) { //Для каждого альбома ?>
@@ -283,19 +333,25 @@ if (isset($_GET['type'])) {
         <div class="space"></div>
         <?php if ($pc > 1) { //Если страниц больше одной ?>
         <?php
-        //Высчитываем первую ссылку
-        if ($pn <= 4) $first = 1;
-        elseif ($pn > 4 && ($pc - 4) >= $pn) $first = $pn - 3;
-        else $first = $pc - 6;
-        
-        //Высчитываем последнюю ссылку
-        if (($first + 6) <= $pc) $last = $first + 6;
-        else $last = $pc;
+        if ($pc >= 7) { //Если количество страниц больше либо равно 7
+            //Высчитываем первую ссылку
+            if ($pn <= 4) $first = 1;
+            elseif ($pn > 4 && ($pc - 4) >= $pn) $first = $pn - 3;
+            else $first = $pc - 6;
+
+            //Высчитываем последнюю ссылку
+            if (($first + 6) <= $pc) $last = $first + 6;
+            else $last = $pc;
+        }
+        else {
+            $first = 1;
+            $last = $pc;
+        }
         ?>
         
         <ul class="page_num">
             <?php if ($first > 1) { //Если первая ссылка больше первой страницы, создаем ссылку на первую страницу ?>
-            <li class="page_list"><a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$t]?>&p=1">&lt;&lt;</a></li> &hellip;
+            <li class="page_list"><a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$t]?>&p=1&pa=<?=$pna?>">&lt;&lt;</a></li> &hellip;
             <?php }?>
 
             <?php for ($c = $first; $c <= $last; $c++) { //выводим ссылки 7 страниц ?>
@@ -303,13 +359,13 @@ if (isset($_GET['type'])) {
             <?php if ($c == $pn) { ?>
             <li class="page_main"><?=$c?></li>
             <?php } else { ?>
-            <li class="page_list"><a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$t]?>&p=<?=$c?>"><?=$c?></a></li>
+            <li class="page_list"><a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$t]?>&p=<?=$c?>&pa=<?=$pna?>"><?=$c?></a></li>
             <?php }?>
 
             <?php }?>
 
             <?php if ($last < $pc) { //Если последняя страница больше последней ссылки, создаем ссылку на последнюю страницу ?>
-            &hellip; <li class="page_list"><a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$t]?>&p=<?=$pc?>">&gt;&gt;</a></li>
+            &hellip; <li class="page_list"><a href="index.php?page=media&type=<?=$type?>&album=<?=$array['album'][$t]?>&p=<?=$pc?>&pa=<?=$pna?>">&gt;&gt;</a></li>
             <?php }?>
         </ul>
         <div class="space"></div>
@@ -321,6 +377,6 @@ if (isset($_GET['type'])) {
         <?php }?>
         <?php }?>
         <?php if ($album != '') { //Если выбран альбом, показываем кнопку к списку альбомов ?>
-        <a href="index.php?page=media&type=<?=$type?>"><img src="i/back.ico" width="40px" title="Вернуться к списку альбомов"></a>
+        <a href="index.php?page=media&type=<?=$type?>&pa=<?=$pna?>"><img src="i/back.ico" width="40px" title="Вернуться к списку альбомов"></a>
         <?php }?>
     </div>

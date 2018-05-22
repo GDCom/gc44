@@ -1,11 +1,19 @@
 <?php
+$pp = 15; //Новостей на страницу
+
+if (isset($_GET['p'])) $pn = $_GET['p']; //Если доступен параметр номера страницы, записываем в переменную
+else $pn = 1; //Иначе первая страница
+
 $id = $_GET['id'];
     
-if ($id == 0) {
-    $news = get_table($link, "SELECT * FROM `news` Order By date DESC");
+if ($id == 0) { //Если список новостей
+    $tbl_count = get_table($link, "SELECT FLOOR((COUNT(*)+".($pp-1).")/".$pp.") AS count FROM `news` Order By id DESC"); //Кол-во страниц новостей
+    $pc = $tbl_count[0]['count']; //Записываем в переменную
+    
+    $news = get_table($link, "SELECT * FROM `news` Order By date DESC LIMIT ".($pn-1)*$pp.", ".$pp); //Считываем таблицу новостей согласно выбранной странице
 }
-else {
-    $news = get_table($link, "SELECT * FROM `news` WHERE id=".$id);
+else { //Иначе
+    $news = get_table($link, "SELECT * FROM `news` WHERE id=".$id); //Считываем из базы конкретную новость
 }
 ?>
 
@@ -75,14 +83,14 @@ else {
             <?php if($id != 0) {?>
             <tr>
                 <td>
-                    <a href="index.php?page=news&id=0"><img src="i/back.ico" width="40px" title="Вернуться к списку новостей"></a><br><br>
+                    <a href="index.php?page=news&id=0&p=<?=$pn?>"><img src="i/back.ico" width="40px" title="Вернуться к списку новостей"></a><br><br>
                 </td>
                 <td class="enum"></td>
                 <td class="enum"></td>
             </tr>
             <?php }?>
         </tbody>
-    </Table>
+    </table>
 
 <?php } else { //Иначе, если список статей ?>
     <table>
@@ -91,7 +99,7 @@ else {
             <tr>
                 <td class="enum"> <!--Первый столбец-->
                     <div class="top">
-                        <a href="index.php?page=news&id=<?=$news[$t]['id']?>">
+                        <a href="index.php?page=news&id=<?=$news[$t]['id']?>&p=<?=$pn?>">
                             <h3><?=$news[$t]['title']?></h3> <!--Заголовок-->
                             <div class="date_publ">Опубликовано: <?=$news[$t]['date']?> (Мск)</div><br> <!--Дата публикации-->
                             <div class="rect1">
@@ -109,7 +117,7 @@ else {
                 <td class="enum"> <!--Второй столбец-->
                     <?php if ($t+1 < count($news)) { //Если номер строки меньше количества всех строк ?>
                     <div class="top">
-                        <a href="index.php?page=news&id=<?=$news[$t+1]['id']?>">
+                        <a href="index.php?page=news&id=<?=$news[$t+1]['id']?>&p=<?=$pn?>">
                             <h3><?=$news[$t+1]['title']?></h3> <!--Заголовок-->
                             <div class="date_publ">Опубликовано: <?=$news[$t+1]['date']?> (Мск)</div><br> <!--Дата публикации-->
                             <div class="rect1">
@@ -128,7 +136,7 @@ else {
                 <td class="enum"> <!--Третий столбец-->
                     <?php if ($t+2 < count($news)) { //Если номер строки меньше количества всех строк ?>
                     <div class="top">
-                        <a href="index.php?page=news&id=<?=$news[$t+2]['id']?>">
+                        <a href="index.php?page=news&id=<?=$news[$t+2]['id']?>&p=<?=$pn?>">
                             <h3><?=$news[$t+2]['title']?></h3> <!--Заголовок-->
                             <div class="date_publ">Опубликовано: <?=$news[$t+2]['date']?> (Мск)</div><br> <!--Дата публикации-->
                             <div class="rect1">
@@ -148,6 +156,45 @@ else {
             <?php }?>
         </tbody>
     </table>
+    
+    <!--Навигация по страницам-->
+    <div class="space"></div>
+    <?php if ($pc > 1) { //Если страниц больше одной ?>
+    <?php
+    //Высчитываем первую ссылку
+    if ($pn <= 4) $first = 1;
+    elseif ($pn > 4 && ($pc - 4) >= $pn) $first = $pn - 3;
+    else $first = $pc - 6;
+
+    //Высчитываем последнюю ссылку
+    if (($first + 6) <= $pc) $last = $first + 6;
+    else $last = $pc;
+    ?>
+
+    <ul class="page_num">
+        <?php if ($first > 1) { //Если первая ссылка больше первой страницы, создаем ссылку на первую страницу ?>
+        <li class="page_list"><a href="index.php?page=news&p=1">&lt;&lt;</a></li> &hellip;
+        <?php }?>
+
+        <?php for ($c = $first; $c <= $last; $c++) { //выводим ссылки 7 страниц ?>
+
+        <?php if ($c == $pn) { ?>
+        <li class="page_main"><?=$c?></li>
+        <?php } else { ?>
+        <li class="page_list"><a href="index.php?page=news&p=<?=$c?>"><?=$c?></a></li>
+        <?php }?>
+
+        <?php }?>
+
+        <?php if ($last < $pc) { //Если последняя страница больше последней ссылки, создаем ссылку на последнюю страницу ?>
+        &hellip; <li class="page_list"><a href="index.php?page=news&p=<?=$pc?>">&gt;&gt;</a></li>
+        <?php }?>
+    </ul>
+
+    <div class="space"></div>
+    <?php }?>
+    <!--Конец навигации по страницам-->
+    
 <?php }?>
 </div>
 </div>

@@ -1,12 +1,20 @@
 <?php
+$pp = 15; //Элементов на страницу
+
+if (isset($_GET['p'])) $pn = $_GET['p']; //Если доступен параметр номера страницы, записываем в переменную
+else $pn = 1; //Иначе первая страница
+
 $id = $_GET['id'];
     
 $menu = get_table($link, "SELECT id, title FROM ministry ORDER BY title");
 
-if ($id == 0) {
-    $ministry = get_table($link, "SELECT * FROM ministry ORDER BY title");
+if ($id == 0) { //Если список служений
+    $tbl_count = get_table($link, "SELECT FLOOR((COUNT(*)+".($pp-1).")/".$pp.") AS count FROM ministry"); //Кол-во страниц
+    $pc = $tbl_count[0]['count']; //Записываем в переменную
+    
+    $ministry = get_table($link, "SELECT * FROM ministry ORDER BY title LIMIT ".($pn-1)*$pp.", ".$pp); //Считываем таблицу служений согласно выбранной странице
 }
-else {
+else { //Иначе статья про конкретное служение
     $ministry = get_table($link, "SELECT * FROM ministry WHERE id=".$id);
 }
 ?>
@@ -25,11 +33,11 @@ else {
     <h1>Служения</h1>
         <table class="enum_tbl">
             <tbody>
-                <?php if(count($ministry) > 1) { //Если массив больше одной строки (весь список служений) ?>
+                <?php if($id == 0) { //Если массив больше одной строки (весь список служений) ?>
                 <?php for($i = 0; $i < count($ministry); $i += 3) {?>
                 <tr>
                     <td class="enum">
-                        <a href="index.php?page=ministry&id=<?=$ministry[$i]['id']?>">
+                        <a href="index.php?page=ministry&id=<?=$ministry[$i]['id']?>&p=<?=$pn?>">
                             <h3><?=$ministry[$i]['title']?></h3>
                             <div class="rect1">
                                 <div class="rect2">
@@ -40,7 +48,7 @@ else {
                     </td>
                     <td class="enum">
                         <?php if($i + 1 < count($ministry)) {?>
-                        <a href="index.php?page=ministry&id=<?=$ministry[$i + 1]['id']?>">
+                        <a href="index.php?page=ministry&id=<?=$ministry[$i + 1]['id']?>&p=<?=$pn?>">
                             <h3><?=$ministry[$i + 1]['title']?></h3>
                             <div class="rect1">
                                 <div class="rect2">
@@ -52,7 +60,7 @@ else {
                     </td>
                     <td class="enum">
                         <?php if($i + 2 < count($ministry)) {?>
-                        <a href="index.php?page=ministry&id=<?=$ministry[$i + 2]['id']?>">
+                        <a href="index.php?page=ministry&id=<?=$ministry[$i + 2]['id']?>&p=<?=$pn?>">
                             <h3><?=$ministry[$i + 2]['title']?></h3>
                             <div class="rect1">
                                 <div class="rect2">
@@ -65,9 +73,11 @@ else {
                 </tr>
                 <?php }?>
                 <?php } else { //Иначе, если выбрано одно служение ?>
+                
                 <h3><?=$ministry[0]['title']?></h3> <!--Заголовок-->
                 <tr>
                     <td class="foto1">
+                        
                         <a rel="group" href="img/<?=$ministry[0]['img']?>" class="prevew">
                             <img src="img/m/smal_<?=$ministry[0]['img']?>">
                         </a> <!--Фотка-->
@@ -80,5 +90,44 @@ else {
                 <?php }?>
             </tbody>
         </table>
+        
+         <!--Навигация по страницам-->
+        <div class="space"></div>
+        <?php if ($pc > 1) { //Если страниц больше одной ?>
+        <?php
+        //Высчитываем первую ссылку
+        if ($pn <= 4) $first = 1;
+        elseif ($pn > 4 && ($pc - 4) >= $pn) $first = $pn - 3;
+        else $first = $pc - 6;
+
+        //Высчитываем последнюю ссылку
+        if (($first + 6) <= $pc) $last = $first + 6;
+        else $last = $pc;
+        ?>
+
+        <ul class="page_num">
+            <?php if ($first > 1) { //Если первая ссылка больше первой страницы, создаем ссылку на первую страницу ?>
+            <li class="page_list"><a href="index.php?page=ministry&p=1">&lt;&lt;</a></li> &hellip;
+            <?php }?>
+
+            <?php for ($c = $first; $c <= $last; $c++) { //выводим ссылки 7 страниц ?>
+
+            <?php if ($c == $pn) { ?>
+            <li class="page_main"><?=$c?></li>
+            <?php } else { ?>
+            <li class="page_list"><a href="index.php?page=ministry&p=<?=$c?>"><?=$c?></a></li>
+            <?php }?>
+
+            <?php }?>
+
+            <?php if ($last < $pc) { //Если последняя страница больше последней ссылки, создаем ссылку на последнюю страницу ?>
+            &hellip; <li class="page_list"><a href="index.php?page=ministry&p=<?=$pc?>">&gt;&gt;</a></li>
+            <?php }?>
+        </ul>
+
+        <div class="space"></div>
+        <?php }?>
+        <!--Конец навигации по страницам-->
+        <a href="index.php?page=ministry&p=<?=$pn?>"><img src="i/back.ico" width="40px" title="Вернуться к списку служений"></a><br><br>
     </div>
 <?php }?>
