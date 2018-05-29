@@ -23,22 +23,41 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
                 <tr>
                     <?php foreach($news as $a): ?> <!--Для каждой новости-->
                         <td class="enum"> <!--Новая колонка-->
-                            <!--<div>-->
-                                <a href="index.php?page=news&id=<?=$a['id']?>">
-                                    <p class="date_publ">Опубликовано: <?=$a['date']?></p><br> <!--Дата публикации-->
-                                    <div class="top_news1">
-                                        <div class="top_news2">
-                                            <?php if ($a['img1'] != NULL) { ?> 
-                                            <div><img src="img/m/smal_<?=$a['img1']?>"></div>
-                                            <div><?=$a['content']?></div>
-                                            <?php } else {?>
-                                            <div><?=$a['content']?></div>
-                                            <div><?=$a['content']?></div>
-                                            <?php }?>
+                            <a href="index.php?page=news&id=<?=$a['id']?>">
+                                <p class="date_publ">Опубликовано: <?=$a['date']?></p> <!--Дата публикации-->
+                                <div class="top_news1">
+                                    <div class="top_news2">
+                                        <?php if ($a['img1'] != NULL) { ?> 
+                                        <div><img src="img/m/smal_<?=$a['img1']?>"></div>
+                                        <div class="tn_2">
+                                            <div class="tn_21">
+                                                <?=$a['content']?>
+                                            </div>
+                                            <div class="tn_22">
+                                                Читать далее...
+                                            </div>
                                         </div>
+                                        <?php } else {?>
+                                        <div class="tn_2">
+                                            <div class="tn_21">
+                                                <?=$a['content']?>
+                                            </div>
+                                            <div class="tn_22">
+                                                Читать далее...
+                                            </div>
+                                        </div>
+                                        <div class="tn_2">
+                                            <div class="tn_21">
+                                                <?=$a['content']?>
+                                            </div>
+                                            <div class="tn_22">
+                                                Читать далее...
+                                            </div>
+                                        </div>
+                                        <?php }?>
                                     </div>
-                                </a>
-                            <!--</div>-->
+                                </div>
+                            </a>
                         </td>
                     <?php endforeach ?>
                 </tr>
