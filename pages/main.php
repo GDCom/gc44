@@ -6,9 +6,7 @@ check_base($link, 'info'); //Проверяем, пустая ли база и �
 $array = get_table($link, "SELECT concept, service FROM info"); //Получаем информацию из базы
 ?>
 
-
 <div class="content">
-  <div>
         <h2>Последние новости</h2> <!--Заголовок-->
         <!--Выводим таблицу из трех последних новостей-->        
         <table>
@@ -63,7 +61,6 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
                 </tr>
             </tbody>
         </table>
-    </div>
     <hr />
     <table>
         <tbody>

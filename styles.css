@@ -268,10 +268,8 @@ h4 {
     color: black;
 }
 
+/*Заголовок h3 в таблице из трех столбцов (для переносов)*/
 .enum h3 {
-    /*word-wrap: normal;
-    word-break: break-all;*/
-    
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
@@ -284,9 +282,10 @@ h4 {
     color: black;
 }
 
-/*Отступ сверху для параграфа в таблице из трех столбцов*/
+/*параграф в таблице из трех столбцов*/
 .enum p {
-    margin-top: 0;
+    margin-top: 3px;
+    margin-bottom: 2px;
 }
 
 /*Первый блок для создания прямоугольника 16/9*/
@@ -633,7 +632,7 @@ td img:hover {
 .content {
     width: 100%;
     padding: 15px;
-    background: rgba(255, 255, 255, 1);
+    background: #ffffff;
     margin: 20px;
     border-radius: 10px;
     min-height: calc(100vh - 275px);
@@ -911,7 +910,7 @@ footer a{
 #toTop {
     position:fixed;
     z-index:9999;
-    bottom:115px;
+    bottom:100px;
     right: 20px;
     border: none;
     padding: 5px;
