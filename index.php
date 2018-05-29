@@ -21,19 +21,74 @@ $link = db_connect();
         
         <script src="/js/scripts.js"></script>
         <script src="/js/script_fancy.js"></script>
+        <script>$(function(){$('h3').hyphenate();})</script>
 	</head>
 	<body>
         <header>
             <div class="background"><img src="i/header.png"></div>
             <div class="head_main">
                 <div class="button">
-                    <a href="index.php?page=contacts">Контакты</a>
+                    <a href="index.php?page=contacts" title="Контакты">
+                        <div class="top_menu">
+                            <div class="top_menu1">
+                                <img src="i/contacts.png">
+                            </div>
+                            <div class="top_menu2">
+                                Контакты
+                            </div>
+                        </div>
+                    </a>
                     <!--<a href="index.php?page=prayerwall">Молитва</a>-->
-                    <a href="index.php?page=media&type=foto">Медиа</a>
-                    <a href="index.php?page=ministry&id=0">Служения</a>
-                    <a href="index.php?page=news&id=0">Новости</a>
-                    <a href="index.php?page=church&id=0">Церковь</a>
-                    <a href="index.php">Главная</a>
+                    <a href="index.php?page=media&type=foto" title="Медиаматериалы">
+                        <div class="top_menu">
+                            <div class="top_menu1">
+                                <img src="i/media.png">
+                            </div>
+                            <div class="top_menu2">
+                                Медиа
+                            </div>
+                        </div>
+                    </a>
+                    <a href="index.php?page=ministry&id=0" title="Служения">
+                        <div class="top_menu">
+                            <div class="top_menu1">
+                                <img src="i/ministry.png">
+                            </div>
+                            <div class="top_menu2">
+                                Служения
+                            </div>
+                        </div>
+                    </a>
+                    <a href="index.php?page=news&id=0" title="Новости">
+                        <div class="top_menu">
+                            <div class="top_menu1">
+                                <img src="i/news.png">
+                            </div>
+                            <div class="top_menu2">
+                                Новости
+                            </div>
+                        </div>
+                    </a>
+                    <a href="index.php?page=church&id=0" title="Церковь">
+                        <div class="top_menu">
+                            <div class="top_menu1">
+                                <img src="i/church.png">
+                            </div>
+                            <div class="top_menu2">
+                                Церковь
+                            </div>
+                        </div>
+                    </a>
+                    <a href="index.php" title="Главная">
+                        <div class="top_menu">
+                            <div class="top_menu1">
+                                <img src="i/home.png">
+                            </div>
+                            <div class="top_menu2">
+                                Главная
+                            </div>
+                        </div>
+                    </a>
                 </div>
 
                 <a href="index.php"><img src="i/admin-ajax-e.png"></a>

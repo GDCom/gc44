@@ -59,6 +59,7 @@ header {
     
 }
 
+/*Шапка сайта*/
 .head_main {
     position: absolute;
     width: 100%;
@@ -66,6 +67,7 @@ header {
     z-index: 1;
 }
 
+/*Фон блока*/
 .background {
     position: absolute;
     width: 100%;
@@ -92,43 +94,112 @@ table {
 /*Кнопка*/
 .button {
     margin-left: 100px;
-    display: inherit;
+    
     align-items: center;
     flex-direction: row;
     align-items: center;
     z-index: 2;
 }
 
+/*Основной блок в элементе верхнего меню*/
+.top_menu {
+    position: relative;
+    width: 100%;
+    display: flex;
+    text-align: center;
+}
+
+/*Первый блок с картинкой в элементе верхнего меню*/
+.top_menu1 {
+    display: block;
+    width: 70px;
+    text-align: center;
+}
+
+/*Второй блок с надписью в элементе верхнего меню*/
+.top_menu2 {
+    display: block;
+    width: auto;
+    text-align: left;
+}
+
+/*Изображение в кнопке*/
+.button img {
+    background: none;
+    background-color: none;
+    width: 25px;
+    height: 25px;
+}
+
 /*Сноска в кнопке*/
 .button a {
     display: block;
     margin: -2px 5px 10px 5px;
-    width: calc((100vw - 400px)/7);
-    height: 20px;
-    max-width: 100px;
+    width: 70px;
+    height: 25px;
     float: right;
     color: #fafafa;
     background-color: #9b9b9b;
     padding: 7px;
     text-decoration: none;
     text-align: center;
+    vertical-align: middle;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     overflow: hidden;
     
     border: 2px;
     border-style: outset;
-    transition: all 0.5s;
+    
+    animation: width_menu_in 0.5s linear;
 }
 
 /*При наведении на ссылку в кнопке*/
 .button a:hover {
+    display: block;
     background-color: #212d89;
+    width: 130px;
+    text-align: center;
+    padding: 7px;
     
     /*Анимация*/
-    padding-top: 17px;
-    height: 30px;
-    transition: all 0.5s;
+    animation: width_menu_out 0.5s linear;
+}
+
+/*Скрытие второго блока в обычном состоянии*/
+.button a .top_menu2 {
+    display: none;
+}
+
+/*Отображение второго блока при наведении мышки*/
+.button a:hover .top_menu2 {
+    display: block;
+}
+
+/*Анимация расширения кнопки меню*/
+@keyframes width_menu_out {
+    from {
+        width: 70px;
+        display: none;
+    }
+    
+    to {
+        width: 130px;
+        display: block;
+    }
+}
+
+/*Анимация возвращения кнопки меню в исходное состояние*/
+@keyframes width_menu_in {
+    from {
+        width: 130px;
+        display: block;
+    }
+    
+    to {
+        width: 70px;
+        display: none;
+    }
 }
 
 /*Шапка админинки*/
@@ -160,8 +231,9 @@ h3 {
     font-family: "Book_BI", sans-serif;
     font-size: 25px;
     text-decoration-style: double;
-    margin-bottom: 5px;
-    margin-top: 0;
+    text-align: left;
+   /* margin-bottom: 5px;*/
+    margin: 0;
 }
 
 /*Заголовок 4*/
@@ -182,28 +254,36 @@ h4 {
     padding: 0;
 }
 
-/*Таблица на всю ширину*/
-.enum_tbl {
-    width: 100%;
-}
-
 /*Таблица из трех столбцов*/
 .enum {
     width: 33.33%;
-    padding: 7px;
+    max-width: 33.33%;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 0;
     text-align: justify;
     vertical-align: top;
     background-color: white;
     color: black;
 }
 
+.enum h3 {
+    /*word-wrap: normal;
+    word-break: break-all;*/
+    
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
 /*Ссылка в таблице из трех столбцов*/
 .enum a {
+    width: 100%;
     text-decoration: none;
     color: black;
 }
 
-/*Отстур сверху для параграфа в таблице из трех столбцов*/
+/*Отступ сверху для параграфа в таблице из трех столбцов*/
 .enum p {
     margin-top: 0;
 }
@@ -228,12 +308,14 @@ h4 {
     left: 0;
     bottom: 0;
     right: 0;
+    overflow: hidden;
 }
 
 /*Первый блок для создания прямоугольника последних новостей*/
 .top_news1 {
     position: relative;
 	width: 100%;
+    overflow: hidden;
 }
 
 /*Первый блок для создания прямоугольника последних новостей*/
@@ -291,7 +373,7 @@ h4 {
     left: 0;
     bottom: 0;
     right: 0;
-    
+        
     animation: slider_r 1s linear;
     transform: translateX(0) scale(1);
 }
@@ -314,26 +396,6 @@ h4 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
-    /*Обесцвечивание картинки
-    -webkit-filter: grayscale(60%);
-    -moz-filter: grayscale(60%);
-    -ms-filter: grayscale(60%);
-    -o-filter: grayscale(60%);
-    filter: grayscale(60%);
-    filter: gray; /* IE 6-9 */
-    
-    /*Анимация обесцвечивания
-    -webkit-transition: all 1s;
-    -moz-transition: all 1s;
-    -o-transition: all 1s;
-    transition: all 1s;*/
-}
-
-/*Первое изображение в новости*/
-.enum a img.first {
-    width: 100%;
-    object-fit: none;
 }
 
 /*Таблица из пяти столбцов*/
@@ -412,20 +474,6 @@ h4 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
-    /*Обесцвечивание картинки*/
-    /*-webkit-filter: grayscale(70%);
-    -moz-filter: grayscale(70%);
-    -ms-filter: grayscale(70%);
-    -o-filter: grayscale(70%);
-    filter: grayscale(70%);
-    filter: gray; /* IE 6-9 */
-    
-    /*Анимация обесцвечивания*/
-    /*-webkit-transition: all 1s;
-    -moz-transition: all 1s;
-    -o-transition: all 1s;
-    transition: all 1s;*/
 }
 
 /*Абсолютная позиция 1-го элемента (кнопка удалить в админке фото)*/
@@ -438,13 +486,6 @@ h4 {
     border-color: #ededed;
     background-color: #c1c1c1;
     z-index: 9999;
-    /*Не обесцвечиваем картинку*/
-    /*-webkit-filter: none;
-    -moz-filter: none;
-    -ms-filter: none;
-    -o-filter: none;
-    filter: none;
-    filter: none; /* IE 6-9 */
 }
 
 /*Абсолютная позиция 2-го элемента (кнопка обложка в админке фото)*/
@@ -457,13 +498,6 @@ h4 {
     border-color: #ededed;
     background-color: #c1c1c1;
     z-index: 9999;
-    /*Не обесцвечиваем картинку*/
-    /*-webkit-filter: none;
-    -moz-filter: none;
-    -ms-filter: none;
-    -o-filter: none;
-    filter: none;
-    filter: none; /* IE 6-9 */
 }
 
 /*Для надписи статьи про служение*/
@@ -540,15 +574,6 @@ td img {
 
 /*При наведении на картинку в ячейке таблицы*/
 td img:hover {
-    /*width: 90%;*/
-    /*border-radius: 5px;*/
-    /*-webkit-filter: none;
-    -moz-filter: none;
-    -ms-filter: none;
-    -o-filter: none;
-    filter: none;
-    filter: none; /* IE 6-9 */
-    
     transform: scale(0.9);
     transition: all 1s;
 }
@@ -596,13 +621,13 @@ td img:hover {
 .foto1 {
     text-align: center;
     align-content: center;
-    width: 400px;
+    /*width: 400px;*/
     vertical-align: text-top;
 }
 
 /*Картинка в ячейке фото*/
 .foto1 a img {
-    width: 95%;
+    width: 98%;
 }
 
 /*Меню слева*/
@@ -618,12 +643,6 @@ td img:hover {
     width: 180px;
     position: relative;
     margin: 0px 20px 0px 0px;
-}
-
-/*Для режима фиксации блока меню требуется блок в блоке с разными свойствами POSITION
-(Плохо работает - неприемлем для длинных списков меню.)*/
-.Menu div div {
-    position: fixed;
 }
 
 /*Ссылка в блоке меню*/
@@ -681,18 +700,6 @@ td img:hover {
     vertical-align: top;
 }
 
-/*Для списка новостей и на главной странице*/
-.top {
-    max-height: 360px;
-    overflow: hidden;
-}
-
-/*Ссылка в списке новостей*/
-.top a {
-    text-decoration: none;
-    color: black;
-}
-
 /*Заголовок табличного списка*/
 .listHead {
     font-family: "Book", sans-serif;
@@ -719,6 +726,7 @@ td img:hover {
 
 /*Текстовое поле в табличном списке*/
 .list_text {
+    position: relative;
     background-color: #ffffff;
     padding: 1px 10px;
     text-align: left;
@@ -767,6 +775,22 @@ td img:hover {
     width: 80%;
 }
 
+.list_but label {
+    position: sticky;
+    /*top: 0;
+    bottom: 0;*/
+    margin-left: 1px;
+    align-items: center;
+}
+
+.list_but label input {
+    margin-bottom: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 40px;
+    text-align: center;
+}
+
 /*Минимальное расстояние блока (для разделения таблиц)*/
 .space {
     min-height: 20px;
@@ -776,14 +800,6 @@ td img:hover {
 .contacts {
     width: 50%;
 }
-
-/*Горизонтальная линия*/
-/*hr {
-    align-items: left;
-    width: 100%;
-    size: 2;
-    color: #7489ff;
-}*/
 
 /*Положение блоков последовательно слева на право*/
 .flex {
@@ -883,4 +899,31 @@ footer a{
     width: 60px;
     height: 60px;
     opacity: 0.8;
+}
+
+/*Для сворачивающейся таблицы*/
+.label tr td label {
+    display: block;
+}
+
+/*Скрытие чекбокса в сворачивающейся таблице*/
+[data-toggle="toggle"] {
+    display: none;
+}
+
+/*Область кнопки сворачивания таблицы*/
+.hide_table {
+    display: block;
+    width: 40px;
+}
+
+/*Картинка для кнопки сворачивания*/
+.hide_table img {
+    width: 20px;
+    height: 20px;
+}
+
+/*Область шапки сворачиваемой таблицы*/
+.Str {
+    width: 100%;
 }

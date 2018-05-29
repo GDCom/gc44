@@ -20,7 +20,8 @@ function db_connect() {
 function get_table($link, $query) {
     //Запрос в базу
     
-    $result = mysqli_query($link, $query);
+    if (!mysqli_query($link, $query)) return NULL;
+    else $result = mysqli_query($link, $query);
     
     if(!$result) die(mysqli_error($link));
     
@@ -39,8 +40,7 @@ function get_table($link, $query) {
 function run_command($link, $query) {
     $result = mysqli_query($link, $query);
     
-    if (!$result)
-        die(mysqli_error($link));
+    if (!$result) die(mysqli_error($link));
     
     return true;
 }

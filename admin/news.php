@@ -1,5 +1,10 @@
 <?php
-$pp = 30; //Новостей на страницу
+$page = $_GET['page']; //Записываем страницу в переменную
+
+$tbl_pp = get_table($link, "SELECT adm_news FROM settings"); //Берем из базы кол-во элементов на страницу
+
+if ($tbl_pp != NULL > 0 && $tbl_pp[0]['adm_news'] != NULL) $pp = $tbl_pp[0]['adm_news']; //Если значение не пустое, записываем в переменную
+else $pp = 30; //Иначе присваиваем значение 30
 
 if (isset($_GET['p'])) $pn = $_GET['p']; //Если доступен параметр номера страницы, записываем в переменную
 else $pn = 1; //Иначе первая страница
@@ -113,7 +118,7 @@ $news = get_table($link, "SELECT * FROM `news` Order By id DESC LIMIT ".($pn-1)*
                 <a href="index.php?page=edit_news&mode=edit&id=<?=$a['id']?>"><img src="../i/edit.ico" title="Редактировать"></a>
             </td>
             <td class="list_but">
-                <a href="index.php?page=news&action=del&id=<?=$a['id']?>"><img src="../i/trash.ico" title="Удалить"></a>
+                <a href="index.php?page=<?=$page?>&action=del&id=<?=$a['id']?>"><img src="../i/trash.ico" title="Удалить"></a>
             </td>
         </tr>
         <?php endforeach ?>
@@ -136,7 +141,7 @@ else $last = $pc;
 
 <ul class="page_num">
     <?php if ($first > 1) { //Если первая ссылка больше первой страницы, создаем ссылку на первую страницу ?>
-    <li class="page_list"><a href="index.php?page=news&p=1">&lt;&lt;</a></li> &hellip;
+    <li class="page_list"><a href="index.php?page=<?=$page?>&p=1">&lt;&lt;</a></li> &hellip;
     <?php }?>
 
     <?php for ($c = $first; $c <= $last; $c++) { //выводим ссылки 7 страниц ?>
@@ -144,13 +149,13 @@ else $last = $pc;
     <?php if ($c == $pn) { ?>
     <li class="page_main"><?=$c?></li>
     <?php } else { ?>
-    <li class="page_list"><a href="index.php?page=news&p=<?=$c?>"><?=$c?></a></li>
+    <li class="page_list"><a href="index.php?page=<?=$page?>&p=<?=$c?>"><?=$c?></a></li>
     <?php }?>
 
     <?php }?>
 
     <?php if ($last < $pc) { //Если последняя страница больше последней ссылки, создаем ссылку на последнюю страницу ?>
-    &hellip; <li class="page_list"><a href="index.php?page=news&p=<?=$pc?>">&gt;&gt;</a></li>
+    &hellip; <li class="page_list"><a href="index.php?page=<?=$page?>&p=<?=$pc?>">&gt;&gt;</a></li>
     <?php }?>
 </ul>
 

@@ -16,9 +16,15 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
                 <tr>
                     <?php foreach($news as $a): ?> <!--Для каждой новости-->
                         <td class="enum"> <!--Новая колонка-->
-                            <div class="top">
+                            <h3><?=$a['title']?></h3> <!--Заголовок новости-->
+                        </td>
+                    <?php endforeach ?>
+                </tr>
+                <tr>
+                    <?php foreach($news as $a): ?> <!--Для каждой новости-->
+                        <td class="enum"> <!--Новая колонка-->
+                            <!--<div>-->
                                 <a href="index.php?page=news&id=<?=$a['id']?>">
-                                    <h3><?=$a['title']?></h3> <!--Заголовок новости-->
                                     <p class="date_publ">Опубликовано: <?=$a['date']?></p><br> <!--Дата публикации-->
                                     <div class="top_news1">
                                         <div class="top_news2">
@@ -32,7 +38,7 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
                                         </div>
                                     </div>
                                 </a>
-                            </div>
+                            <!--</div>-->
                         </td>
                     <?php endforeach ?>
                 </tr>

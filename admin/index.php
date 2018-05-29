@@ -16,6 +16,8 @@ $link = db_connect();
         <link rel="shortcut icon" href="../i/ajax-e.png">
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="../js/scripts.js"></script>
+        <script src="../js/script-hide.js"></script>
+        
     </head>
     
     <body>
@@ -34,7 +36,8 @@ $link = db_connect();
                     <a href="index.php?page=news">Новости</a>
                     <a href="index.php?page=ministry">Служения</a>
                     <a href="index.php?page=media&type=foto">Медиа материалы</a>
-                    <a href="index.php?page=prayer" class="space">Молитвенная стена</a>
+                    <a href="index.php?page=prayer">Молитвенная стена</a>
+                    <a href="index.php?page=settings" class="space">Настройки</a>
                         
                     <?php if (isset($_GET['page']) && ($_GET['page'] == 'media' || $_GET['page'] == 'edit_media')) {?>
                     <a href="index.php?page=media&type=foto" class="second">Фото</a>
@@ -82,6 +85,9 @@ $link = db_connect();
                             break;
                         case 'prayer':
                             include("prayer.php");
+                            break;
+                        case 'settings':
+                            include("settings.php");
                             break;
                     }
                  }
