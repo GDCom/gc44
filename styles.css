@@ -163,6 +163,8 @@ table {
     padding: 7px;
     
     /*Анимация*/
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
     animation: width_menu_out 0.5s linear;
 }
 
@@ -181,11 +183,15 @@ table {
     from {
         width: 70px;
         display: none;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
     }
     
     to {
         width: 130px;
         display: block;
+        border-bottom-left-radius: 40%;
+        border-bottom-right-radius: 40%;
     }
 }
 
@@ -194,17 +200,20 @@ table {
     from {
         width: 130px;
         display: block;
+        border-bottom-left-radius: 40%;
+        border-bottom-right-radius: 40%;
     }
     
     to {
         width: 70px;
         display: none;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
     }
 }
 
 /*Шапка админинки*/
 .admHead {
-    /*height: 140px;*/
     vertical-align: middle;
     color: white;
 }
@@ -283,7 +292,7 @@ h4 {
 }
 
 /*параграф в таблице из трех столбцов*/
-.enum p {
+.enum p.date_publ {
     margin-top: 3px;
     margin-bottom: 2px;
 }
