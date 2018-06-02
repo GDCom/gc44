@@ -78,7 +78,7 @@ if (isset($_GET['type'])) {
                 <td colspan="100%"><b>Альбомы</b></td>
             </tr>
             <?php for($i = 0; $i < count($array['album']); $i +=5) { //Для каждого альбома ?>
-            <tr class="listHead">
+            <tr>
                 <td class="enum5">
                     <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i]?>&pa=<?=$pna?>">
                         <?php if ($type == 'foto') { //Если тип данных фото ?>
@@ -92,7 +92,12 @@ if (isset($_GET['type'])) {
                         </div>
                         <?php }
                         else { //Иначе ?>
-                        <?=$array['album'][$i]?>
+                        <div class="sq1">
+                            <div class="sq2">
+                                <img src="../i/folder.png">
+                            </div>
+                        </div>
+                        <div><?=$array['album'][$i]?></div>
                         <?php }?>                            
                     </a>
                 </td>
@@ -110,7 +115,12 @@ if (isset($_GET['type'])) {
                         </div>
                         <?php }
                         else { //Иначе ?>
-                        <?=$array['album'][$i+1]?>
+                        <div class="sq1">
+                            <div class="sq2">
+                                <img src="../i/folder.png">
+                            </div>
+                        </div>
+                        <div><?=$array['album'][$i+1]?></div>
                         <?php }?>
                     </a>
                     <?php }?>
@@ -129,7 +139,12 @@ if (isset($_GET['type'])) {
                         </div>
                         <?php }
                         else { //Иначе ?>
-                        <?=$array['album'][$i+2]?>
+                        <div class="sq1">
+                            <div class="sq2">
+                                <img src="../i/folder.png">
+                            </div>
+                        </div>
+                        <div><?=$array['album'][$i+2]?></div>
                         <?php }?>
                     </a>
                     <?php }?>
@@ -148,7 +163,12 @@ if (isset($_GET['type'])) {
                         </div>
                         <?php }
                         else { //Иначе ?>
-                        <?=$array['album'][$i+3]?>
+                        <div class="sq1">
+                            <div class="sq2">
+                                <img src="../i/folder.png">
+                            </div>
+                        </div>
+                        <div><?=$array['album'][$i+3]?></div>
                         <?php }?>
                     </a>
                     <?php }?>
@@ -167,7 +187,12 @@ if (isset($_GET['type'])) {
                         </div>
                         <?php }
                         else { //Иначе ?>
-                        <?=$array['album'][$i+4]?>
+                        <div class="sq1">
+                            <div class="sq2">
+                                <img src="../i/folder.png">
+                            </div>
+                        </div>
+                        <div><?=$array['album'][$i+4]?></div>
                         <?php }?>
                     </a>
                     <?php }?>
@@ -294,31 +319,11 @@ if (isset($_GET['type'])) {
                 <?php for ($i = 0; $i < count($tbl); $i += 1) { //Для каждого элемента в альбоме ?>
                     <tr class="listHead">
                         <td class="enum">
-                            <!--<div>-->
-                                <?php $file = dapost(get_youtube($tbl[$i]['file'])); ?>
-                                <iframe src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen></iframe>
-                                <br><?=dapost($tbl[$i]['name'])?>
-                            <!--</div>-->
+                            <?php $file = dapost(get_youtube($tbl[$i]['file'])); ?>
+                            <iframe src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen></iframe>
+                            <br><?=dapost($tbl[$i]['name'])?>
                         </td>
-                        <!--<td class="enum">
-                            <?php if ($i + 1 < count($tbl)) {?>
-                            <div>
-                                <?php $file = dapost(get_youtube($tbl[$i+1]['file'])); ?>
-                                <iframe src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen width="100%"></iframe>
-                                <br><?=dapost($tbl[$i+1]['name'])?>
-                            </div>
-                        <?php }?>
-                        </td>
-                        <td class="enum">
-                            <?php if ($i + 2 < count($tbl)) {?>
-                            <div>
-                                <?php $file = dapost(get_youtube($tbl[$i+2]['file'])); ?>
-                                <iframe src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen width="100%"></iframe>
-                                <br><?=dapost($tbl[$i+2]['name'])?>
-                            </div>
-                        <?php }?>
-                        </td>-->
-                    </tr>
+                     </tr>
                 <?php }?>
                 <?php break;
                 case 'audio': //Показ аудио ?>
