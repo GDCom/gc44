@@ -291,17 +291,16 @@ if (isset($_GET['type'])) {
                 <?php }?>
                 <?php break;
                 case 'video': //Показ видео ?>
-                <?php for ($i = 0; $i < count($tbl); $i += 3) { //Для каждого элемента в альбоме ?>
-
+                <?php for ($i = 0; $i < count($tbl); $i += 1) { //Для каждого элемента в альбоме ?>
                     <tr class="listHead">
                         <td class="enum">
-                            <div>
+                            <!--<div>-->
                                 <?php $file = dapost(get_youtube($tbl[$i]['file'])); ?>
-                                <iframe src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen width="100%"></iframe>
+                                <iframe src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen></iframe>
                                 <br><?=dapost($tbl[$i]['name'])?>
-                            </div>
+                            <!--</div>-->
                         </td>
-                        <td class="enum">
+                        <!--<td class="enum">
                             <?php if ($i + 1 < count($tbl)) {?>
                             <div>
                                 <?php $file = dapost(get_youtube($tbl[$i+1]['file'])); ?>
@@ -318,7 +317,7 @@ if (isset($_GET['type'])) {
                                 <br><?=dapost($tbl[$i+2]['name'])?>
                             </div>
                         <?php }?>
-                        </td>
+                        </td>-->
                     </tr>
                 <?php }?>
                 <?php break;
@@ -326,7 +325,7 @@ if (isset($_GET['type'])) {
                 <?php foreach($tbl as $a): ?>
                 <tr>
                     <td class="list_text">
-                         <audio controls>
+                         <audio controls class="audio">
                             <source src="media/audio/<?=dapost($a['file'])?>">
                             <p>Ваш браузер не поддерживает аудио</p>
                          </audio>

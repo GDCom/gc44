@@ -1,6 +1,8 @@
 <?php
 require_once('base/database.php');
 
+date_default_timezone_set("Europe/Moscow");
+
 $link = db_connect();
 ?>
 
@@ -91,7 +93,7 @@ $link = db_connect();
                     </a>
                 </div>
 
-                <a href="index.php"><img src="i/admin-ajax-e.png"></a>
+                <a href="index.php" class="main_img"><img src="i/admin-ajax-e.png"></a>
             </div>
         </header>
         <div class="WithMenu">

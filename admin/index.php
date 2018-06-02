@@ -17,9 +17,7 @@ $link = db_connect();
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="../js/scripts.js"></script>
         <script src="../js/script-hide.js"></script>
-        
     </head>
-    
     <body>
         <header>
             <div class="admHead">
@@ -30,7 +28,6 @@ $link = db_connect();
             <div class="Menu">
                 <div>
                     <a href="../index.php" class="space">Вернуться на сайт</a>
-
                     <a href="index.php?page=info">Инфоблоки</a>
                     <a href="index.php?page=church">Церковь</a>
                     <a href="index.php?page=news">Новости</a>
@@ -38,7 +35,7 @@ $link = db_connect();
                     <a href="index.php?page=media&type=foto">Медиа материалы</a>
                     <a href="index.php?page=prayer">Молитвенная стена</a>
                     <a href="index.php?page=settings" class="space">Настройки</a>
-                        
+                    
                     <?php if (isset($_GET['page']) && ($_GET['page'] == 'media' || $_GET['page'] == 'edit_media')) {?>
                     <a href="index.php?page=media&type=foto" class="second">Фото</a>
                     <a href="index.php?page=media&type=video" class="second">Видео</a>
@@ -51,7 +48,6 @@ $link = db_connect();
                 <?php
                 if (isset($_GET['page'])) {
                     $page = $_GET['page'];
-
                     switch ($page) {
                         case 'ministry':
                             include("ministry.php");
@@ -99,6 +95,7 @@ $link = db_connect();
         </div>
         </div>
         <footer>
+            <div class="space"></div>
             <div>
                 © 2010 - <?=date("Y")?> г. Местная религиозная организация христиан веры евангельской (пятидесятников) "Церковь Божья" г. Костромы, Костромской области. ИНН 4401115856 ОГРН 1134400000525
              </div>

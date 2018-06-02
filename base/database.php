@@ -46,7 +46,7 @@ function run_command($link, $query) {
 }
 
 //Функция загрузки файла на сервер
-function upload_file($file, $puth, $size=400, $link, $type) {
+function upload_file($file, $puth, $size=400, $link, $type="") {
     $tbl = get_table($link, "SELECT pref FROM info"); //Брем значение префикса из базы
     $s = $tbl[0]['pref']; //Записываем в пременную
     

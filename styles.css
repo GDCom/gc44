@@ -86,6 +86,11 @@ header {
     background: rgba(111, 107, 107, 0.41);
 }
 
+/*Главный значек в шапке*/
+.main_img {
+    
+}
+
 /*Таблица*/
 table {
     width: 100%;
@@ -730,6 +735,7 @@ td img:hover {
     vertical-align: top;
 }
 
+/*Парагроф в тексте на главной странице*/
 .Text p {
     margin-bottom: 0;
 }
@@ -747,7 +753,15 @@ td img:hover {
 .listHead td.enum {
     font-family: "Exo";
     font-size: 15px;
-    text-align: left;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+/*Параметры видеофрейма*/
+iframe {
+    width: 600px;
+    height: 337.5px;
 }
 
 /*Ячейка в списке*/
@@ -809,14 +823,7 @@ td img:hover {
     width: 80%;
 }
 
-.list_but label {
-    position: sticky;
-    /*top: 0;
-    bottom: 0;*/
-    margin-left: 1px;
-    align-items: center;
-}
-
+/*Поле ввода в списке настроек*/
 .list_but label input {
     margin-bottom: 0;
     margin-left: 5px;
@@ -960,4 +967,10 @@ footer a{
 /*Область шапки сворачиваемой таблицы*/
 .Str {
     width: 100%;
+}
+
+/*Плеер аудио*/
+.audio {
+    width: 100%;
+    margin: 5px;
 }

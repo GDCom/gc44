@@ -67,7 +67,7 @@ if (isset($_GET['action'])) { //Если доступна переменная a
 
                     }
                     else { //Иначе только один файл
-                        $f = apost(upload_file($_FILES['files'], 'media/'.$type.'/', 0, $link)); //Копируем файлы и получаем строку для базы
+                        $f = apost(upload_file($_FILES['files'], 'media/'.$type.'/', 0, $link, "")); //Копируем файлы и получаем строку для базы
 
                         $s = apost($_POST['name']); //Название записи
 
@@ -120,9 +120,9 @@ if (isset($_GET['action'])) { //Если доступна переменная a
             break;
     }
     
-    if ($type == 'foto') header('Location: index.php?page=media&type='.$type.'&album='.$album); //Если фотки, то очистка строки адреса с названием альбома
-    elseif ($type == 'albums' && $f == true) header('Location: index.php?page=media&type='.$type.'&allert'); //иначе, если тип альбомы и предупреждение
-    else header('Location: index.php?page=media&type='.$type); //Иначе без альбома
+    /*if ($type == 'foto') header('Location: index.php?page=media&type='.$type.'&album='.$album); //Если фотки, то очистка строки адреса с названием альбома*/
+    if ($type == 'albums' && $f == true) header('Location: index.php?page=media&type='.$type.'&allert'); //иначе, если тип альбомы и предупреждение
+    else header('Location: index.php?page=media&type='.$type.'&album='.$album); //Иначе без альбома
 }
 else {
     if (isset($_GET['allert'])) { //Если доступно предупреждение
