@@ -1,25 +1,54 @@
 <?php
 $type = $_GET['type'];
+$action = $_GET['action'];
+
+if ($action == 'edit') { //Если редактирование
+    $id = $_GET['id']; //Получаем id записи
+    
+    $tbl = get_table($link, "SELECT * FROM ".$type." WHERE id=".$id); //Получаем запись из базы
+    
+    $name = $tbl[0]['name']; //Название записи
+    $album = $tbl[0]['album']; //Название альбома
+    
+    switch ($type) { //В зависимости от типа материалов
+        case 'video': //Видео
+            $podp = "Редактирование записи видео";
+            break;
+        case 'audio'://Аудио
+            $podp = "Редактирование аудиозаписи";
+            break;
+    }
+    
+    $btn = 'Сохранить'; //Подпись кнопки подтверждения
+}
+else {
+    $file = ""; //Ссылка на файл пустая
+    $name = ""; //Название записи пустое
+    $album = "Выберите альбом"; //Название альбома пустое
+    $id = 0; //Нулевой id для новой записи
+    
+    switch ($type) { //В зависимости от типа материалов
+        case 'foto': //Фото
+            $podp = "Загрузка новых фотографий";
+            break;
+        case 'video': //Видео
+            $podp = "Загрузка нового видео";
+            break;
+        case 'audio'://Аудио
+            $podp = "Загрузка новой аудиозаписи";
+            break;
+    }
+    
+    $btn = 'Загрузить'; //Подпись кнопки подтверждения
+}
 
 $albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER BY date DESC"); //Выбираем название альбомов для определенного типа
-    
-switch ($type) { //В зависимости от типа материалов
-    case 'foto': //Фото
-        $podp = "Загрузка новых фотографий";
-        break;
-    case 'video': //Видео
-        $podp = "Загрузка новых видео";
-        break;
-    case 'audio'://Аудио
-        $podp = "Загрузка новых аудиозаписей";
-        break;
-}
 
 ?>
 
 
 <h2><?=$podp?></h2>
-<form method="post" action="index.php?page=media&action=add&type=<?=$type?>" enctype="multipart/form-data">
+<form method="post" action="index.php?page=media&action=<?=$action?>&type=<?=$type?>&id=<?=$id?>" enctype="multipart/form-data">
     <?php switch ($type) { //Для каждого типа
         case 'foto': //Фото ?>
             <label>
@@ -37,18 +66,20 @@ switch ($type) { //В зависимости от типа материалов
             </label>
         <?php break;
         case 'video': //Видео ?>
+            <?php if ($action == "add"): //Если добавление новой записи ?>
             <label>
                 Ссылка на видео:
-                <input type="text" name="file" class="form-item" required>
+                <input type="text" name="file" class="form-item" value="" required>
             </label>
+            <?php endif ?>
             <label>
                 Название видео:
-                <input type="text" name="name" class="form-item" required>
+                <input type="text" name="name" class="form-item" value="<?=$name?>" required>
             </label>
             <label>
                 Название альбома:
                 <select type="input" name='album' class="form-item" required>
-                    <option value="">Выберите альбом</option>
+                    <option value="<?=$album?>"><?=$album?></option>
                     <?php foreach($albums as $a): ?>
                     <option value="<?=$a['name']?>"><?=$a['name']?></option>
                     <?php endforeach ?>
@@ -56,18 +87,20 @@ switch ($type) { //В зависимости от типа материалов
             </label>
         <?php break;
         case 'audio': //Аудио ?>
+            <?php if ($action == "add"): //Если добавление новой записи ?>
             <label>
                 Выберите файл:
                 <input type="file" name="files" class="form-item-file" required>
             </label>
+            <?php endif ?>
             <label>
                 Название файла:
-                <input type="text" name="name" class="form-item" required>
+                <input type="text" name="name" class="form-item" value="<?=$name?>" required>
             </label>
             <label>
                 Название альбома:
                 <select type="input" name='album' class="form-item" required>
-                    <option value="">Выберите альбом</option>
+                    <option value="<?=$album?>"><?=$album?></option>
                     <?php foreach($albums as $a): ?>
                     <option value="<?=$a['name']?>"><?=$a['name']?></option>
                     <?php endforeach ?>
@@ -90,5 +123,5 @@ switch ($type) { //В зависимости от типа материалов
             </label> 
         <?php break;
     }?>
-    <input type="submit" value="Загрузить" class="btn">
+    <input type="submit" value="<?=$btn?>" class="btn">
 </form>

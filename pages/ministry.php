@@ -59,8 +59,8 @@ else { //Иначе статья про конкретное служение
                     <td class="enum">
                         <div>
                             <a href="index.php?page=<?=$page?>&id=<?=$ministry[$i]['id']?>&p=<?=$pn?>">
-                                <div class="rect1">
-                                    <div class="rect2">
+                                <div class="rect1_32">
+                                    <div class="rect2_32">
                                         <img src="img/m/smal_<?=$ministry[$i]['img']?>">
                                     </div>
                                 </div>
@@ -71,8 +71,8 @@ else { //Иначе статья про конкретное служение
                         <?php if($i + 1 < count($ministry)) {?>
                         <div>
                             <a href="index.php?page=<?=$page?>&id=<?=$ministry[$i + 1]['id']?>&p=<?=$pn?>">
-                                <div class="rect1">
-                                    <div class="rect2">
+                                <div class="rect1_32">
+                                    <div class="rect2_32">
                                         <img src="img/m/smal_<?=$ministry[$i + 1]['img']?>">
                                     </div>
                                 </div>
@@ -84,8 +84,8 @@ else { //Иначе статья про конкретное служение
                         <?php if($i + 2 < count($ministry)) {?>
                         <div>
                             <a href="index.php?page=<?=$page?>&id=<?=$ministry[$i + 2]['id']?>&p=<?=$pn?>">
-                                <div class="rect1">
-                                    <div class="rect2">
+                                <div class="rect1_32">
+                                    <div class="rect2_32">
                                         <img src="img/m/smal_<?=$ministry[$i + 2]['img']?>">
                                     </div>
                                 </div>

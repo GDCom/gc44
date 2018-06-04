@@ -118,6 +118,14 @@ if (isset($_GET['action'])) { //Если доступна переменная a
             
             run_command($link, "UPDATE ".$type." SET main=1 WHERE id=".$id); //Устанавливаем новую обложку
             break;
+        case 'edit': //Редактирование записи
+            $id = $_GET['id']; //id записи
+            $type = $_GET['type']; //Тип медиа
+            $name = $_POST['name']; //Подпись записи
+            $album = $_POST['album']; //Альбом
+            
+            run_command($link, "UPDATE ".$type." SET name='".$name."', album='".$album."' WHERE id=".$id); //Обновляем запись в базе
+            break;
     }
     
     /*if ($type == 'foto') header('Location: index.php?page=media&type='.$type.'&album='.$album); //Если фотки, то очистка строки адреса с названием альбома*/
@@ -175,7 +183,7 @@ else {
 <a href="index.php?page=<?=$page?>&type=<?=$type?>&pa=<?=$pna?>"><img src="../i/back.ico" width="40px" title="Вернуться к списку альбомов"></a><br><br>
 <?php }?>
 <?php if ($type != '' && $album == '') {?>
-<a href="index.php?page=edit_media&type=<?=$type?>"><img src="../i/add.ico" height="40px" title="Создать"></a><br><br>
+<a href="index.php?page=edit_media&type=<?=$type?>&action=add"><img src="../i/add.ico" height="40px" title="Создать"></a><br><br>
 <?php }?>
 <?php switch ($type) { //Для каждого типа
     case 'foto': //Фотографии ?>
@@ -464,6 +472,9 @@ else {
                     </td>
                     <td class="list_text">
                         <?=$tbl[$i]['file']?>
+                    </td>
+                    <td class="list_but">
+                        <a href="index.php?page=edit_media&action=edit&id=<?=$tbl[$i]['id']?>&type=<?=$type?>"><img src="../i/edit.ico" title="Редактировать"></a>
                     </td>
                     <td class="list_but">
                         <a href="index.php?page=<?=$page?>&action=del&id=<?=$tbl[$i]['id']?>&type=<?=$type?>"><img src="../i/trash.ico" title="Удалить"></a>
