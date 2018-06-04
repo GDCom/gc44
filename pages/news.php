@@ -28,7 +28,7 @@ else { //Иначе
 <div class = "Text">
     <?php if ($id != 0) { //Если одна статья ?>
     <h3><?=$news[0]['title']?></h3>
-    <div class="date_publ">Опубликовано: <?=$news[0]['date']?> (Мск)</div>
+    <div class="date_publ">Опубликовано: <?=$news[0]['date']?></div>
     <table>
         <tbody>
             <tr>
