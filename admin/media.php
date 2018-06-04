@@ -196,7 +196,11 @@ else {
             <tbody>
                 <!--Шапка таблицы-->
                 <tr class="listHead">
-                    <td colspan="100%"><b><?=$array['album'][$r]?></b></td>
+                    <td colspan="100%">
+                        <div class="btn_look">
+                            <b><?=$array['album'][$r]?></b>
+                        </div>
+                    </td>
                 </tr>
                 <?php $tbl = $array['table'][$r]; //все элементы из текущего альбома в массив ?>
                 <?php for ($i = 0; $i < count($tbl); $i += 5) { //Для каждого пятого элемента (таблица в пять колонок) ?>
@@ -314,7 +318,11 @@ else {
         <table class="listBack">
             <tbody>
                <tr class="listHead">
-                    <td colspan="100%"><b>Альбомы</b></td>
+                    <td colspan="100%">
+                        <div class="btn_look">
+                            <b>Альбомы</b>
+                        </div>
+                    </td>
                 </tr>
                 <?php for($i = 0; $i < count($array['album']); $i +=5) { //Для каждого альбома ?>
                 <tr class="listHead">

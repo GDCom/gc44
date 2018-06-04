@@ -7,7 +7,7 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
 ?>
 
 <div class="content">
-    <h2>Последние новости</h2> <!--Заголовок-->
+    <h2>Последние новости:</h2> <!--Заголовок-->
     <!--Выводим таблицу из трех последних новостей-->        
     <table>
         <tbody>

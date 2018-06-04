@@ -30,7 +30,7 @@ else {
         </label>
         <label>
             <div class="flex"><input type="checkbox" name="img_check" value="YES" include> Изображение:</div>
-            <input type="file" name="img" class="form-item-file" include>
+            <input type="file" name="img" accept="image/gif, image/jpeg, image/png, image/jpg" class="form-item-file" include>
         </label>
         <label>
             Подпись:

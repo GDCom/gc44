@@ -37,7 +37,7 @@ switch ($type) { //Для каждого типа статьи
     <?php if ($type == 'episcop' || $type == 'pastor') { //Если редактирование епископ или пастор ?>
     <label>
         <div class="flex"><input type="checkbox" name="img_check" value="YES" include> Выберите файл изображения:</div>
-        <input type="file" name="foto" class="form-item-file" include>
+        <input type="file" name="foto" accept="image/gif, image/jpeg, image/png, image/jpg" class="form-item-file" include>
     </label>
     <?php }?>
     <label>

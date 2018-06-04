@@ -569,13 +569,14 @@ h4 {
     vertical-align: top;
 }
 
-/*При наведении на кнопку альбома медиа*/
-.btn_album:hover {
-
-    border-bottom-color: #cecece;
-    border-right-color: #cecece;
-    border-top-color: #818181;
-    border-left-color: #818181;
+/*Надпись в виде кнопки (заголовки таблиц в медиа)*/
+.btn_look {
+    width: auto;
+    background-color: #505050;
+    color: white;
+    border-style: groove;
+    padding: 5px;
+    border-radius: 50px;
 }
 
 @keyframes zoom {

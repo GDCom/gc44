@@ -53,7 +53,7 @@ $albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER
         case 'foto': //Фото ?>
             <label>
                 Выберите один или несколько файлов (не больше 20):
-                <input type="file" name="files[]" class="form-item-file" multiple include>
+                <input type="file" name="files[]" accept="image/gif, image/jpeg, image/png, image/jpg" class="form-item-file" multiple include>
             </label>
             <label>
                 Название альбома:
@@ -90,7 +90,7 @@ $albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER
             <?php if ($action == "add"): //Если добавление новой записи ?>
             <label>
                 Выберите файл:
-                <input type="file" name="files" class="form-item-file" required>
+                <input type="file" name="files" accept="audio/mp3, audio/wav" class="form-item-file" required>
             </label>
             <?php endif ?>
             <label>

@@ -75,7 +75,11 @@ if (isset($_GET['type'])) {
     <table class="listBack">
         <tbody>
            <tr class="listHead">
-                <td colspan="100%"><b>Альбомы</b></td>
+                <td colspan="100%">
+                    <div class="btn_look">
+                        <b>Альбомы</b>
+                    </div>
+               </td>
             </tr>
             <?php for($i = 0; $i < count($array['album']); $i +=5) { //Для каждого альбома ?>
             <tr>
@@ -252,7 +256,11 @@ if (isset($_GET['type'])) {
     <table class="listBack">
         <tbody>
             <tr class="listHead">
-                <td colspan="100%"><b><?=$array['album'][$t]?></b></td>
+                <td colspan="100%">
+                    <div class="btn_look">
+                        <b><?=$array['album'][$t]?></b>
+                    </div>
+                </td>
             </tr>
             <?php $tbl = $array['table'][$t]; ?>
             <?php switch ($type) {

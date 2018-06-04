@@ -38,11 +38,11 @@ else {
         </label>
         <label>
             <div class="flex"><input type="checkbox" name="img1_check" value="YES" include> Первое изображение:</div>
-            <input type="file" name="img1" class="form-item-file" include>
+            <input type="file" name="img1" accept="image/gif, image/jpeg, image/png, image/jpg" class="form-item-file" include>
         </label>
         <label>
             <div class="flex"><input type="checkbox" name="imgs_check" value="YES" include> Остальные изображения:</div>
-            <input type="file" name="imgs[]" class="form-item-file" multiple include>
+            <input type="file" name="imgs[]" accept="image/gif, image/jpeg, image/png, image/jpg" class="form-item-file" multiple include>
         </label>
         <input type="submit" value="Сохранить" class="btn">
     </form>
