@@ -149,7 +149,7 @@ function upload_files($files, $puth, $size=400, $link, $type="") {
     return $nm;
 }
 
-//Наложение фодяного знака на изображение
+//Наложение водяного знака на изображение
 function make_watermark($file){
     // получаем полезные данные о картинке
     $image_info = getimagesize($file);

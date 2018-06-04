@@ -28,6 +28,7 @@ else { //Иначе
 <div class = "Text">
     <?php if ($id != 0) { //Если одна статья ?>
     <h3><?=$news[0]['title']?></h3>
+    <div class="space"></div>
     <div class="date_publ">Опубликовано: <?=$news[0]['date']?></div>
     <table>
         <tbody>
@@ -43,7 +44,7 @@ else { //Иначе
                     </a>
                 </td>
                 <?php }?>
-                <td class="enum" colspan="2" width="100%">
+                <td class="enum" colspan="100%">
                     <p><?=$news[0]['content']?></p>
                 </td>
             </tr>
@@ -128,18 +129,18 @@ else { //Иначе
             </tr>
             <tr>
                 <td class="enum"> <!--Первый столбец-->
-                        <a href="index.php?page=<?=$page?>&id=<?=$news[$t]['id']?>&p=<?=$pn?>">
-                            <p class="date_publ">Опубликовано: <?=$news[$t]['date']?></p> <!--Дата публикации-->
-                            <div class="rect1">
-                                <div class="rect2">
-                                    <?php if ($news[$t]['img1'] != NULL) { //Если первое изображение есть ?>
-                                    <img src="img/m/smal_<?=$news[$t]['img1']?>"> <!--Изображение со ссылкой на новость-->
-                                    <?php } else { //Иначе ?>
-                                    <?=$news[$t]['content']?> <!--Текст новости-->
-                                    <?php }?>
-                                </div>
+                    <a href="index.php?page=<?=$page?>&id=<?=$news[$t]['id']?>&p=<?=$pn?>">
+                        <p class="date_publ">Опубликовано: <?=$news[$t]['date']?></p> <!--Дата публикации-->
+                        <div class="rect1">
+                            <div class="rect2">
+                                <?php if ($news[$t]['img1'] != NULL) { //Если первое изображение есть ?>
+                                <img src="img/m/smal_<?=$news[$t]['img1']?>"> <!--Изображение со ссылкой на новость-->
+                                <?php } else { //Иначе ?>
+                                <?=$news[$t]['content']?> <!--Текст новости-->
+                                <?php }?>
                             </div>
-                        </a>
+                        </div>
+                    </a>
                 </td>
                 <td class="enum"> <!--Второй столбец-->
                     <?php if ($t+1 < count($news)) { //Если номер строки меньше количества всех строк ?>
@@ -155,12 +156,10 @@ else { //Иначе
                                 </div>
                             </div>
                         </a>
-
                     <?php }?>
                 </td>
                 <td class="enum"> <!--Третий столбец-->
                     <?php if ($t+2 < count($news)) { //Если номер строки меньше количества всех строк ?>
-
                         <a href="index.php?page=<?=$page?>&id=<?=$news[$t+2]['id']?>&p=<?=$pn?>">
                             <p class="date_publ">Опубликовано: <?=$news[$t+2]['date']?></p> <!--Дата публикации-->
                             <div class="rect1">
@@ -173,7 +172,6 @@ else { //Иначе
                                 </div>
                             </div>
                         </a>
-
                     <?php }?>
                 </td>
             </tr>
