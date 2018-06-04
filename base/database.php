@@ -77,6 +77,9 @@ function upload_file($file, $puth, $size=400, $link, $type="") {
             $f = img_resize('../'.$puth.$name, '../'.$puth.$name, $width_b, $height_b); //Меняем размер основного изображения
             $f = img_resize('../'.$puth.$name, '../'.$puth.'m/smal_'.$name, $width, $height); //делаем миниатюру файла
             if ($f == false) echo "Ошибка обрезания файла";
+            
+            make_watermark('../'.$puth.$name); //Ставим водяной знак на основное изображение
+            make_watermark('../'.$puth.'m/smal_'.$name); //Ставим водяной знак на миниатюру
         }
         else { //Иначе
             if (!move_uploaded_file($file['tmp_name'], '../'.$puth.$name)) echo "Ошибка загрузки файла"; //Копируем файл    
@@ -126,6 +129,9 @@ function upload_files($files, $puth, $size=400, $link, $type="") {
                     
                     if (!img_resize('../'.$puth.$filename, '../'.$puth.$filename, $width_b, $height_b)) echo "Ошибка обрезания файлов"; //Меняем размер основного изображения
                     if (!img_resize('../'.$puth.$filename, '../'.$puth.'m/smal_'.$filename, $width, $height)) echo "Ошибка обрезания файлов"; //делаем миниатюру файла
+                    
+                    make_watermark('../'.$puth.$filename); //Ставим водяной знак на основное изображение
+                    make_watermark('../'.$puth.'m/smal_'.$filename); //Ставим водяной знак на миниатюру
                 }
                 else { //Иначе
                     if (!move_uploaded_file($files['tmp_name'][$i], '../'.$puth.$filename)) echo "Ошибка загрузки файла"; //Иначе просто копируем файл
@@ -141,6 +147,44 @@ function upload_files($files, $puth, $size=400, $link, $type="") {
     run_command($link, "UPDATE info SET pref=".$s); //Записываем новый префикс в базу
     
     return $nm;
+}
+
+//Наложение фодяного знака на изображение
+function make_watermark($file){
+    // получаем полезные данные о картинке
+    $image_info = getimagesize($file);
+    
+    //Создаем водяной знак с шириной изображения
+    img_resize('../i/watermark.png', '../i/wtrmrk_newsize.png', $image_info[0], 0);
+    
+    // получаем полезные данные о водяном знаке
+    $watermark_info = getimagesize('../i/wtrmrk_newsize.png');
+
+    // определяем MIME-тип изображения, для выбора соответствующей функции
+    $format = strtolower(substr($image_info['mime'], strpos($image_info['mime'], '/') + 1));
+
+    // определяем названия функция для создания и сохранения картинки
+    $im_cr_func = "imagecreatefrom" . $format;
+    $im_save_func = "image" . $format;
+
+    // загружаем изображение в php
+    $img = $im_cr_func($file);
+
+    // загружаем в php наш водяной знак
+    $watermark = imagecreatefrompng('../i/wtrmrk_newsize.png');
+
+    // определяем координаты левого верхнего угла водяного знака
+    $pos_x = 0; //($image_info[0] - $watermark_info[0]) / 2; 
+    $pos_y = ($image_info[1] - $watermark_info[1]); 
+
+    // помещаем водяной знак на изображение
+    imagecopy($img, $watermark, $pos_x, $pos_y, 0, 0, $watermark_info[0], $watermark_info[1]);
+
+    // сохраняем изображение с уникальным именем
+    $im_save_func($img, $file);
+    
+    //Удаляем временный водяной знак
+    unlink('../i/wtrmrk_newsize.png');
 }
 
 //Функция для создания массива альбомов аудио, видео, фото
