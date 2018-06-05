@@ -179,12 +179,15 @@ else {
 <h2>Создание и редактирование в разделе "Медиа материалы"</h2>
 
 <h3><?=$podp?></h3>
-<?php if ($podp = 'Фотографии' && $album != '') { ?>
+
+<?php if ($type != '') { //Если тип медиа не пустой ?>
+<a href="index.php?page=edit_media&type=<?=$type?>&album=<?=$album?>&action=add"><img src="../i/add.ico" height="40px" title="Создать"></a><br><br>
+<?php }?>
+
+<?php if ($album != '') { //Если выбран какой-то альбом ?>
 <a href="index.php?page=<?=$page?>&type=<?=$type?>&pa=<?=$pna?>"><img src="../i/back.ico" width="40px" title="Вернуться к списку альбомов"></a><br><br>
 <?php }?>
-<?php if ($type != '' && $album == '') {?>
-<a href="index.php?page=edit_media&type=<?=$type?>&action=add"><img src="../i/add.ico" height="40px" title="Создать"></a><br><br>
-<?php }?>
+
 <?php switch ($type) { //Для каждого типа
     case 'foto': //Фотографии ?>
         <?php if (count($array['album']) > 0) { //Если массив не пустой ?>
@@ -716,8 +719,9 @@ else {
                 <?php endforeach ?>
             </tbody>
         </table>
+        <div class="space"></div>
         <?php break;
 } ?>
-<?php if ($podp = 'Фотографии' && $album != '') { ?>
-<br><a href="index.php?page=<?=$page?>&type=<?=$type?>&pa=<?=$pna?>"><img src="../i/back.ico" width="40px" title="Вернуться к списку альбомов"></a>
+<?php if ($album != '') { //Если выбран какой-то альбом ?>
+<a href="index.php?page=<?=$page?>&type=<?=$type?>&pa=<?=$pna?>"><img src="../i/back.ico" width="40px" title="Вернуться к списку альбомов"></a>
 <?php }?>

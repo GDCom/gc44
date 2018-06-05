@@ -2,6 +2,9 @@
 $type = $_GET['type'];
 $action = $_GET['action'];
 
+if (isset($_GET['album'])) $album = $_GET['album']; //Если доступен параметр альбома, то прописываем в переменную
+else $album = "Выберите альбом"; //Иначе название альбома пустое
+
 if ($action == 'edit') { //Если редактирование
     $id = $_GET['id']; //Получаем id записи
     
@@ -21,10 +24,10 @@ if ($action == 'edit') { //Если редактирование
     
     $btn = 'Сохранить'; //Подпись кнопки подтверждения
 }
-else {
+else { //иначе
     $file = ""; //Ссылка на файл пустая
     $name = ""; //Название записи пустое
-    $album = "Выберите альбом"; //Название альбома пустое
+    
     $id = 0; //Нулевой id для новой записи
     
     switch ($type) { //В зависимости от типа материалов
@@ -58,7 +61,7 @@ $albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER
             <label>
                 Название альбома:
                 <select type="input" name='album' class="form-item" required>
-                    <option value="">Выберите альбом</option>
+                    <option value="<?=$album?>"><?=$album?></option>
                     <?php foreach($albums as $a): ?>
                     <option value="<?=$a['name']?>"><?=$a['name']?></option>
                     <?php endforeach ?>
