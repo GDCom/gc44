@@ -29,7 +29,6 @@ switch ($article) {
         break;
 }
 
-
 ?>
 
 <div class="Menu">
@@ -85,8 +84,6 @@ switch ($article) {
             <?php break;
             case 'bible': //Библия ?>
                 <iframe class="bible" src="http://allbible.info/iframebible/" title="Подкрепись! Библия онлайн." frameborder="0" scrolling="no" data-proportion="0.9806629834254144"></iframe>
-                <?php break;
-        }  ?>
-
+                <?php break; } ?>
     </div>
 </div>

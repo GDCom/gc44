@@ -8,7 +8,6 @@ $link = db_connect();
 
 <!DOCTYPE html>
 <html lang="ru">
-<html>
     <head>
         <meta charset="utf-8">
 		<title>"Церковь Божья" Кострома</title>
@@ -44,55 +43,56 @@ $link = db_connect();
                     <?php }?>
                 </div>
             </div>
-            <div class="content">
-                <?php
-                if (isset($_GET['page'])) {
-                    $page = $_GET['page'];
-                    switch ($page) {
-                        case 'ministry':
-                            include("ministry.php");
-                            break;
-                        case 'news':
-                            include("news.php");
-                            break;
-                        case 'media':
-                            include("media.php");
-                            break;
-                        case 'edit_news':
-                            include("edit_news.php");
-                            break;
-                        case 'edit_ministry':
-                            include("edit_ministry.php");
-                            break;
-                        case 'edit_media':
-                            include("edit_media.php");
-                            break;
-                        case 'church':
-                            include("church.php");
-                            break;
-                        case 'edit_church':
-                            include("edit_church.php");
-                            break;
-                        case 'info':
-                            include("info.php");
-                            break;
-                        case 'edit_info':
-                            include("edit_info.php");
-                            break;
-                        case 'prayer':
-                            include("prayer.php");
-                            break;
-                        case 'settings':
-                            include("settings.php");
-                            break;
-                    }
-                 }
-                else {
-                    include("news.php");
-                }
-            ?>
-            <a href="#" id="toTop"><img src="../i/up.ico"></a> <!--Кнопка вверх-->
-        </div>
+            <div class="cent">
+                <div class="content">
+                    <?php
+                    if (isset($_GET['page'])) {
+                        $page = $_GET['page'];
+                        switch ($page) {
+                            case 'ministry':
+                                include("ministry.php");
+                                break;
+                            case 'news':
+                                include("news.php");
+                                break;
+                            case 'media':
+                                include("media.php");
+                                break;
+                            case 'edit_news':
+                                include("edit_news.php");
+                                break;
+                            case 'edit_ministry':
+                                include("edit_ministry.php");
+                                break;
+                            case 'edit_media':
+                                include("edit_media.php");
+                                break;
+                            case 'church':
+                                include("church.php");
+                                break;
+                            case 'edit_church':
+                                include("edit_church.php");
+                                break;
+                            case 'info':
+                                include("info.php");
+                                break;
+                            case 'edit_info':
+                                include("edit_info.php");
+                                break;
+                            case 'prayer':
+                                include("prayer.php");
+                                break;
+                            case 'settings':
+                                include("settings.php");
+                                break;
+                        }
+                     }
+                    else {
+                        include("news.php");
+                    } ?>
+                    <a href="#" id="toTop"><img src="../i/up.ico"></a> <!--Кнопка вверх-->
+                </div>
+            </div>
         </div>
         <footer>
             <div class="space"></div>
