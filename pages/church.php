@@ -43,53 +43,50 @@ switch ($article) {
     </div>
 </div>
 
+<div class="cent">
+    <div class="content">
 
-<div class="content">
-    
-    <h1><?=$podp?></h1>
-    
-    <?php
-    switch ($article) { //Для каждого пункта меню
-        case  'episcop': //Начальствующий епископ
-        case 'pastor': //Старший пастор
-        default: //По умолчанию ?>
-        <?php if ($array != NULL) { //Если массив не пустой ?>
-        <table class="enum_tbl">
-            <tbody>
-                <tr>
-                    <td class="foto1">
-                        <a rel="group" href="img/<?=$array[0]['foto']?>" class="prevew"><img src="img/m/smal_<?=$array[0]['foto']?>"></a>
-                    </td>
-                    <td class="enum_min">
-                        <?=$array[0]['article']?>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <?php }?>
-        <?php break;
-        case 'faith': //Основы вероучения
-        case 'teaching': //Процесс обучения
-        case 'prayer': //Самая важная молитва ?>
-        <?php if ($array != NULL) { //Если массив не пустой ?>
-        <table class="enum_tbl">
-            <tbody>
-                <tr>
-                    <td class="Text">
-                        <?=$array[0]['article']?>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <?php }?>
-        <?php break;
-        case 'bible': //Библия
-            echo '<iframe src="http://allbible.info/iframebible/" width="100%" height="710" title="Подкрепись! Библия онлайн." frameborder="0" scrolling="no" data-proportion="0.9806629834254144" style="height: 710px;"></iframe>';
-            break;
+        <h1><?=$podp?></h1>
 
-            
-            break;
-    }
-    ?>
-    
+        <?php
+        switch ($article) { //Для каждого пункта меню
+            case  'episcop': //Начальствующий епископ
+            case 'pastor': //Старший пастор
+            default: //По умолчанию ?>
+            <?php if ($array != NULL) { //Если массив не пустой ?>
+            <table class="enum_tbl">
+                <tbody>
+                    <tr>
+                        <td class="foto1">
+                            <a rel="group" href="img/<?=$array[0]['foto']?>" class="prevew"><img src="img/m/smal_<?=$array[0]['foto']?>"></a>
+                        </td>
+                        <td class="enum_min">
+                            <?=$array[0]['article']?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <?php }?>
+            <?php break;
+            case 'faith': //Основы вероучения
+            case 'teaching': //Процесс обучения
+            case 'prayer': //Самая важная молитва ?>
+            <?php if ($array != NULL) { //Если массив не пустой ?>
+            <table class="enum_tbl">
+                <tbody>
+                    <tr>
+                        <td class="Text">
+                            <?=$array[0]['article']?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <?php }?>
+            <?php break;
+            case 'bible': //Библия ?>
+                <iframe class="bible" src="http://allbible.info/iframebible/" title="Подкрепись! Библия онлайн." frameborder="0" scrolling="no" data-proportion="0.9806629834254144"></iframe>
+                <?php break;
+        }  ?>
+
+    </div>
 </div>

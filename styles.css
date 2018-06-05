@@ -685,12 +685,20 @@ td img:hover {
 
 /*Основное поле контента*/
 .content {
-    width: 100%;
+    width: calc(100% - 30px);
     padding: 15px;
     background: #ffffff;
-    margin: 20px;
     border-radius: 10px;
     min-height: calc(100vh - 275px);
+    
+    margin: 0 auto;
+    display: block;
+    max-width: 1500px;
+}
+
+.cent {
+    width: 100%;
+    margin: 20px;
 }
 
 /*Фото в разделе статьи про служение и в разделе церковь*/
@@ -771,7 +779,6 @@ td img:hover {
 /*Текст на главной странице*/
 .Text {
     padding: 7px;
-    vertical-align: text-top;
     text-align: justify;
     vertical-align: top;
 }
@@ -804,9 +811,15 @@ td img:hover {
 }
 
 /*Параметры видеофрейма*/
-iframe {
+iframe.video {
     width: 600px;
     height: 337.5px;
+}
+
+/*Параметры фрейма Библии*/
+iframe.bible {
+    width: 100%;
+    height: 650px;
 }
 
 /*Ячейка в списке*/
