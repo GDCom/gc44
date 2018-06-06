@@ -1,7 +1,7 @@
 <?php
 check_base($link, 'info'); //Проверяем, пустая ли база и добавляем строку, если да
 
-$array = get_table($link, "SELECT map, contacts, mailus FROM info"); //Загружаем данные из базы
+$array = get_table($link, "SELECT map, contacts FROM info"); //Загружаем данные из базы
 
 if (isset($_GET['alert'])) {
     
