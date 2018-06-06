@@ -897,7 +897,8 @@ iframe.bible {
 
 /*Для блока контактов*/
 .contacts {
-    width: 50%;
+    width: 48%;
+    vertical-align: top;
 }
 
 /*Положение блоков последовательно слева на право*/
@@ -926,6 +927,21 @@ iframe.bible {
     max-width: 500px;
     height: 200px;
     min-height: 200px;
+    border-radius: 5px;
+    padding: 3px;
+    border-style: outset;
+    border-color: #9b9b9b;
+}
+
+/*Текстовое поле в форме написания сообщения*/
+.form-item-mail {
+    display: block;
+    margin: 0px 0px 15px 0px;
+    width: 400px;
+    min-width: 400px;
+    max-width: 400px;
+    height: 150px;
+    min-height: 150px;
     border-radius: 5px;
     padding: 3px;
     border-style: outset;

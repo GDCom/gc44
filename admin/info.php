@@ -36,7 +36,7 @@ if (isset($_GET['type']) && isset($_POST['article'])) { //Если переме�
         </tr>
         <tr>
             <td class="list_text_one">
-                Контакты
+                Контактные данные
             </td>
             <td class="list_but">
                 <a href="index.php?page=edit_info&type=contacts"><img src="../i/edit.ico" title="Редактировать"></a>

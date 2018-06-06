@@ -16,7 +16,7 @@ switch ($type) { //В зависимости от блока
         $podp = "Богослужения";
         break;
     case 'contacts': //Контакты
-        $podp = "Контакты";
+        $podp = "Контактные данные";
         break;
     case 'mailus': //Написать
         $podp = "Напишите нам";
@@ -33,9 +33,16 @@ switch ($type) { //В зависимости от блока
 <h2>Редактирование блока "<?=$podp?>"</h2>
 
 <form method="post" action="index.php?page=info&type=<?=$type?>" enctype="multipart/form-data">
+    <?php if ($type == 'mailus') { //Если редактирование "Напишите нам" ?>
+    <label>
+        Укажите e-mail для доставки сообщений:
+        <input type="email" name="article" class="form-item" value="<?=dapost($array[0]['article'])?>" required>
+    </label>
+    <?php } else { //Иначе ?>
     <label>
         Содержание блока:
         <textarea name="article" class="form-item-ta" required><?=dapost($array[0]['article'])?></textarea>
     </label>
+    <?php } ?>
     <input type="submit" value="Сохранить" class="btn">
 </form>
