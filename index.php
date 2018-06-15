@@ -1,4 +1,5 @@
 <?php
+require_once("base/dbconnect.php");
 require_once('base/database.php');
 
 date_default_timezone_set("Europe/Moscow");

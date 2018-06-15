@@ -1,4 +1,5 @@
 <?php
+require_once("../base/dbconnect.php");
 require_once("../base/database.php");
 
 date_default_timezone_set("Europe/Moscow");
@@ -32,7 +33,7 @@ $link = db_connect();
                     <a href="index.php?page=news">Новости</a>
                     <a href="index.php?page=ministry">Служения</a>
                     <a href="index.php?page=media&type=foto">Медиа материалы</a>
-                    <a href="index.php?page=prayer">Молитвенная стена</a>
+                    <!--<a href="index.php?page=prayer">Молитвенная стена</a>-->
                     <a href="index.php?page=settings" class="space">Настройки</a>
                     
                     <?php if (isset($_GET['page']) && ($_GET['page'] == 'media' || $_GET['page'] == 'edit_media')) {?>

@@ -37,8 +37,8 @@ else { //Иначе
                         <?php if ($news[0]['img1'] != NULL) { // Если есть первое изображение ?>
                         <td class="enum">
                             <a rel="group" href="img/<?=$news[0]['img1']?>" class="prevew">
-                                <div class="rect1">
-                                    <div class="rect2">
+                                <div class="rect1_32">
+                                    <div class="rect2_32">
                                         <img src="img/m/smal_<?=$news[0]['img1']?>">
                                     </div>
                                 </div>
@@ -132,8 +132,8 @@ else { //Иначе
                         <td class="enum"> <!--Первый столбец-->
                             <a href="index.php?page=<?=$page?>&id=<?=$news[$t]['id']?>&p=<?=$pn?>">
                                 <p class="date_publ">Опубликовано: <?=$news[$t]['date']?></p> <!--Дата публикации-->
-                                <div class="rect1">
-                                    <div class="rect2">
+                                <div class="rect1_32">
+                                    <div class="rect2_32">
                                         <?php if ($news[$t]['img1'] != NULL) { //Если первое изображение есть ?>
                                         <img src="img/m/smal_<?=$news[$t]['img1']?>"> <!--Изображение со ссылкой на новость-->
                                         <?php } else { //Иначе ?>
@@ -147,8 +147,8 @@ else { //Иначе
                             <?php if ($t+1 < count($news)) { //Если номер строки меньше количества всех строк ?>
                                 <a href="index.php?page=<?=$page?>&id=<?=$news[$t+1]['id']?>&p=<?=$pn?>">
                                     <p class="date_publ">Опубликовано: <?=$news[$t+1]['date']?></p> <!--Дата публикации-->
-                                    <div class="rect1">
-                                        <div class="rect2">
+                                    <div class="rect1_32">
+                                        <div class="rect2_32">
                                             <?php if ($news[$t+1]['img1'] != NULL) { //Если первое изображение есть ?>
                                             <img src="img/m/smal_<?=$news[$t+1]['img1']?>"> <!--Изображение со ссылкой на новость-->
                                             <?php } else { //Иначе ?>
@@ -163,8 +163,8 @@ else { //Иначе
                             <?php if ($t+2 < count($news)) { //Если номер строки меньше количества всех строк ?>
                                 <a href="index.php?page=<?=$page?>&id=<?=$news[$t+2]['id']?>&p=<?=$pn?>">
                                     <p class="date_publ">Опубликовано: <?=$news[$t+2]['date']?></p> <!--Дата публикации-->
-                                    <div class="rect1">
-                                        <div class="rect2">
+                                    <div class="rect1_32">
+                                        <div class="rect2_32">
                                             <?php if ($news[$t+2]['img1'] != NULL) { //Если первое изображение есть ?>
                                             <img src="img/m/smal_<?=$news[$t+2]['img1']?>"> <!--Изображение со ссылкой на новость-->
                                             <?php } else { //Иначе ?>

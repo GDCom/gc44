@@ -364,7 +364,7 @@ h4 {
 .top_news1::before {
     content: "";
 	display: block;
-	padding-top: 56.25%;
+	padding-top: 66.67%;
 }
 
 /*Анимация сдвига влево*/
