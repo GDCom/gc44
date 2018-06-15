@@ -182,6 +182,8 @@ else {
 
 <h3><?=$podp?></h3>
 
+<div class="space"></div>
+
 <?php if ($type != '') { //Если тип медиа не пустой ?>
 <a href="index.php?page=edit_media&type=<?=$type?>&album=<?=$album?>&action=add"><img src="../i/add.ico" height="40px" title="Создать"></a><br><br>
 <?php }?>
