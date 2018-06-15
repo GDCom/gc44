@@ -21,7 +21,7 @@ if (isset($_GET['type'])) { //Если передаваемая переменн
         del_img($link, 'church', $f, 1, '../img/', '../img/m/smal_'); //Удаляем изображение с миниатюрой
         
         if (isset($_FILES['foto'])) { //Если файл доступен
-            $img = upload_file($_FILES['foto'], 'img/', 500, $link, "img"); //Загружаем фотку
+            $img = upload_file($_FILES['foto'], 'img/', 500, $link, 'foto'); //Загружаем фотку
         }
         else $img = ''; //Иначе фото пустое
         

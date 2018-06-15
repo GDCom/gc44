@@ -30,7 +30,7 @@ function run_command($link, $query) {
 }
 
 //Функция загрузки файла на сервер
-function upload_file($file, $puth, $size=400, $link, $type="") {
+function upload_file($file, $puth, $size=400, $link, $type) {
     $tbl = get_table($link, "SELECT pref FROM info"); //Брем значение префикса из базы
     $s = $tbl[0]['pref']; //Записываем в пременную
     
@@ -46,7 +46,7 @@ function upload_file($file, $puth, $size=400, $link, $type="") {
         $height = 0; //Нулевое значение высоты для миниатюры
         $height_b = 0; //Нулевое значение высоты для большой картинки
         
-        if ($type = "img") { //Если это изображение
+        if ($type == 'foto') { //Если это изображение
             $s_im = getimagesize('../'.$puth.$name); //Размер изображения
 
             if ($s_im[0] > $s_im[1]) { //Если ширина больше уменьшаем по ширине
@@ -78,7 +78,7 @@ function upload_file($file, $puth, $size=400, $link, $type="") {
 }
 
 //Функция загрузки файлов на сервер
-function upload_files($files, $puth, $size=400, $link, $type="") {
+function upload_files($files, $puth, $size=400, $link, $type) {
     
     $tbl = get_table($link, "SELECT pref FROM info"); //Брем значение префикса из базы
     $s = $tbl[0]['pref']; //Записываем в пременную
@@ -99,7 +99,7 @@ function upload_files($files, $puth, $size=400, $link, $type="") {
                 $height = 0; //Нулевое значение высоты для миниатюры
                 $height_b = 0; //Нулевое значение высоты для большой картинки
                 
-                if ($type = "img") { //Если это изображение
+                if ($type == 'foto') { //Если это изображение
                     $s_im = getimagesize('../'.$puth.$filename); //Размер изображения
 
                     if ($s_im[0] > $s_im[1]) { //Если ширина больше уменьшаем по ширине

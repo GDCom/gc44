@@ -14,7 +14,7 @@ if (isset($_GET['action'])) {
     //Если доступен первый файл
     if (isset($_POST['img_check']) && $_POST['img_check'] == 'YES' && isset($_FILES['img']))
     {
-         $img = upload_file($_FILES['img'], 'img/', 500, $link, "img");
+         $img = upload_file($_FILES['img'], 'img/', 500, $link, 'foto');
     }
     
     $action = $_GET['action'];

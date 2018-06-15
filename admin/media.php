@@ -19,6 +19,7 @@ else $pn = 1; //Иначе первая страница
 if (isset($_GET['pa'])) $pna = $_GET['pa']; //Если доступен параметр номера страницы альбома, записываем в переменную
 else $pna = 1; //Иначе первая страница
 
+//Начальные значения
 $podp = '';
 $array = NULL;
 $f = false;
@@ -47,7 +48,7 @@ if (isset($_GET['action'])) { //Если доступна переменная a
                 if (isset($_FILES['files']))
                 {
                     if ($type == 'foto') { //Если это фотки
-                        $files = upload_files($_FILES['files'], 'media/'.$type.'/', 300, $link, "img"); //Копируем файлы и получаем строку для базы
+                        $files = upload_files($_FILES['files'], 'media/'.$type.'/', 300, $link, $type); //Копируем файлы и получаем строку для базы
 
                         for ($i = 0; $i < count($files); $i++) { //Для каждого элемента массива с названиями файлов
                             $f = apost($files[$i]);
@@ -67,7 +68,8 @@ if (isset($_GET['action'])) { //Если доступна переменная a
 
                     }
                     else { //Иначе только один файл
-                        $f = apost(upload_file($_FILES['files'], 'media/'.$type.'/', 0, $link, "")); //Копируем файлы и получаем строку для базы
+                        
+                        $f = apost(upload_file($_FILES['files'], 'media/'.$type.'/', 0, $link, $type)); //Копируем файлы и получаем строку для базы
 
                         $s = apost($_POST['name']); //Название записи
 
@@ -121,7 +123,7 @@ if (isset($_GET['action'])) { //Если доступна переменная a
         case 'edit': //Редактирование записи
             $id = $_GET['id']; //id записи
             $type = $_GET['type']; //Тип медиа
-            $name = $_POST['name']; //Подпись записи
+            $name = apost($_POST['name']); //Подпись записи
             $album = $_POST['album']; //Альбом
             
             run_command($link, "UPDATE ".$type." SET name='".$name."', album='".$album."' WHERE id=".$id); //Обновляем запись в базе
