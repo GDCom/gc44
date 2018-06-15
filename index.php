@@ -14,7 +14,7 @@ $link = db_connect();
         <meta charset="utf-8">
 		<title>"Церковь Божья" Кострома</title>
         <link rel="stylesheet" href="styles.css">
-        <link rel="shortcut icon" href="i/ajax-e.png">
+        <link rel="shortcut icon" href="i/gc.png">
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
         
         <link rel="stylesheet" href="js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
