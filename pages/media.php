@@ -20,7 +20,7 @@ if (isset($_GET['pa'])) $pna = $_GET['pa']; //Если доступен пара
 else $pna = 1; //Иначе первая страница
 
 if (isset($_GET['album'])) {
-    $album = $_GET['album'];
+    $album = apost($_GET['album']);
 }
 else $album = '';
 
@@ -82,7 +82,7 @@ if (isset($_GET['type'])) {
                         </div>
                    </td>
                 </tr>
-                <?php for($i = 0; $i < count($array['album']); $i +=5) { //Для каждого альбома ?>
+                <?php for($i = 0; $i < count(dapost($array['album'])); $i +=5) { //Для каждого альбома ?>
                 <tr>
                     <td class="enum5">
                         <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i]?>&pa=<?=$pna?>">

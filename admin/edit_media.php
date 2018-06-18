@@ -61,7 +61,7 @@ $albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER
             <label>
                 Название альбома:
                 <select type="input" name='album' class="form-item" required>
-                    <option value="<?=$album?>"><?=$album?></option>
+                    <option value="<?=apost($album)?>"><?=$album?></option>
                     <?php foreach($albums as $a): ?>
                     <option value="<?=$a['name']?>"><?=$a['name']?></option>
                     <?php endforeach ?>

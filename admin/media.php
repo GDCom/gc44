@@ -33,14 +33,14 @@ if (isset($_GET['action'])) { //Если доступна переменная a
         case 'add': //Добавить
              if (isset($_POST['type'])) { //Если доступна переменная type
                  $type_al = $_POST['type'];
-                 $name = $_POST['name'];
+                 $name = apost($_POST['name']);
                  
                  $str = "INSERT INTO albums (name, type, date) VALUES ('".$name."', '".$type_al."', '".date("Y-m-d")."')"; //Команда добавления
                  
                  run_command($link, $str); //Добавляем альбом в базу
             }
             else { //Иначе
-                $album = $_POST['album']; //Название альбома
+                $album = apost($_POST['album']); //Название альбома
                 
                 run_command($link, "UPDATE albums SET date='".date("Y-m-d")."' WHERE name='".$album."'"); //Обновляем дату альбома в базе альбомов
                 
@@ -112,7 +112,7 @@ if (isset($_GET['action'])) { //Если доступна переменная a
             }
             break;
         case 'main': //Сделать обложкой альбома
-            $album = $_GET['album'];
+            $album = apost($_GET['album']);
             $type = $_GET['type'];
             $id = $_GET['id'];
             
@@ -130,16 +130,15 @@ if (isset($_GET['action'])) { //Если доступна переменная a
             break;
     }
     
-    /*if ($type == 'foto') header('Location: index.php?page=media&type='.$type.'&album='.$album); //Если фотки, то очистка строки адреса с названием альбома*/
     if ($type == 'albums' && $f == true) header('Location: index.php?page=media&type='.$type.'&allert'); //иначе, если тип альбомы и предупреждение
-    else header('Location: index.php?page=media&type='.$type.'&album='.$album); //Иначе без альбома
+    else header('Location: index.php?page=media&type='.$type.'&album='.dapost($album)); //Иначе без альбома
 }
 else {
     if (isset($_GET['allert'])) { //Если доступно предупреждение
         echo "<script>alert('Альбом содержит материалы и не может быть удален.');</script>"; //Выводим предупреждение
     }
         
-    if (isset($_GET['album'])) $album = $_GET['album']; //Если переменная альбома доступна, переносим в переменую
+    if (isset($_GET['album'])) $album = apost($_GET['album']); //Если переменная альбома доступна, переносим в переменую
     else $album = ''; //иначе переменная пустая
     
     if ($type != '') { //Если тип не пустой
@@ -205,7 +204,7 @@ else {
                 <tr class="listHead">
                     <td colspan="100%">
                         <div class="btn_look">
-                            <b><?=$array['album'][$r]?></b>
+                            <b><?=dapost($array['album'][$r])?></b>
                         </div>
                     </td>
                 </tr>
@@ -336,28 +335,24 @@ else {
                     <?php $tbl=$array['table'][$i]; ?>
                     <td class="enum5">
                         <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i]?>&pa=<?=$pna?>">
-                            <?php if ($type == 'foto') { //Если тип фото ?>
                             <div class="sq1">
                                 <div class="sq2">
                                     <img src="../media/<?=$type?>/m/smal_<?=dapost($array['main'][$i])?>">
                                 </div>
                             </div>
-                            <?php }?>
-                            <?=$array['album'][$i]?>
+                            <?=dapost($array['album'][$i])?>
                         </a>
                     </td>
                     <td class="enum5">
                         <?php if ($i + 1 < count($array['album'])) {?>
                         <?php $tbl=$array['table'][$i+1]; ?>
                         <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i+1]?>&pa=<?=$pna?>">
-                            <?php if ($type == 'foto') { //Если тип фото ?>
                             <div class="sq1">
                                 <div class="sq2">
                                     <img src="../media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+1])?>">
                                 </div>
                             </div>
-                            <?php }?>
-                            <?=$array['album'][$i+1]?>
+                            <?=dapost($array['album'][$i+1])?>
                         </a>
                         <?php }?>
                     </td>
@@ -365,14 +360,12 @@ else {
                         <?php if ($i + 2 < count($array['album'])) {?>
                         <?php $tbl=$array['table'][$i+2]; ?>
                         <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i+2]?>&pa=<?=$pna?>">
-                            <?php if ($type == 'foto') { //Если тип фото ?>
                             <div class="sq1">
                                 <div class="sq2">
                                     <img src="../media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+2])?>">
                                 </div>
                             </div>
-                            <?php }?>
-                            <?=$array['album'][$i+2]?>
+                            <?=dapost($array['album'][$i+2])?>
                         </a>
                         <?php }?>
                     </td>
@@ -380,14 +373,12 @@ else {
                         <?php if ($i + 3 < count($array['album'])) {?>
                         <?php $tbl=$array['table'][$i+3]; ?>
                         <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i+3]?>&pa=<?=$pna?>">
-                            <?php if ($type == 'foto') { //Если тип фото ?>
                             <div class="sq1">
                                 <div class="sq2">
                                     <img src="../media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+3])?>">
                                 </div>
                             </div>
-                            <?php }?>
-                            <?=$array['album'][$i+3]?>
+                            <?=dapost($array['album'][$i+3])?>
                         </a>
                         <?php }?>
                     </td>
@@ -395,14 +386,12 @@ else {
                         <?php if ($i + 4 < count($array['album'])) {?>
                         <?php $tbl=$array['table'][$i+4]; ?>
                         <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i+4]?>&pa=<?=$pna?>">
-                            <?php if ($type == 'foto') { //Если тип фото ?>
                             <div class="sq1">
                                 <div class="sq2">
                                     <img src="../media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+4])?>">
                                 </div>
                             </div>
-                            <?php }?>
-                            <?=$array['album'][$i+4]?>
+                            <?=dapost($array['album'][$i+4])?>
                         </a>
                         <?php }?>
                     </td>
@@ -468,7 +457,7 @@ else {
             <tbody>
                 <!--Шапка таблицы-->
                 <tr class="listHead">
-                    <td colspan="100%"><b><?=$array['album'][$r]?></b></td>
+                    <td colspan="100%"><b><?=dapost($array['album'][$r])?></b></td>
                 </tr>
                 <tr class="listHead">
                     <td>
@@ -550,34 +539,34 @@ else {
                 <?php for($i = 0; $i < count($array['album']); $i += 5) { //Для всех альбомов с шагом 5 ?>
                 <tr class="listHead">
                     <td class="enum5">
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i]?>&pa=<?=$pna?>">
+                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=apost($array['album'][$i])?>&pa=<?=$pna?>">
                             <?=$array['album'][$i]?>
                         </a>
                     </td>
                     <td class="enum5">
                         <?php if ($i + 1 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i+1]?>&pa=<?=$pna?>">
-                            <?=$array['album'][$i+1]?>
+                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=apost($array['album'][$i+1])?>&pa=<?=$pna?>">
+                            <?=dapost($array['album'][$i+1])?>
                         </a>
                         <?php }?>
                     </td>
                     <td class="enum5">
                         <?php if ($i + 2 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i+2]?>&pa=<?=$pna?>">
+                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=apost($array['album'][$i+2])?>&pa=<?=$pna?>">
                             <?=$array['album'][$i+2]?>
                         </a>
                         <?php }?>
                     </td>
                     <td class="enum5">
                         <?php if ($i + 3 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i+3]?>&pa=<?=$pna?>">
+                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=apost($array['album'][$i+3])?>&pa=<?=$pna?>">
                             <?=$array['album'][$i+3]?>
                         </a>
                         <?php }?>
                     </td>
                     <td class="enum5">
                         <?php if ($i + 4 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i+4]?>&pa=<?=$pna?>">
+                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=apost($array['album'][$i+4])?>&pa=<?=$pna?>">
                             <?=$array['album'][$i+4]?>
                         </a>
                         <?php }?>
@@ -653,7 +642,7 @@ else {
                 <?php if($a['type'] == 'foto') { //Если фото ?>
                 <tr>
                     <td class="list_text_one">
-                        <?=$a['name']?>
+                        <?=dapost($a['name'])?>
                     </td>
                     <td class="list_but">
                         <a href="index.php?page=<?=$page?>&type=albums&action=del&id=<?=$a['id']?>"><img src="../i/trash.ico" title="Удалить"></a>
@@ -683,7 +672,7 @@ else {
                 <?php if($a['type'] == 'video') { //Если фото ?>
                 <tr>
                     <td class="list_text_one">
-                        <?=$a['name']?>
+                        <?=dapost($a['name'])?>
                     </td>
                     <td class="list_but">
                         <a href="index.php?page=<?=$page?>&type=albums&action=del&id=<?=$a['id']?>"><img src="../i/trash.ico" title="Удалить"></a>
@@ -713,7 +702,7 @@ else {
                 <?php if($a['type'] == 'audio') { //Если фото ?>
                 <tr>
                     <td class="list_text_one">
-                        <?=$a['name']?>
+                        <?=dapost($a['name'])?>
                     </td>
                     <td class="list_but">
                         <a href="index.php?page=<?=$page?>&type=albums&action=del&id=<?=$a['id']?>"><img src="../i/trash.ico" title="Удалить"></a>

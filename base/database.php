@@ -328,12 +328,14 @@ function get_youtube($file) {
 //Меняем апостроф, чтобы не было ошибок базы
 function apost($s) {
     $s = str_replace("'", "&#39;", $s);
+    $s = str_replace('"', "&#34;", $s);
     return $s;
 }
 
 //Возвращаем апостроф назад
 function dapost($s) {
     $s = str_replace("&#39;", "'", $s);
+    $s = str_replace("&#34;", '"', $s);
     return $s;
 }
 
