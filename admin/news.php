@@ -36,7 +36,7 @@ if (isset($_GET['action'])) {
             }
             else $imgs_t = ''; //Иначе пропускаем
             
-            $t = "INSERT INTO news (title, date, content, img1, imgs) VALUES ('".$_POST['title']."', '".date("Y-m-d")."', '".$_POST['content']."', '".$img1_t."', '".$imgs_t."')"; //Команда на добавление новой записи
+            $t = "INSERT INTO news (title, date, content, img1, imgs) VALUES ('".apost($_POST['title'])."', '".date("Y-m-d")."', '".apost($_POST['content'])."', '".$img1_t."', '".$imgs_t."')"; //Команда на добавление новой записи
             
             break;
         case "edit": //Редактирование записи
@@ -66,7 +66,7 @@ if (isset($_GET['action'])) {
             }
             else $imgs_t = ''; //Иначе пропускаем
             
-            $t = "UPDATE news SET title='".$_POST['title']."', date='".$_POST['date']."', content='".$_POST['content']."'".$img1_t.$imgs_t." WHERE id='".$id."'"; //Команда редактирования записи
+            $t = "UPDATE news SET title='".apost($_POST['title'])."', date='".$_POST['date']."', content='".apost($_POST['content'])."'".$img1_t.$imgs_t." WHERE id='".$id."'"; //Команда редактирования записи
             break;
         case "del": //Удаление записи
             $id = $_GET['id'];
