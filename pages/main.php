@@ -30,7 +30,7 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
                                         <div><img src="img/m/smal_<?=$a['img1']?>"></div>
                                         <div class="tn_2">
                                             <div class="tn_21">
-                                                <?=$a['content']?>
+                                                <?=dapost($a['content'])?>
                                             </div>
                                             <div class="tn_22">
                                                 Читать далее...
@@ -39,7 +39,7 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
                                         <?php } else {?>
                                         <div class="tn_2">
                                             <div class="tn_21">
-                                                <?=$a['content']?>
+                                                <?=dapost($a['content'])?>
                                             </div>
                                             <div class="tn_22">
                                                 Читать далее...
@@ -47,7 +47,7 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
                                         </div>
                                         <div class="tn_2">
                                             <div class="tn_21">
-                                                <?=$a['content']?>
+                                                <?=dapost($a['content'])?>
                                             </div>
                                             <div class="tn_22">
                                                 Читать далее...

@@ -50,7 +50,6 @@ if (isset($_GET['type'])) {
 
 ?>
 
-<script src="http://vjs.zencdn.net/5.0/video.min.js"></script>
 <div class="Menu">
     <div>
         <a href="index.php?page=<?=$page?>&type=foto">Фотографии</a><br>

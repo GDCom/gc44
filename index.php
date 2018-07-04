@@ -27,7 +27,6 @@ $link = db_connect();
         <script>$(function(){$('h3').hyphenate();})</script>
         
         
-
         <!-- Yandex.Metrika counter -->
         <script type="text/javascript" >
             (function (d, w, c) {
@@ -183,7 +182,7 @@ $link = db_connect();
             
             <div>
                 © 2010 - <?=date("Y")?> г. Местная религиозная организация христиан веры евангельской (пятидесятников) "Церковь Божья" г. Костромы, Костромской области. ИНН 4401115856 ОГРН 1134400000525
-             </div>
+            </div>
          </footer>
 	</body>
 </html>
