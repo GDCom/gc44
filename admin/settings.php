@@ -4,12 +4,12 @@ if (isset($_POST['adm_alb'])) { //Если есть данные для изме
     $tbl = get_table($link, "SELECT * FROM settings"); //Берем информацию о настройках из базы
     
     if ($tbl != NULL) { //Если запись уже есть
-        $cmd = "UPDATE settings SET adm_alb='".$_POST['adm_alb']."', adm_foto='".$_POST['adm_foto']."', adm_video='".$_POST['adm_video']."', adm_audio='".$_POST['adm_audio']."', adm_news='".$_POST['adm_news']."', adm_ministry='".$_POST['adm_ministry']."', main_alb='".$_POST['main_alb']."', main_foto='".$_POST['main_foto']."', main_video='".$_POST['main_video']."', main_audio='".$_POST['main_audio']."', main_news='".$_POST['main_news']."', main_ministry='".$_POST['main_ministry']."'";
+        $cmd = "UPDATE settings SET adm_alb='".$_POST['adm_alb']."', adm_foto='".$_POST['adm_foto']."', adm_video='".$_POST['adm_video']."', adm_audio='".$_POST['adm_audio']."', adm_news='".$_POST['adm_news']."', adm_ministry='".$_POST['adm_ministry']."', main_alb='".$_POST['main_alb']."', main_foto='".$_POST['main_foto']."', main_video='".$_POST['main_video']."', main_audio='".$_POST['main_audio']."', main_news='".$_POST['main_news']."', main_ministry='".$_POST['main_ministry']."', style='".$_POST['style']."'";
         
         run_command($link, $cmd); //Обновляем
     }
     else { //если нет
-        $cmd = "INSERT INTO settings (adm_alb, adm_foto, adm_video, adm_audio, adm_news, adm_ministry, main_alb, main_foto, main_video, main_audio, main_news, main_ministry) VALUES (".$_POST['adm_alb'].", ".$_POST['adm_foto'].", ".$_POST['adm_video'].", ".$_POST['adm_audio'].", ".$_POST['adm_news'].", ".$_POST['adm_ministry'].", ".$_POST['main_alb'].", ".$_POST['main_foto'].", ".$_POST['main_video'].", ".$_POST['main_audio'].", ".$_POST['main_news'].", ".$_POST['main_ministry'].")";
+        $cmd = "INSERT INTO settings (adm_alb, adm_foto, adm_video, adm_audio, adm_news, adm_ministry, main_alb, main_foto, main_video, main_audio, main_news, main_ministry, style) VALUES (".$_POST['adm_alb'].", ".$_POST['adm_foto'].", ".$_POST['adm_video'].", ".$_POST['adm_audio'].", ".$_POST['adm_news'].", ".$_POST['adm_ministry'].", ".$_POST['main_alb'].", ".$_POST['main_foto'].", ".$_POST['main_video'].", ".$_POST['main_audio'].", ".$_POST['main_news'].", ".$_POST['main_ministry'].", ".$_POST['style'].")";
         
         run_command($link, $cmd); //Добавляем запись
     }
@@ -32,6 +32,8 @@ if ($tbl != NULL) { //Если запись уже есть
     $main_audio = $tbl[0]['main_audio'];
     $main_news = $tbl[0]['main_news'];
     $main_ministry = $tbl[0]['main_ministry'];
+    
+    $style = $tbl[0]['style'];
 }
 else { //Иначе Значения по умолчанию
     $adm_alb = 30;
@@ -194,6 +196,19 @@ else { //Иначе Значения по умолчанию
                 </tr>
             </tbody>
         </table>
+        <div class="space"></div>
+        <h3>Тема сайта</h3>
+        <div>
+            <label>
+                <input name="style" type="radio" value="gray" <?php if($style == 'gray') {?> checked <?php }?> > Серая тема<br>
+            </label>
+             <label>
+                <input name="style" type="radio" value="blue" <?php if($style == 'blue') {?> checked <?php }?> > Голубая тема<br>
+            </label>
+            <label>
+                <input name="style" type="radio" value="background" <?php if($style == 'background') {?> checked <?php }?> > Тема с фоном
+            </label>
+        </div>
         <div class="space"></div>
         <input type="submit" value="Сохранить" class="btn">
     </form>

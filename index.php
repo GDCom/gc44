@@ -5,6 +5,24 @@ require_once('base/database.php');
 date_default_timezone_set("Europe/Moscow");
 
 $link = db_connect();
+
+$tbl_style = get_table($link, "SELECT style FROM settings"); //Берем информацию о стиле сайта
+$style = $tbl_style[0]['style'];
+
+switch ($style) { //Выбираем файл стилей в зависимости от настроек
+    case gray:
+        $style_file = 'styles_gray.css';
+        break;
+    case background:
+        $style_file = 'styles.css';
+        break;
+    case blue:
+        $style_file = 'styles_blue.css';
+        break;
+    default:
+        $style_file = 'styles.css';
+        break;
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +32,7 @@ $link = db_connect();
         <meta charset="utf-8">
         <meta name="yandex-verification" content="61a6d318bbae3657" />
 		<title>"Церковь Божья" Кострома</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="<?=$style_file?>">
         <link rel="shortcut icon" href="i/gc.png">
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
         
@@ -60,7 +78,9 @@ $link = db_connect();
 	</head>
 	<body>
         <header>
+            <?php if($style == 'background') { ?>
             <div class="background"><img src="i/header.png"></div>
+            <?php } ?>
             <div class="head_main">
                 <div class="button">
                     <a href="index.php?page=contacts" title="Контакты">

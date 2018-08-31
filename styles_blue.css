@@ -39,7 +39,7 @@ body {
     padding: 0;
     font-family: "Hantsman", sans-serif;
     /*background-color: rgba(229, 229, 229, 0.7);*/
-    background-image: linear-gradient(rgba(160, 160, 160, 0.5), rgba(160, 160, 160, 0.5)), url(i/fon.jpg);
+    /*background-image: linear-gradient(rgba(160, 160, 160, 0.5), rgba(160, 160, 160, 0.5)), url(i/fon.jpg);*/
     background-attachment: fixed;
     background-size: cover;
     background-blend-mode: lighten;
@@ -49,14 +49,19 @@ body {
 header {
     font-family: "Book", sans-serif;
     position: relative;
+    /*margin: auto;*/
+    margin-bottom: 40px;
     width: 100%;
-    height: 120px;
+    height: 80px;
     min-height: 70px;
     padding: 0;
-    /*background-color: rgba(48, 90, 206, 0.6);*/
+    background-color: rgb(103, 185, 237);
+    border: 3px;
+    border-bottom-style: ridge;
     vertical-align: top;
-    background: rgba(0,0,0, 0.5), url(i/header.png);
-    
+    /*background: rgba(0,0,0, 1), url(i/header.png);
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;*/
 }
 
 /*Шапка сайта*/
@@ -83,7 +88,7 @@ header {
 .head_main img {
     height: 95%;
     margin: 0px 10px 10px 10px;
-    background: rgba(111, 107, 107, 0.41);
+    background: rgba(111, 107, 107);
 }
 
 /*Главный значек в шапке*/
@@ -144,7 +149,7 @@ table {
     height: 25px;
     float: right;
     color: #fafafa;
-    background-color: #9b9b9b;
+    background-color: rgb(92, 118, 178);
     padding: 7px;
     text-decoration: none;
     text-align: center;
@@ -162,7 +167,7 @@ table {
 /*При наведении на ссылку в кнопке*/
 .button a:hover {
     display: block;
-    background-color: #212d89;
+    background-color: rgb(30, 49, 154);
     width: 130px;
     text-align: center;
     padding: 7px;
@@ -688,7 +693,6 @@ td img:hover {
     width: calc(100% - 30px);
     padding: 15px;
     background: #ffffff;
-    border-radius: 10px;
     min-height: calc(100vh - 290px);
     
     margin: 0 auto;
@@ -696,6 +700,7 @@ td img:hover {
     max-width: 1400px;
 }
 
+/*Для центровки основного контента*/
 .cent {
     width: 100%;
     margin: 20px;
@@ -735,7 +740,7 @@ td img:hover {
     width: 100%;
     padding: 10px;
     margin: 5px 5px 5px -2px;
-    background-color: #717171;
+    background-color: rgb(92, 118, 178);
     border: 2px;
     border-style: outset;
     border-color: white;
@@ -750,7 +755,7 @@ td img:hover {
 
 /*При наведении на ссылку в меню*/
 .Menu a:hover {
-    background-color: #212d89;
+    background-color: rgb(30, 49, 154);
     /*Анимация*/
     transition: all 0.5s;
     padding-left: 25px;
@@ -763,12 +768,12 @@ td img:hover {
 
 /*Подменю*/
 .Menu a.second {
-    background-color: rgba(178, 178, 178, 1);
+    background-color: rgb(110, 174, 221);
 }
 
 /*При наведении на ссылку подменю*/
 .Menu a.second:hover {
-    background-color: #212d89;
+    background-color: rgb(30, 49, 154);
 }
 
 /*Блок для вывода контента с меню*/
@@ -971,9 +976,10 @@ footer {
     margin: 0;
     height: 100px;
     width: 100%;
-    background-color: rgba(83, 116, 206, 0.8);
-    color: #d4d2d2;
-    /*background-image: url(i/footer.png);*/
+    background-color: rgb(103, 185, 237);
+    border: 3px;
+    border-top-style: groove;
+    color: white;
 }
 
 /*Блок в подвале*/
