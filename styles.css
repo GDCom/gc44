@@ -53,7 +53,6 @@ header {
     height: 120px;
     min-height: 70px;
     padding: 0;
-    /*background-color: rgba(48, 90, 206, 0.6);*/
     vertical-align: top;
     background: rgba(0,0,0, 0.5), url(i/header.png);
     
@@ -81,7 +80,7 @@ header {
 
 /*Изображения в шапке*/
 .head_main img {
-    height: 95%;
+    height: 115px;
     margin: 0px 10px 10px 10px;
     background: rgba(111, 107, 107, 0.41);
 }

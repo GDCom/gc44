@@ -197,7 +197,7 @@ else { //Иначе Значения по умолчанию
             </tbody>
         </table>
         <div class="space"></div>
-        <h3>Тема сайта</h3>
+        <h3>Тема сайта:</h3>
         <div>
             <label>
                 <input name="style" type="radio" value="gray" <?php if($style == 'gray') {?> checked <?php }?> > Серая тема<br>

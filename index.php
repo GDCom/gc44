@@ -13,11 +13,11 @@ switch ($style) { //Выбираем файл стилей в зависимос
     case gray:
         $style_file = 'styles_gray.css';
         break;
-    case background:
-        $style_file = 'styles.css';
-        break;
     case blue:
         $style_file = 'styles_blue.css';
+        break;
+    case background:
+        $style_file = 'styles.css';
         break;
     default:
         $style_file = 'styles.css';
@@ -145,8 +145,12 @@ switch ($style) { //Выбираем файл стилей в зависимос
                         </div>
                     </a>
                 </div>
-
-                <a href="index.php" class="main_img"><img src="i/admin-ajax-e.png"></a>
+                
+                <div class="Head_img">
+                    <div class="Head_img2">
+                        <a href="index.php" class="main_img"><img src="i/admin-ajax-e.png"></a>
+                    </div>
+                </div>
             </div>
         </header>
         <div class="WithMenu">
