@@ -688,7 +688,7 @@ td img:hover {
     padding: 15px;
     background: #ffffff;
     border-radius: 10px;
-    min-height: calc(100vh - 290px);
+    min-height: calc(100vh - 310px);
     
     margin: 0 auto;
     display: block;
@@ -841,6 +841,17 @@ iframe.bible {
     font-size: 15px;
 }
 
+/*Текстовое поле в табличном списке инструкций*/
+.list_text_instr {
+    position: relative;
+    background-color: #ffffff;
+    padding: 5px 20px;
+    text-align: left;
+    vertical-align: middle;
+    font-family: "Open Sans";
+    font-size: 15px;
+}
+
 /*Одиночное текстовое поле в табличном списке*/
 .list_text_one {
     background-color: #ffffff;
@@ -968,7 +979,7 @@ iframe.bible {
 /*Подвал*/
 footer {
     margin: 0;
-    height: 100px;
+    height: 120px;
     width: 100%;
     background-color: rgba(83, 116, 206, 0.8);
     color: #d4d2d2;
@@ -986,7 +997,7 @@ footer div {
 
 /*Сноска в подвале*/
 footer a{
-    color: #bfbfbf;
+    color: #ffffff;
 }
 
 /*Для блока Поделиться в соцсетях*/

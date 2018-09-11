@@ -177,6 +177,9 @@ switch ($style) { //Выбираем файл стилей в зависимос
                         case 'church':
                             include("pages/church.php");
                             break;
+                        case 'pers_dat':
+                            include("pages/pers_dat.php");
+                            break;
                         default:
                             include("pages/main.php");
                             break;
@@ -205,6 +208,9 @@ switch ($style) { //Выбираем файл стилей в зависимос
                 </tr>
             </table>
             
+            <div>
+                <a href="index.php?page=pers_dat" >Политика в отношении обработки персональных данных</a>
+            </div>
             <div>
                 © 2010 - <?=date("Y")?> г. Местная религиозная организация христиан веры евангельской (пятидесятников) "Церковь Божья" г. Костромы, Костромской области. ИНН 4401115856 ОГРН 1134400000525
             </div>

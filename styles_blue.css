@@ -184,7 +184,7 @@ table {
 /*При наведении на ссылку в кнопке*/
 .button a:hover {
     display: block;
-    background-color: rgb(30, 49, 154);
+    background-color: rgb(40, 59, 141);
     width: 130px;
     text-align: center;
     padding: 7px;
@@ -599,7 +599,7 @@ h4 {
 /*Надпись в виде кнопки (заголовки таблиц в медиа)*/
 .btn_look {
     width: auto;
-    background-color: #505050;
+    background-color: #2b57aa;
     color: white;
     border-style: groove;
     padding: 5px;
@@ -710,7 +710,7 @@ td img:hover {
     width: calc(100% - 30px);
     padding: 15px;
     background: #ffffff;
-    min-height: calc(100vh - 290px);
+    min-height: calc(100vh - 316px);
     
     margin: 0 auto;
     display: block;
@@ -772,7 +772,7 @@ td img:hover {
 
 /*При наведении на ссылку в меню*/
 .Menu a:hover {
-    background-color: rgb(30, 49, 154);
+    background-color: rgb(40, 59, 141);
     /*Анимация*/
     transition: all 0.5s;
     padding-left: 25px;
@@ -790,7 +790,7 @@ td img:hover {
 
 /*При наведении на ссылку подменю*/
 .Menu a.second:hover {
-    background-color: rgb(30, 49, 154);
+    background-color: rgb(40, 59, 141);
 }
 
 /*Блок для вывода контента с меню*/
@@ -860,6 +860,17 @@ iframe.bible {
     text-align: left;
     vertical-align: middle;
     width: 50%;
+    font-family: "Open Sans";
+    font-size: 15px;
+}
+
+/*Текстовое поле в табличном списке инструкций*/
+.list_text_instr {
+    position: relative;
+    background-color: #ffffff;
+    padding: 5px 20px;
+    text-align: center;
+    vertical-align: middle;
     font-family: "Open Sans";
     font-size: 15px;
 }
@@ -991,7 +1002,7 @@ iframe.bible {
 /*Подвал*/
 footer {
     margin: 0;
-    height: 100px;
+    height: 120px;
     width: 100%;
     background-color: rgb(103, 185, 237);
     border: 3px;
@@ -1010,7 +1021,7 @@ footer div {
 
 /*Сноска в подвале*/
 footer a{
-    color: #bfbfbf;
+    color: #ffffff;
 }
 
 /*Для блока Поделиться в соцсетях*/

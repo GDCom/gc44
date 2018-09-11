@@ -52,8 +52,9 @@ switch ($style) { //Выбираем файл стилей в зависимос
                     <a href="index.php?page=ministry">Служения</a>
                     <a href="index.php?page=media&type=foto">Медиа материалы</a>
                     <!--<a href="index.php?page=prayer">Молитвенная стена</a>-->
-                    <a href="index.php?page=settings" class="space">Настройки</a>
-                    
+                    <a href="index.php?page=settings">Настройки</a>
+                    <a href="index.php?page=instructions" class="space">Инструкции</a>
+                                        
                     <?php if (isset($_GET['page']) && ($_GET['page'] == 'media' || $_GET['page'] == 'edit_media')) {?>
                     <a href="index.php?page=media&type=foto" class="second">Фото</a>
                     <a href="index.php?page=media&type=video" class="second">Видео</a>
@@ -103,6 +104,9 @@ switch ($style) { //Выбираем файл стилей в зависимос
                                 break;
                             case 'settings':
                                 include("settings.php");
+                                break;
+                            case 'instructions':
+                                include("instruct.php");
                                 break;
                         }
                      }
