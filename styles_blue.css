@@ -94,8 +94,10 @@ header {
     vertical-align: middle;
     margin: 5px 10px 10px 10px;
     padding: 0;
-    background: rgba(111, 107, 107);
+    background: rgb(83, 109, 139);
     border-radius: 50%;
+    border: 3px;
+    border-style: ridge;
 }
 
 /*Второй блок для изображения значка в круге*/
@@ -908,7 +910,7 @@ iframe.bible {
 
 /*Задний фон для табличного списка админки. Ставится в Table*/
 .list_back_admin {
-    background-color: #9b9b9b;
+    background-color: #2b57aa;
     border-radius: 5px;
     padding: 3px;
     width: 80%;
