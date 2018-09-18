@@ -55,6 +55,12 @@ header {
     display: block;
 }
 
+/*Блок поискового запроса*/
+.search {
+    top: 50px;
+    right: 10px;
+}
+
 /*Сноска в кнопке*/
 .button a {
     display: block;

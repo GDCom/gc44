@@ -12,13 +12,12 @@ body {
 header {
     font-family: "Book", sans-serif;
     position: relative;
-    /*margin: auto;*/
     margin-bottom: 40px;
     width: 100%;
     height: 80px;
     min-height: 70px;
     padding: 0;
-    background-color: rgb(201, 201, 201);
+    background-color: rgb(156, 166, 186);
     border: 3px;
     border-bottom-style: ridge;
     vertical-align: top;
@@ -51,6 +50,12 @@ header {
     border-top: 0;
     border-style: ridge;
     background: rgba(111, 107, 107, 1);
+}
+
+/*Блок поискового запроса*/
+.search {
+    top: 50px;
+    right: 10px;
 }
 
 /*Сноска в кнопке*/
@@ -254,9 +259,9 @@ h5 {
 /*разделяющий цветной блок*/
 .color_space {
     display: block;
-    min-height: 5px;
+    min-height: 3px;
     margin: 10px 0 20px 0;
-    background-color: rgb(201, 201, 201);
+    background-color: rgb(163, 163, 163);
     border-radius: 50px;
     border-style: ridge;
 }

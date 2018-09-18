@@ -46,6 +46,12 @@ header {
     background: rgba(111, 107, 107, 0.41);
 }
 
+/*Блок поискового запроса*/
+.search {
+    top: 70px;
+    right: 10px;
+}
+
 /*Сноска в кнопке*/
 .button a {
     display: block;
