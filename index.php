@@ -17,10 +17,10 @@ switch ($style) { //Выбираем файл стилей в зависимос
         $style_file = 'styles_blue.css';
         break;
     case background:
-        $style_file = 'styles.css';
+        $style_file = 'styles_fon.css';
         break;
     default:
-        $style_file = 'styles.css';
+        $style_file = 'styles_fon.css';
         break;
 }
 ?>
@@ -32,6 +32,7 @@ switch ($style) { //Выбираем файл стилей в зависимос
         <meta charset="utf-8">
         <meta name="yandex-verification" content="61a6d318bbae3657" />
 		<title>"Церковь Божья" Кострома</title>
+        <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="<?=$style_file?>">
         <link rel="shortcut icon" href="i/gc.png">
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -152,6 +153,10 @@ switch ($style) { //Выбираем файл стилей в зависимос
                     </div>
                 </div>
             </div>
+            
+            <!--<div class="search">
+                <div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'http://gc44/index.php?page=result','arrow':false,'bg':'transparent','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'Поиск по сайту gc44','suggest':true,'target':'_self','tld':'ru','type':2,'usebigdictionary':true,'searchid':2329906,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'поиск','input_placeholderColor':'#818181','input_borderColor':'#7f9db9'}"><form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2329906"/><input type="hidden" name="l10n" value="ru"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value=""/><input type="submit" value="Найти"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+            </div>-->
         </header>
         <div class="WithMenu">
             <?php
@@ -180,6 +185,9 @@ switch ($style) { //Выбираем файл стилей в зависимос
                         case 'pers_dat':
                             include("pages/pers_dat.php");
                             break;
+                        case 'result':
+                            include("pages/result.php");
+                            break;
                         default:
                             include("pages/main.php");
                             break;
@@ -200,6 +208,7 @@ switch ($style) { //Выбираем файл стилей в зависимос
                         style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="49157065" data-lang="ru" /></a>
                         <!-- /Yandex.Metrika informer -->
                     </td>
+                    
                     <td class="share">
                         <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
                         <script src="//yastatic.net/share2/share.js"></script>

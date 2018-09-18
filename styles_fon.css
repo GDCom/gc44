@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Hantsman", sans-serif;
+    background-image: linear-gradient(rgba(160, 160, 160, 0.5), rgba(160, 160, 160, 0.5)), url(i/fon.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-blend-mode: lighten;
@@ -12,15 +13,13 @@ body {
 header {
     font-family: "Book", sans-serif;
     position: relative;
-    margin-bottom: 40px;
     width: 100%;
-    height: 80px;
+    height: 120px;
     min-height: 70px;
     padding: 0;
-    background-color: rgb(103, 185, 237);
-    border: 3px;
-    border-bottom-style: ridge;
     vertical-align: top;
+    background: rgba(0,0,0, 0.5), url(i/header.png);
+    
 }
 
 /*Изображения в шапке*/
@@ -33,26 +32,18 @@ header {
 /*Блок для изображения значка в круге*/
 .Head_img {
     position: absolute;
-    height: 120px;
-    width: 120px;
     text-align: center;
     vertical-align: middle;
-    margin: 5px 10px 10px 10px;
+    margin: 0;
     padding: 0;
-    background: rgb(83, 109, 139);
-    border-radius: 50%;
-    border: 3px;
-    border-style: ridge;
 }
 
-/*Второй блок для изображения значка в круге*/
+/*Второй блок для изображения значка*/
 .Head_img2 {
     position: relative;
-    height: 100px;
-    width: 100px;
-    margin: 10px 10px 10px 10px;
-    border-radius: 50%;
+    margin: 0 20px 20px 20px;
     display: block;
+    background: rgba(111, 107, 107, 0.41);
 }
 
 /*Сноска в кнопке*/
@@ -63,7 +54,7 @@ header {
     height: 25px;
     float: right;
     color: #fafafa;
-    background-color: rgb(92, 118, 178);
+    background-color: #9b9b9b;
     padding: 7px;
     text-decoration: none;
     text-align: center;
@@ -81,7 +72,7 @@ header {
 /*При наведении на ссылку в кнопке*/
 .button a:hover {
     display: block;
-    background-color: rgb(40, 59, 141);
+    background-color: #212d89;
     width: 130px;
     text-align: center;
     padding: 7px;
@@ -181,7 +172,7 @@ h5 {
 /*Надпись в виде кнопки (заголовки таблиц в медиа)*/
 .btn_look {
     width: auto;
-    background-color: #2b57aa;
+    background-color: #505050;
     color: white;
     border-style: groove;
     padding: 5px;
@@ -209,7 +200,7 @@ h5 {
     width: 100%;
     padding: 10px;
     margin: 5px 5px 5px -2px;
-    background-color: rgb(92, 118, 178);
+    background-color: #717171;
     border: 2px;
     border-style: outset;
     border-color: white;
@@ -224,7 +215,7 @@ h5 {
 
 /*При наведении на ссылку в меню*/
 .Menu a:hover {
-    background-color: rgb(40, 59, 141);
+    background-color: #212d89;
     /*Анимация*/
     transition: all 0.5s;
     padding-left: 25px;
@@ -232,12 +223,12 @@ h5 {
 
 /*Подменю*/
 .Menu a.second {
-    background-color: rgb(110, 174, 221);
+    background-color: rgba(178, 178, 178, 1);
 }
 
 /*При наведении на ссылку подменю*/
 .Menu a.second:hover {
-    background-color: rgb(40, 59, 141);
+    background-color: #212d89;
 }
 
 /*Заголовок табличного списка в админке*/
@@ -247,7 +238,7 @@ h5 {
 
 /*Задний фон для табличного списка админки. Ставится в Table*/
 .list_back_admin {
-    background-color: #2b57aa;
+    background-color: #9b9b9b;
     border-radius: 5px;
     padding: 3px;
     width: 80%;
@@ -258,7 +249,7 @@ h5 {
     display: block;
     min-height: 5px;
     margin: 10px 0 20px 0;
-    background-color: rgb(103, 185, 237);
+    background-color: rgb(201, 201, 201);
     border-radius: 50px;
     border-style: ridge;
 }
@@ -317,10 +308,9 @@ footer {
     margin: 0;
     height: 120px;
     width: 100%;
-    background-color: rgb(103, 185, 237);
-    border: 3px;
-    border-top-style: groove;
-    color: white;
+    background-color: rgba(83, 116, 206, 0.8);
+    color: #d4d2d2;
+    /*background-image: url(i/footer.png);*/
 }
 
 /*Сноска в подвале*/

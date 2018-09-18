@@ -131,16 +131,5 @@
                 <small>Текст</small>
             </td>
         </tr>
-        <tr>
-            <td class="list_text_instr">
-                &#060;blink&#062;Текст&#060;/blink&#062;
-            </td>
-            <td class="list_text_instr">
-                Устанавливает мигание текста
-            </td>
-            <td class="list_text_instr">
-                <blink>Текст</blink>
-            </td>
-        </tr>
     </tbody>
 </table>

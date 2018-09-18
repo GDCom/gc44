@@ -329,7 +329,7 @@ if (isset($_GET['type'])) {
                             <td class="enum">
                                 <?php $file = dapost(get_youtube($tbl[$i]['file'])); ?>
                                 <iframe class="video" src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen></iframe>
-                                <br><?=dapost($tbl[$i]['name'])?>
+                                <!--<br><?=dapost($tbl[$i]['name'])?>-->
                             </td>
                          </tr>
                     <?php }?>

@@ -17,10 +17,10 @@ switch ($style) { //Выбираем файл стилей в зависимос
         $style_file = 'styles_blue.css';
         break;
     case background:
-        $style_file = 'styles.css';
+        $style_file = 'styles_fon.css';
         break;
     default:
-        $style_file = 'styles.css';
+        $style_file = 'styles_fon.css';
         break;
 }
 ?>
@@ -30,6 +30,7 @@ switch ($style) { //Выбираем файл стилей в зависимос
     <head>
         <meta charset="utf-8">
 		<title>"Церковь Божья" Кострома</title>
+        <link rel="stylesheet" href="../styles.css">
         <link rel="stylesheet" href="../<?=$style_file?>">
         <link rel="shortcut icon" href="../i/gc.png">
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
