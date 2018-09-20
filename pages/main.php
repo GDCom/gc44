@@ -98,7 +98,7 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
         <table>
             <tbody>
                 <tr>
-                    <td>
+                    <td colspan="100%">
                         <h2>Фотографии:</h2>
                     </td>
                 </tr>
