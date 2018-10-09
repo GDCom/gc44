@@ -1,36 +1,21 @@
 @font-face {
-    font-family: Huntsman;
-    src: url('fonts/Huntsman.otf');
-}
-
-@font-face {
-    font-family: Exo;
-    src: url('fonts/Exo.otf');
-}
-
-@font-face {
-    font-family: "Open Sans";
-    src: url('fonts/OpenSans.ttf');
-}
-
-@font-face {
-    font-family: Book;
+    font-family: "Book";
     src: url('fonts/Antiqua_b.ttf');
 }
 
 @font-face {
-    font-family: "Book_BI";
-    src: url('fonts/ANTQUABI.ttf');
+    font-family: "Raleway-Light";
+    src: url('fonts/Raleway-Light.ttf');
 }
 
 @font-face {
-    font-family: "Atlantic";
-    src: url('fonts/Atlantic cruise.otf');
+    font-family: "AC Display Bold";
+    src: url('fonts/AC Display Bold.otf');
 }
 
 @font-face {
-    font-family: "Arabella";
-    src: url('fonts/Arabella swash.ttf');
+    font-family: "AC Display";
+    src: url('fonts/AC Display.otf');
 }
 
 /*Шапка сайта*/
@@ -129,7 +114,16 @@ table {
     font-size: 11px;
     font-style: italic;
     margin: 0;
-    padding: 0;
+    padding: 0 10px;
+    text-align: right;
+}
+
+.sign {
+    font-size: 11px;
+    font-style: italic;
+    margin: 0;
+    padding: 0 10px;
+    text-align: center;
 }
 
 /*Таблица из трех столбцов*/
@@ -168,6 +162,10 @@ table {
 .enum p.date_publ {
     margin-top: 3px;
     margin-bottom: 2px;
+}
+
+.invis {
+    display: none;
 }
 
 /*Первый блок для создания прямоугольника 16/9*/
@@ -331,7 +329,7 @@ table {
     padding: 7px;
     background-color: white;
     color: black;
-    font-family: "Exo";
+    font-family: "AC Display";
     font-size: 15px;
     vertical-align: top;
 }
@@ -521,7 +519,7 @@ td img:hover {
     text-decoration: none;
     color: #19149a;
     font-size: 20px;
-    font-family: Book;
+    font-family: "Book";
 }
 
 /*Текущая страница*/
@@ -530,7 +528,7 @@ td img:hover {
     flex-direction: row;
     color: #5f5f5f;
     font-size: 27px;
-    font-family: Book;
+    font-family: "Book";
 }
 
 /*Основное поле контента*/
@@ -546,6 +544,7 @@ td img:hover {
     max-width: 1400px;
 }
 
+/*Центрирующий блок для основного контента*/
 .cent {
     width: 100%;
     margin: 20px;
@@ -586,14 +585,14 @@ td img:hover {
     vertical-align: top;
 }
 
-/*Парагроф в тексте на главной странице*/
+/*Параграф в тексте на главной странице*/
 .Text p {
     margin-bottom: 0;
 }
 
 /*Заголовок табличного списка*/
 .listHead {
-    font-family: "Book", sans-serif;
+    font-family: "AC Display";
     font-size: 20px;
     padding: 7px;
     text-align: center;
@@ -601,7 +600,6 @@ td img:hover {
 
 /*Ячейка таблицы из трех столбцов с закрашеным заголовком списка (Видеофайлы)*/
 .listHead td.enum {
-    font-family: "Exo";
     font-size: 15px;
     text-align: center;
     padding-bottom: 10px;
@@ -646,8 +644,7 @@ iframe.bible {
     text-align: left;
     vertical-align: middle;
     width: 50%;
-    font-family: "Open Sans";
-    font-size: 15px;
+    font-size: 18px;
 }
 
 /*Текстовое поле в табличном списке инструкций*/
@@ -657,8 +654,6 @@ iframe.bible {
     padding: 5px 20px;
     text-align: left;
     vertical-align: middle;
-    font-family: "Open Sans";
-    font-size: 15px;
 }
 
 /*Одиночное текстовое поле в табличном списке*/
@@ -668,8 +663,7 @@ iframe.bible {
     text-align: left;
     vertical-align: middle;
     width: 100%;
-    font-family: "Open Sans";
-    font-size: 15px;
+    font-size: 18px;
 }
 
 /*Ячейка для кнопки в табличном списке*/

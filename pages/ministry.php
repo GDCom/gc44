@@ -35,10 +35,10 @@ else { //Иначе статья про конкретное служение
     </div>
     <div class="cent">
         <div class = "content">
+            <?php if($id == 0) { //Если массив больше одной строки (весь список служений) ?>
             <h1>Служения</h1>
             <table>
                 <tbody>
-                    <?php if($id == 0) { //Если массив больше одной строки (весь список служений) ?>
                     <?php for($i = 0; $i < count($ministry); $i += 3) { //Для каждого элемена массива с шагом три ?>
                     <tr>
                         <td class="enum">
@@ -100,16 +100,20 @@ else { //Иначе статья про конкретное служение
                         </td>
                     </tr>
                     <?php }?>
-                    <?php } else { //Иначе, если выбрано одно служение ?>
-
-                    <h3><?=$ministry[0]['title']?></h3> <!--Заголовок-->
+                </tbody>
+            </table>
+                    
+            <?php } else { //Иначе, если выбрано одно служение ?>
+            <table>
+                <tbody>
+                    <h1><?=$ministry[0]['title']?></h1> <!--Заголовок-->
                     <tr>
                         <td class="foto1">
                              <!--Фотка-->
                             <a rel="group" href="img/<?=$ministry[0]['img']?>" class="prevew">
                                 <img src="img/m/smal_<?=$ministry[0]['img']?>">
                             </a>
-                            <div class="date_publ"><?=$ministry[0]['alt']?></div> <!--Подпись к фото-->
+                            <div class="sign"><?=$ministry[0]['alt']?></div> <!--Подпись к фото-->
                         </td>
                         <td class="enum_min">
                             <?=$ministry[0]['content']?> <!--Описание-->

@@ -65,8 +65,7 @@ if (isset($_GET['type'])) {
 </div>
 <div class="cent">
     <div class="content">
-        <h1>Медиа материалы</h1>
-        <h3><?=$podp?></h3><br>
+        <h1><?=$podp?></h1>
         <?php if ($album != '') { //Если выбран альбом, показываем кнопку к списку альбомов ?>
         <a href="index.php?page=<?=$page?>&type=<?=$type?>&pa=<?=$pna?>"><img src="i/back.ico" width="40px" title="Вернуться к списку альбомов"></a><br><br>
         <?php }?>
@@ -329,7 +328,7 @@ if (isset($_GET['type'])) {
                             <td class="enum">
                                 <?php $file = dapost(get_youtube($tbl[$i]['file'])); ?>
                                 <iframe class="video" src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen></iframe>
-                                <!--<br><?=dapost($tbl[$i]['name'])?>-->
+                                <div class="invis"><?=dapost($tbl[$i]['name'])?></div>
                             </td>
                          </tr>
                     <?php }?>

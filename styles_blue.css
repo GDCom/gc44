@@ -2,15 +2,64 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Hantsman", sans-serif;
+    font-family: "Raleway-Light";
+    font-size: 18px;
     background-attachment: fixed;
     background-size: cover;
     background-blend-mode: lighten;
 }
 
+/*Заголовок 1*/
+h1 {
+    font-family: "AC Display Bold";
+    font-size: 45px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #184a6f;
+    text-align: center;
+}
+
+/*Заголовок 2*/
+h2 {
+    font-family: "AC Display Bold";
+    font-size: 30px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+/*Заголовок 3*/
+h3 {
+    font-family: "AC Display";
+    font-size: 20px;
+    text-decoration-style: double;
+    text-align: left;
+    text-transform: uppercase; /* Заглавные буквы */
+    margin: 0;
+}
+
+/*Заголовок 4*/
+h4 {
+    font-family: "AC Display";
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+}
+
+/*Заголовок 5*/
+h5 {
+    font-family: "AC Display";
+    font-size: 25px;
+    text-decoration-style: double;
+    margin: 0;
+}
+
 /*Шапка сайта*/
 header {
-    font-family: "Book", sans-serif;
+    font-family: "AC Display";
+    text-transform: uppercase; /* Заглавные буквы */
+    font-size: 15px;
     position: relative;
     margin-bottom: 40px;
     width: 100%;
@@ -138,52 +187,6 @@ header {
     color: white;
 }
 
-/*Заголовок 1*/
-h1 {
-    font-family: "Book", sans-serif;
-    font-size: 45px;
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #1a46be;
-    text-align: center;
-}
-
-/*Заголовок 2*/
-h2 {
-    font-family: "Book", sans-serif;
-    font-size: 30px;
-    margin-top: 0px;
-    margin-bottom: 10px;
-}
-
-/*Заголовок 3*/
-h3 {
-    font-family: "Book_BI", sans-serif;
-    font-size: 20px;
-    text-decoration-style: double;
-    text-align: left;
-    text-transform: uppercase; /* Заглавные буквы */
-    margin: 0;
-}
-
-/*Заголовок 4*/
-h4 {
-    font-family: "Exo", sans-serif;
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: white;
-    text-align: center;
-    font-size: 40px;
-}
-
-/*Заголовок 5*/
-h5 {
-    font-family: "Book_BI", sans-serif;
-    font-size: 25px;
-    text-decoration-style: double;
-    margin: 0;
-}
-
 /*Надпись в виде кнопки (заголовки таблиц в медиа)*/
 .btn_look {
     width: auto;
@@ -199,7 +202,9 @@ h5 {
     display: inherit;
     width: 220px;
     margin: 20px 0px 20px 0px;
-    font-family: "Book", sans-serif;
+    font-family: "AC Display", sans-serif;
+    text-transform: uppercase; /* Заглавные буквы */
+    font-size: 15px;
 }
 
 /*блок в блоке меню*/

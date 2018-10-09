@@ -32,8 +32,9 @@ switch ($style) { //Выбираем файл стилей в зависимос
         <meta charset="utf-8">
         <meta name="yandex-verification" content="61a6d318bbae3657" />
 		<title>"Церковь Божья" Кострома</title>
-        <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="<?=$style_file?>">
+        <link rel="stylesheet" href="styles.css">
+        
         <link rel="shortcut icon" href="i/gc.png">
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
         

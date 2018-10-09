@@ -24,15 +24,19 @@ else { //Иначе
 
 <div class="cent">
     <div class="content">
-        <h1>Новости</h1> <!--Заголовок-->
+        
 
         <div class = "Text">
             <?php if ($id != 0) { //Если одна статья ?>
-            <h3><?=$news[0]['title']?></h3>
+            <h1><?=$news[0]['title']?></h1>
             <div class="space"></div>
-            <div class="date_publ">Опубликовано: <?=$news[0]['date']?></div>
             <table>
                 <tbody>
+                    <tr>
+                        <td colspan="100%">
+                            <p class="date_publ">Опубликовано: <?=$news[0]['date']?></p>
+                        </td>
+                    </tr>
                     <tr>
                         <?php if ($news[0]['img1'] != NULL) { // Если есть первое изображение ?>
                         <td class="enum">
@@ -110,6 +114,8 @@ else { //Иначе
             </table>
 
             <?php } else { //Иначе, если список статей ?>
+            <h1>Новости</h1> <!--Заголовок-->
+            
             <table>
                 <tbody>
                     <?php for($t = 0; $t < count($news); $t += 3): //Для каждого элемента списка новостей с шагом три ?>
