@@ -31,10 +31,8 @@ function run_command($link, $query) {
 
 //Функция загрузки файла на сервер
 function upload_file($file, $puth, $size=400, $link, $type) {
-    $tbl = get_table($link, "SELECT pref FROM info"); //Брем значение префикса из базы
-    $s = $tbl[0]['pref']; //Записываем в пременную
     
-    if ($s == '') $s = 0; //Если префикс пустой, присваиваем значение ноль.
+    $s = date("ymdHi"); //Записываем в переменную дату и время для префикса
     
     if ($file['name'] != '') { //Если имя файла не пустое
 
@@ -71,19 +69,13 @@ function upload_file($file, $puth, $size=400, $link, $type) {
     }
     else $name = NULL; //Иначе имя равно NULL
     
-    $s += 1; //Увеличиваем префикс на 1
-    run_command($link, "UPDATE info SET pref=".$s); //Записываем новый префикс в базу
-    
     return $name; //Возвращаем имя файла
 }
 
 //Функция загрузки файлов на сервер
 function upload_files($files, $puth, $size=400, $link, $type) {
     
-    $tbl = get_table($link, "SELECT pref FROM info"); //Брем значение префикса из базы
-    $s = $tbl[0]['pref']; //Записываем в пременную
-    
-    if ($s == '') $s = 0; //Если префикс пустой, присваиваем значение ноль.
+    $s = date("ymdHi"); //Записываем в переменную дату и время для префикса
     
     $nm = array();
     
@@ -126,9 +118,6 @@ function upload_files($files, $puth, $size=400, $link, $type) {
         } 
     }
     else $nm = NULL; //Иначе переменная равна нулю
-    
-    $s += 1; //Увеличиваем префикс на 1
-    run_command($link, "UPDATE info SET pref=".$s); //Записываем новый префикс в базу
     
     return $nm;
 }
