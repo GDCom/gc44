@@ -1,82 +1,37 @@
-/*Основной фон страницы*/
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Raleway-Light";
-    font-size: 18px;
-    background-attachment: fixed;
-    background-size: cover;
-    background-blend-mode: lighten;
-}
-
 /*Заголовок 1*/
 h1 {
-    font-family: "AC Display Bold";
-    font-size: 45px;
-    margin-top: 0;
-    margin-bottom: 10px;
     color: #184a6f;
-    text-align: center;
 }
 
 /*Заголовок 2*/
 h2 {
-    font-family: "AC Display Bold";
-    font-size: 30px;
-    margin-top: 0px;
-    margin-bottom: 10px;
+    color: #2a588e;
 }
 
 /*Заголовок 3*/
 h3 {
-    font-family: "AC Display";
-    font-size: 20px;
-    text-decoration-style: double;
-    text-align: left;
-    text-transform: uppercase; /* Заглавные буквы */
-    margin: 0;
+    color: #2a588e;
 }
 
 /*Заголовок 4*/
 h4 {
-    font-family: "AC Display";
-    margin-top: 0;
-    margin-bottom: 10px;
     color: white;
-    text-align: center;
-    font-size: 40px;
 }
 
 /*Заголовок 5*/
 h5 {
-    font-family: "AC Display";
-    font-size: 25px;
-    text-decoration-style: double;
-    margin: 0;
+    color: #2a588e;
+}
+
+/*Заголовок 6*/
+h6 {
+    color: white;
 }
 
 /*Шапка сайта*/
 header {
-    font-family: "AC Display";
-    text-transform: uppercase; /* Заглавные буквы */
-    font-size: 15px;
-    position: relative;
-    margin-bottom: 40px;
-    width: 100%;
-    height: 80px;
-    min-height: 70px;
-    padding: 0;
     background-color: rgb(103, 185, 237);
-    border: 3px;
     border-bottom-style: ridge;
-    vertical-align: top;
-}
-
-/*Изображения в шапке*/
-.head_main img {
-    display: block;
-    margin: auto;
-    height: 98%;
 }
 
 /*Блок для изображения значка в круге*/
@@ -86,7 +41,7 @@ header {
     width: 120px;
     text-align: center;
     vertical-align: middle;
-    margin: 5px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
     padding: 0;
     background: rgb(83, 109, 139);
     border-radius: 50%;
@@ -104,81 +59,15 @@ header {
     display: block;
 }
 
-/*Блок поискового запроса*/
-.search {
-    top: 50px;
-    right: 10px;
-}
-
 /*Сноска в кнопке*/
 .button a {
-    display: block;
-    margin: -2px 5px 10px 5px;
-    width: 70px;
-    height: 25px;
-    float: right;
     color: #fafafa;
     background-color: rgb(92, 118, 178);
-    padding: 7px;
-    text-decoration: none;
-    text-align: center;
-    vertical-align: middle;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    overflow: hidden;
-    
-    border: 2px;
-    border-style: outset;
-    
-    animation: width_menu_in 0.5s linear;
 }
 
 /*При наведении на ссылку в кнопке*/
 .button a:hover {
-    display: block;
     background-color: rgb(40, 59, 141);
-    width: 130px;
-    text-align: center;
-    padding: 7px;
-    
-    /*Анимация*/
-    border-bottom-left-radius: 40%;
-    border-bottom-right-radius: 40%;
-    animation: width_menu_out 0.5s linear;
-}
-
-/*Анимация расширения кнопки меню*/
-@keyframes width_menu_out {
-    from {
-        width: 70px;
-        display: none;
-        border-bottom-left-radius: 50%;
-        border-bottom-right-radius: 50%;
-    }
-    
-    to {
-        width: 130px;
-        display: block;
-        border-bottom-left-radius: 40%;
-        border-bottom-right-radius: 40%;
-    }
-}
-
-/*Анимация возвращения кнопки меню в исходное состояние*/
-@keyframes width_menu_in {
-    from {
-        width: 130px;
-        display: block;
-        border-bottom-left-radius: 40%;
-        border-bottom-right-radius: 40%;
-    }
-    
-    to {
-        width: 70px;
-        display: none;
-        border-bottom-left-radius: 50%;
-        border-bottom-right-radius: 50%;
-    }
 }
 
 /*Шапка админинки*/
@@ -195,50 +84,22 @@ header {
     border-style: groove;
     padding: 5px;
     border-radius: 50px;
-}
-
-/*Меню слева*/
-.Menu {
-    display: inherit;
-    width: 220px;
-    margin: 20px 0px 20px 0px;
-    font-family: "AC Display", sans-serif;
-    text-transform: uppercase; /* Заглавные буквы */
-    font-size: 15px;
-}
-
-/*блок в блоке меню*/
-.Menu div {
-    width: 180px;
-    position: relative;
-    margin: 0px 20px 0px 0px;
+    font-family: "AC Display Bold";
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
 /*Ссылка в блоке меню*/
 .Menu a {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 5px 5px 5px -2px;
     background-color: rgb(92, 118, 178);
-    border: 2px;
-    border-style: outset;
     border-color: white;
     color: #fafafa;
-    float: left;
-    text-decoration: none;
-    border-bottom-right-radius: 50px;
-    border-top-right-radius: 50px;
-    
-    transition: all 0.5s;
 }
 
 /*При наведении на ссылку в меню*/
 .Menu a:hover {
     background-color: rgb(40, 59, 141);
-    /*Анимация*/
-    transition: all 0.5s;
-    padding-left: 25px;
 }
 
 /*Подменю*/
@@ -264,6 +125,11 @@ header {
     width: 80%;
 }
 
+/*Задний фон для табличного списка админки*/
+.tbl_back {
+    background-color: #2b57aa;
+}
+
 /*разделяющий цветной блок*/
 .color_space {
     display: block;
@@ -272,55 +138,6 @@ header {
     background-color: rgb(103, 185, 237);
     border-radius: 50px;
     border-style: ridge;
-}
-
-/*Формы создания и редактирования в админке*/
-.form-item {
-    display: block;
-    margin: 0px 0px 15px 0px;
-    width: 250px;
-    border-radius: 5px;
-    padding: 3px;
-    border-color: #9b9b9b;
-    border-style: outset;
-    border-width: thin;
-}
-
-/*Текстовое поле в форме создания и редактирования в админке*/
-.form-item-ta {
-    display: block;
-    margin: 0px 0px 15px 0px;
-    min-width: 500px;
-    max-width: 500px;
-    height: 200px;
-    min-height: 200px;
-    border-radius: 5px;
-    padding: 3px;
-    border-style: outset;
-    border-color: #9b9b9b;
-}
-
-/*Текстовое поле в форме написания сообщения*/
-.form-item-mail {
-    display: block;
-    margin: 0px 0px 15px 0px;
-    width: 400px;
-    min-width: 400px;
-    max-width: 400px;
-    height: 150px;
-    min-height: 150px;
-    border-radius: 5px;
-    padding: 3px;
-    border-style: outset;
-    border-color: #9b9b9b;
-}
-
-/*Кнопка (на странице ввода и редактирования статей и файлов)*/
-.btn {
-    border-radius: 7px;
-    padding: 7px;
-    color: #fafafa;
-    background-color: #9b9b9b;
 }
 
 /*Подвал*/

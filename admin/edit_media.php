@@ -52,6 +52,7 @@ $albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER
 
 <h2><?=$podp?></h2>
 <form method="post" action="index.php?page=media&action=<?=$action?>&type=<?=$type?>&id=<?=$id?>" enctype="multipart/form-data">
+    <br>
     <?php switch ($type) { //Для каждого типа
         case 'foto': //Фото ?>
             <label>

@@ -45,7 +45,7 @@ switch ($style) { //Выбираем файл стилей в зависимос
         
         <script src="/js/scripts.js"></script>
         <script src="/js/script_fancy.js"></script>
-        <script>$(function(){$('h3').hyphenate();})</script>
+        <script>$(function(){$('.Text').hyphenate();})</script>
         
         
         <!-- Yandex.Metrika counter -->
@@ -76,7 +76,7 @@ switch ($style) { //Выбираем файл стилей в зависимос
             })(document, window, "yandex_metrika_callbacks2");
         </script>
         <noscript><div><img src="https://mc.yandex.ru/watch/49157065" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
+        <!-- Yandex.Metrika counter -->
 	</head>
 	<body>
         <header>
@@ -87,62 +87,62 @@ switch ($style) { //Выбираем файл стилей в зависимос
                 <div class="button">
                     <a href="index.php?page=contacts" title="Контакты">
                         <div class="top_menu">
-                            <div class="top_menu1">
-                                <img src="i/contacts.png">
-                            </div>
                             <div class="top_menu2">
                                 Контакты
+                            </div>
+                            <div class="top_menu1">
+                                <img src="i/contacts.png">
                             </div>
                         </div>
                     </a>
                     <!--<a href="index.php?page=prayerwall">Молитва</a>-->
                     <a href="index.php?page=media&type=foto" title="Медиаматериалы">
                         <div class="top_menu">
-                            <div class="top_menu1">
-                                <img src="i/media.png">
-                            </div>
                             <div class="top_menu2">
                                 Медиа
+                            </div>
+                            <div class="top_menu1">
+                                <img src="i/media.png">
                             </div>
                         </div>
                     </a>
                     <a href="index.php?page=ministry&id=0" title="Служения">
                         <div class="top_menu">
-                            <div class="top_menu1">
-                                <img src="i/ministry.png">
-                            </div>
                             <div class="top_menu2">
                                 Служения
+                            </div>
+                            <div class="top_menu1">
+                                <img src="i/ministry.png">
                             </div>
                         </div>
                     </a>
                     <a href="index.php?page=news&id=0" title="Новости">
                         <div class="top_menu">
-                            <div class="top_menu1">
-                                <img src="i/news.png">
-                            </div>
                             <div class="top_menu2">
                                 Новости
+                            </div>
+                            <div class="top_menu1">
+                                <img src="i/news.png">
                             </div>
                         </div>
                     </a>
                     <a href="index.php?page=church&id=0" title="Церковь">
                         <div class="top_menu">
-                            <div class="top_menu1">
-                                <img src="i/church.png">
-                            </div>
                             <div class="top_menu2">
                                 Церковь
+                            </div>
+                            <div class="top_menu1">
+                                <img src="i/church.png">
                             </div>
                         </div>
                     </a>
                     <a href="index.php" title="Главная">
                         <div class="top_menu">
-                            <div class="top_menu1">
-                                <img src="i/home.png">
-                            </div>
                             <div class="top_menu2">
                                 Главная
+                            </div>
+                            <div class="top_menu1">
+                                <img src="i/home.png">
                             </div>
                         </div>
                     </a>
@@ -158,7 +158,6 @@ switch ($style) { //Выбираем файл стилей в зависимос
                     <div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'http://gc44.ru/index.php?page=result','arrow':false,'bg':'transparent','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'Поиск по сайту gc44','suggest':true,'target':'_self','tld':'ru','type':2,'usebigdictionary':true,'searchid':2329906,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'поиск','input_placeholderColor':'#818181','input_borderColor':'#7f9db9'}"><form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2329906"/><input type="hidden" name="l10n" value="ru"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value=""/><input type="submit" value="Найти"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
                 </div>
             </div>
-            
          </header>
         <div class="WithMenu">
             <?php

@@ -91,11 +91,12 @@ $news = get_table($link, "SELECT * FROM `news` Order By id DESC LIMIT ".($pn-1)*
 
 <h2>Создание и редактирование раздела "Новости"</h2>
 
-<a href="index.php?page=edit_news&mode=new"><img src="../i/add.ico" height="40px" title="Создать новую запись"></a><br><br>
+<div class="space"></div>
+
+<a href="index.php?page=edit_news&mode=new" class="arrow"><img src="../i/add.ico" height="40px" title="Создать новую запись"></a>
 
 <table class="list_back_admin">
     <tbody>
-        <!--Шапка таблицы-->
         <tr class="listHead">
             <td>
                 <b>Заголовок</b>
@@ -104,7 +105,6 @@ $news = get_table($link, "SELECT * FROM `news` Order By id DESC LIMIT ".($pn-1)*
                 <b>Дата публикации</b>
             </td>
         </tr>
-        <!--Данные-->
         <?php foreach($news as $a): ?>
         <tr>
             <td class="list_text">

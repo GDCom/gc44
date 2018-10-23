@@ -1,79 +1,36 @@
 /*Основной фон страницы*/
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Raleway-Light";
-    font-size: 18px;
     background-image: linear-gradient(rgba(160, 160, 160, 0.5), rgba(160, 160, 160, 0.5)), url(i/fon.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    background-blend-mode: lighten;
 }
 
 /*Заголовок 1*/
 h1 {
-    font-family: "AC Display Bold";
-    font-size: 45px;
-    margin-top: 0;
-    margin-bottom: 10px;
     color: #184a6f;
-    text-align: center;
 }
 
 /*Заголовок 2*/
 h2 {
-    font-family: "AC Display Bold";
-    font-size: 30px;
-    margin-top: 0px;
-    margin-bottom: 10px;
+    
 }
 
 /*Заголовок 3*/
 h3 {
-    font-family: "AC Display";
-    font-size: 20px;
-    text-decoration-style: double;
-    text-align: left;
-    text-transform: uppercase; /* Заглавные буквы */
-    margin: 0;
+
 }
 
 /*Заголовок 4*/
 h4 {
-    font-family: "AC Display";
-    margin-top: 0;
-    margin-bottom: 10px;
     color: white;
-    text-align: center;
-    font-size: 40px;
 }
 
 /*Заголовок 5*/
 h5 {
-    font-family: "AC Display";
-    font-size: 25px;
-    text-decoration-style: double;
-    margin: 0;
+    
 }
 
 /*Шапка сайта*/
 header {
-    font-family: "AC Display";
-    position: relative;
-    width: 100%;
-    height: 120px;
-    min-height: 70px;
-    padding: 0;
-    vertical-align: top;
-    background: rgba(0,0,0, 0.5), url(i/header.png);
-    
-}
-
-/*Изображения в шапке*/
-.head_main img {
-    display: block;
-    margin: auto;
-    height: 98%;
+    background: rgba(0,0,0, 0.5), url(i/header.png); 
 }
 
 /*Блок для изображения значка в круге*/
@@ -93,81 +50,15 @@ header {
     background: rgba(111, 107, 107, 0.41);
 }
 
-/*Блок поискового запроса*/
-.search {
-    top: 70px;
-    right: 10px;
-}
-
 /*Сноска в кнопке*/
 .button a {
-    display: block;
-    margin: -2px 5px 10px 5px;
-    width: 70px;
-    height: 25px;
-    float: right;
     color: #fafafa;
     background-color: #9b9b9b;
-    padding: 7px;
-    text-decoration: none;
-    text-align: center;
-    vertical-align: middle;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    overflow: hidden;
-    
-    border: 2px;
-    border-style: outset;
-    
-    animation: width_menu_in 0.5s linear;
 }
 
 /*При наведении на ссылку в кнопке*/
 .button a:hover {
-    display: block;
     background-color: #212d89;
-    width: 130px;
-    text-align: center;
-    padding: 7px;
-    
-    /*Анимация*/
-    border-bottom-left-radius: 40%;
-    border-bottom-right-radius: 40%;
-    animation: width_menu_out 0.5s linear;
-}
-
-/*Анимация расширения кнопки меню*/
-@keyframes width_menu_out {
-    from {
-        width: 70px;
-        display: none;
-        border-bottom-left-radius: 50%;
-        border-bottom-right-radius: 50%;
-    }
-    
-    to {
-        width: 130px;
-        display: block;
-        border-bottom-left-radius: 40%;
-        border-bottom-right-radius: 40%;
-    }
-}
-
-/*Анимация возвращения кнопки меню в исходное состояние*/
-@keyframes width_menu_in {
-    from {
-        width: 130px;
-        display: block;
-        border-bottom-left-radius: 40%;
-        border-bottom-right-radius: 40%;
-    }
-    
-    to {
-        width: 70px;
-        display: none;
-        border-bottom-left-radius: 50%;
-        border-bottom-right-radius: 50%;
-    }
 }
 
 /*Шапка админинки*/
@@ -184,48 +75,19 @@ header {
     border-style: groove;
     padding: 5px;
     border-radius: 50px;
-}
-
-/*Меню слева*/
-.Menu {
-    display: inherit;
-    width: 220px;
-    margin: 20px 0px 20px 0px;
-    font-family: "AC Display", sans-serif;
-}
-
-/*блок в блоке меню*/
-.Menu div {
-    width: 180px;
-    position: relative;
-    margin: 0px 20px 0px 0px;
+    text-align: center;
 }
 
 /*Ссылка в блоке меню*/
 .Menu a {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 5px 5px 5px -2px;
     background-color: #717171;
-    border: 2px;
-    border-style: outset;
     border-color: white;
     color: #fafafa;
-    float: left;
-    text-decoration: none;
-    border-bottom-right-radius: 50px;
-    border-top-right-radius: 50px;
-    
-    transition: all 0.5s;
 }
 
 /*При наведении на ссылку в меню*/
 .Menu a:hover {
     background-color: #212d89;
-    /*Анимация*/
-    transition: all 0.5s;
-    padding-left: 25px;
 }
 
 /*Подменю*/
@@ -259,55 +121,6 @@ header {
     background-color: rgb(201, 201, 201);
     border-radius: 50px;
     border-style: ridge;
-}
-
-/*Формы создания и редактирования в админке*/
-.form-item {
-    display: block;
-    margin: 0px 0px 15px 0px;
-    width: 250px;
-    border-radius: 5px;
-    padding: 3px;
-    border-color: #9b9b9b;
-    border-style: outset;
-    border-width: thin;
-}
-
-/*Текстовое поле в форме создания и редактирования в админке*/
-.form-item-ta {
-    display: block;
-    margin: 0px 0px 15px 0px;
-    min-width: 500px;
-    max-width: 500px;
-    height: 200px;
-    min-height: 200px;
-    border-radius: 5px;
-    padding: 3px;
-    border-style: outset;
-    border-color: #9b9b9b;
-}
-
-/*Текстовое поле в форме написания сообщения*/
-.form-item-mail {
-    display: block;
-    margin: 0px 0px 15px 0px;
-    width: 400px;
-    min-width: 400px;
-    max-width: 400px;
-    height: 150px;
-    min-height: 150px;
-    border-radius: 5px;
-    padding: 3px;
-    border-style: outset;
-    border-color: #9b9b9b;
-}
-
-/*Кнопка (на странице ввода и редактирования статей и файлов)*/
-.btn {
-    border-radius: 7px;
-    padding: 7px;
-    color: #fafafa;
-    background-color: #9b9b9b;
 }
 
 /*Подвал*/

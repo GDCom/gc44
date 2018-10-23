@@ -45,6 +45,8 @@ if (isset($_GET['type'])) { //Если передаваемая переменн
 
 <h2>Редактирование статей в разделе "Церковь"</h2>
 
+<div class="space"></div>
+
 <table class="list_back_admin">
     <tbody>
         <tr class="listHead">
