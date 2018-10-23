@@ -13,50 +13,42 @@ if (isset($_GET['type']) && isset($_POST['article'])) { //Если переме�
 
 <h2>Редактирование основных блоков информации на сайте</h2>
 
-<table class="list_back_admin">
-    <tbody>
-        <tr class="listHead">
-            <td><b>Блок</b></td>
-        </tr>
-        <tr>
-            <td class="list_text_one">
-                Социальная концепция
-            </td>
-            <td class="list_but">
-                <a href="index.php?page=edit_info&type=concept"><img src="../i/edit.ico" title="Редактировать"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="list_text_one">
-                Богослужения
-            </td>
-            <td class="list_but">
-                <a href="index.php?page=edit_info&type=service"><img src="../i/edit.ico" title="Редактировать"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="list_text_one">
-                Контактные данные
-            </td>
-            <td class="list_but">
-                <a href="index.php?page=edit_info&type=contacts"><img src="../i/edit.ico" title="Редактировать"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="list_text_one">
-                Карта
-            </td>
-            <td class="list_but">
-                <a href="index.php?page=edit_info&type=map"><img src="../i/edit.ico" title="Редактировать"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="list_text_one">
-                Напишите нам
-            </td>
-            <td class="list_but">
-                <a href="index.php?page=edit_info&type=mailus"><img src="../i/edit.ico" title="Редактировать"></a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="space"></div>
+
+<div class="tbl_back">
+    <div class="tbl_title">
+        <b>Блок</b>
+    </div>
+    <div class="tbl-2">
+        <div class="col-1">
+            Социальная концепция
+        </div>
+        <div class="col-last">
+            <a href="index.php?page=edit_info&type=concept"><img src="../i/edit.ico" title="Редактировать"></a>
+        </div>
+        <div class="col-1">
+            Богослужения
+        </div>
+        <div class="col-last">
+            <a href="index.php?page=edit_info&type=service"><img src="../i/edit.ico" title="Редактировать"></a>
+        </div>
+        <div class="col-1">
+            Контактные данные
+        </div>
+        <div class="col-last">
+            <a href="index.php?page=edit_info&type=contacts"><img src="../i/edit.ico" title="Редактировать"></a>
+        </div>
+        <div class="col-1">
+            Карта
+        </div>
+        <div class="col-last">
+            <a href="index.php?page=edit_info&type=map"><img src="../i/edit.ico" title="Редактировать"></a>
+        </div>
+        <div class="col-1">
+            Напишите нам
+        </div>
+        <div class="col-last">
+            <a href="index.php?page=edit_info&type=mailus"><img src="../i/edit.ico" title="Редактировать"></a>
+        </div>
+    </div>
+</div>

@@ -37,93 +37,40 @@ else { //Иначе статья про конкретное служение
         <div class = "content">
             <?php if($id == 0) { //Если массив больше одной строки (весь список служений) ?>
             <h1>Служения</h1>
-            <table>
-                <tbody>
-                    <?php for($i = 0; $i < count($ministry); $i += 3) { //Для каждого элемена массива с шагом три ?>
-                    <tr>
-                        <td class="enum">
-                            <h3><?=$ministry[$i]['title']?></h3>
-                        </td>
-                        <td class="enum">
-                            <?php if($i + 1 < count($ministry)) {?>
-                            <h3><?=$ministry[$i + 1]['title']?></h3>
-                            <?php }?>
-                        </td>
-                        <td class="enum">
-                            <?php if($i + 2 < count($ministry)) {?>
-                            <h3><?=$ministry[$i + 2]['title']?></h3>
-                            <?php }?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="enum">
-                            <div>
-                                <a href="index.php?page=<?=$page?>&id=<?=$ministry[$i]['id']?>&p=<?=$pn?>">
-                                    <div class="rect1_32">
-                                        <div class="rect2_32">
-                                            <img src="img/m/smal_<?=$ministry[$i]['img']?>">
-                                        </div>
-                                    </div>
-                                </a>
+                        
+            <div class="grid-3">
+                <?php for($i = 0; $i < count($ministry); $i++) { //Для каждого элемена массива с шагом три ?>
+                <div class="grid_cell">
+                    <a href="index.php?page=<?=$page?>&id=<?=$ministry[$i]['id']?>&p=<?=$pn?>">
+                        <div class="rect1_32">
+                            <div class="rect2_32">
+                                <img src="img/m/smal_<?=$ministry[$i]['img']?>">
                             </div>
-                        </td>
-                        <td class="enum">
-                            <?php if($i + 1 < count($ministry)) {?>
-                            <div>
-                                <a href="index.php?page=<?=$page?>&id=<?=$ministry[$i + 1]['id']?>&p=<?=$pn?>">
-                                    <div class="rect1_32">
-                                        <div class="rect2_32">
-                                            <img src="img/m/smal_<?=$ministry[$i + 1]['img']?>">
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <?php }?>
-                        </td>
-                        <td class="enum">
-                            <?php if($i + 2 < count($ministry)) {?>
-                            <div>
-                                <a href="index.php?page=<?=$page?>&id=<?=$ministry[$i + 2]['id']?>&p=<?=$pn?>">
-                                    <div class="rect1_32">
-                                        <div class="rect2_32">
-                                            <img src="img/m/smal_<?=$ministry[$i + 2]['img']?>">
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <?php }?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="space"></div>
-                        </td>
-                    </tr>
-                    <?php }?>
-                </tbody>
-            </table>
-                    
+                        </div>
+                    </a>
+                    <h3><?=$ministry[$i]['title']?></h3>
+                </div>
+                <?php }?>
+            </div>
+            
             <?php } else { //Иначе, если выбрано одно служение ?>
-            <table>
-                <tbody>
-                    <h1><?=$ministry[0]['title']?></h1> <!--Заголовок-->
-                    <tr>
-                        <td class="foto1">
-                             <!--Фотка-->
-                            <a rel="group" href="img/<?=$ministry[0]['img']?>" class="prevew">
-                                <img src="img/m/smal_<?=$ministry[0]['img']?>">
-                            </a>
-                            <div class="sign"><?=$ministry[0]['alt']?></div> <!--Подпись к фото-->
-                        </td>
-                        <td class="enum_min">
-                            <?=$ministry[0]['content']?> <!--Описание-->
-                        </td>
-                    </tr>
-                    <?php }?>
-                </tbody>
-            </table>
-
-             <!--Навигация по страницам-->
+            
+            <h1><?=$ministry[0]['title']?></h1>
+            
+            <div class="Text">
+                <div class="articl_img">
+                    <a rel="group" href="img/<?=$ministry[0]['img']?>" class="prevew">
+                        <img src="img/m/smal_<?=$ministry[0]['img']?>">
+                    </a>
+                    <div class="sign"><?=$ministry[0]['alt']?></div>
+                </div>
+                <div class="articl_text">
+                    <?=$ministry[0]['content']?>
+                </div>
+            </div>
+            <?php }?>
+            
+            <!--Навигация по страницам-->
             <?php if ($pc > 1) { //Если страниц больше одной ?>
             <?php
             if ($pc >= 7) { //Если количество страниц больше либо равно 7
@@ -165,9 +112,10 @@ else { //Иначе статья про конкретное служение
             <div class="space"></div>
             <?php }?>
             <!--Конец навигации по страницам-->
+            
             <?php if ($id != 0) { //Если есть выбранное служение ?>
             <div class="space"></div>
-            <a href="index.php?page=<?=$page?>&p=<?=$pn?>"><img src="i/back.ico" width="40px" title="Вернуться к списку служений"></a><br><br>
+            <a href="index.php?page=<?=$page?>&p=<?=$pn?>" class="arrow"><img src="i/back.ico" width="40px" title="Вернуться к списку служений"></a><br><br>
             <?php }?>
         </div>
     </div>

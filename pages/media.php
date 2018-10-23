@@ -66,147 +66,44 @@ if (isset($_GET['type'])) {
 <div class="cent">
     <div class="content">
         <h1><?=$podp?></h1>
+        <div class="space"></div>
         <?php if ($album != '') { //Если выбран альбом, показываем кнопку к списку альбомов ?>
-        <a href="index.php?page=<?=$page?>&type=<?=$type?>&pa=<?=$pna?>"><img src="i/back.ico" width="40px" title="Вернуться к списку альбомов"></a><br><br>
+        <a href="index.php?page=<?=$page?>&type=<?=$type?>&pa=<?=$pna?>" class="arrow"><img src="i/back.ico" width="40px" title="Вернуться к списку альбомов"></a>
         <?php }?>
         <?php if (count($array['album']) > 0) { //Если массив не пустой ?>
         <?php if ($album == '') { //Если альбом не выбран ?>
-        <table class="listBack">
-            <tbody>
-               <tr class="listHead">
-                    <td colspan="100%">
-                        <div class="btn_look">
-                            <b>Альбомы</b>
+        <div class="btn_look">
+            <b>Альбомы</b>
+        </div>
+        <div class="grid-5">
+            <?php for($i = 0; $i < count(dapost($array['album'])); $i++) { //Для каждого альбома ?>
+            <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i]?>&pa=<?=$pna?>">
+                <div class="grid_cell">
+                    <?php if ($type == 'foto') { //Если тип данных фото ?>
+                    <div class="alb_main">
+                        <div class="sq1">
+                            <div class="sq2">
+                                <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i])?>">
+                            </div>
                         </div>
-                   </td>
-                </tr>
-                <?php for($i = 0; $i < count(dapost($array['album'])); $i +=5) { //Для каждого альбома ?>
-                <tr>
-                    <td class="enum5">
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i]?>&pa=<?=$pna?>">
-                            <?php if ($type == 'foto') { //Если тип данных фото ?>
-                            <div class="alb_main">
-                                <div class="sq1">
-                                    <div class="sq2">
-                                        <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i])?>">
-                                    </div>
-                                </div>
-                                <div class="alb_title"><?=$array['album'][$i]?></div>
-                            </div>
-                            <?php }
-                            else { //Иначе ?>
-                            <div class="sq1">
-                                <div class="sq2">
-                                    <img src="../i/folder.png">
-                                </div>
-                            </div>
-                            <div><?=$array['album'][$i]?></div>
-                            <?php }?>                            
-                        </a>
-                    </td>
-                    <td class="enum5">
-                        <?php if ($i + 1 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i+1]?>&pa=<?=$pna?>">
-                            <?php if ($type == 'foto') { //Если тип данных фото ?>
-                            <div class="alb_main">
-                                <div class="sq1">
-                                    <div class="sq2">
-                                        <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+1])?>">
-                                    </div>
-                                </div>
-                                <div class="alb_title"><?=$array['album'][$i+1]?></div>
-                            </div>
-                            <?php }
-                            else { //Иначе ?>
-                            <div class="sq1">
-                                <div class="sq2">
-                                    <img src="../i/folder.png">
-                                </div>
-                            </div>
-                            <div><?=$array['album'][$i+1]?></div>
-                            <?php }?>
-                        </a>
-                        <?php }?>
-                    </td>
-                    <td class="enum5">
-                        <?php if ($i + 2 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i+2]?>&pa=<?=$pna?>">
-                            <?php if ($type == 'foto') { //Если тип данных фото ?>
-                            <div class="alb_main">
-                                <div class="sq1">
-                                    <div class="sq2">
-                                        <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+2])?>">
-                                    </div>
-                                </div>
-                                <div class="alb_title"><?=$array['album'][$i+2]?></div>
-                            </div>
-                            <?php }
-                            else { //Иначе ?>
-                            <div class="sq1">
-                                <div class="sq2">
-                                    <img src="../i/folder.png">
-                                </div>
-                            </div>
-                            <div><?=$array['album'][$i+2]?></div>
-                            <?php }?>
-                        </a>
-                        <?php }?>
-                    </td>
-                    <td class="enum5">
-                        <?php if ($i + 3 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i+3]?>&pa=<?=$pna?>">
-                            <?php if ($type == 'foto') { //Если тип данных фото ?>
-                            <div class="alb_main">
-                                <div class="sq1">
-                                    <div class="sq2">    
-                                        <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+3])?>">
-                                    </div>
-                                </div>
-                                <div class="alb_title"><?=$array['album'][$i+3]?></div>
-                            </div>
-                            <?php }
-                            else { //Иначе ?>
-                            <div class="sq1">
-                                <div class="sq2">
-                                    <img src="../i/folder.png">
-                                </div>
-                            </div>
-                            <div><?=$array['album'][$i+3]?></div>
-                            <?php }?>
-                        </a>
-                        <?php }?>
-                    </td>
-                    <td class="enum5">
-                        <?php if ($i + 4 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i+4]?>&pa=<?=$pna?>">
-                            <?php if ($type == 'foto') { //Если тип данных фото ?>
-                            <div class="alb_main">
-                                <div class="sq1">
-                                    <div class="sq2">
-                                        <img src="media/<?=$type?>/m/smal_<?=dapost($array['main'][$i+4])?>">
-                                    </div>
-                                </div>
-                                <div class="alb_title"><?=$array['album'][$i+4]?></div>
-                            </div>
-                            <?php }
-                            else { //Иначе ?>
-                            <div class="sq1">
-                                <div class="sq2">
-                                    <img src="../i/folder.png">
-                                </div>
-                            </div>
-                            <div><?=$array['album'][$i+4]?></div>
-                            <?php }?>
-                        </a>
-                        <?php }?>
-                    </td>
-                </tr>
-                <?php }?>
-            </tbody>
-        </table>
-
+                        <div class="alb_title"><?=$array['album'][$i]?></div>
+                    </div>
+                    <?php }
+                    else { //Иначе ?>
+                    <div class="sq1">
+                        <div class="sq2">
+                            <img src="../i/folder.png">
+                        </div>
+                    </div>
+                    <div><?=$array['album'][$i]?></div>
+                    <?php }?>
+                </div>
+            </a>
+            <?php }?>
+        </div>
+        
+        
         <!--Навигация по страницам-->
-        <div class="space"></div>
         <?php if ($pca > 1) { //Если страниц больше одной ?>
         <?php
         if ($pca >= 7) { //Если количество страниц больше либо равно 7
@@ -244,7 +141,6 @@ if (isset($_GET['type'])) {
             &hellip; <li class="page_list"><a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$t]?>&pa=<?=$pca?>">&gt;&gt;</a></li>
             <?php }?>
         </ul>
-        <div class="space"></div>
         <?php }?>
         <!--Конец навигации по страницам-->
 
@@ -252,108 +148,57 @@ if (isset($_GET['type'])) {
         <?php for($t = 0; $t < count($array['album']); $t++) { //Для каждого альбома ?>
         <?php if ($array['album'][$t] == $album) { //Если выбранный альбом равняется текущему ?>
         <?php $pc = $array['count'][$t]; //Кол-во страниц ?>
-        <table class="listBack">
-            <tbody>
-                <tr class="listHead">
-                    <td colspan="100%">
-                        <div class="btn_look">
-                            <b><?=$array['album'][$t]?></b>
-                        </div>
-                    </td>
-                </tr>
-                <?php $tbl = $array['table'][$t]; ?>
-                <?php switch ($type) {
-                    case 'foto': //Показ фоток ?>
-                    <?php for ($i = 0; $i < count($tbl); $i += 5) { //Для каждого элемента в альбоме ?>
-                        <tr class="listHead">
-                            <td class="enum5">
-                                <a rel="group" href="media/<?=$type?>/<?=dapost($tbl[$i]['file'])?>" class="prevew">
-                                    <div class="sq1">
-                                        <div class="sq2">
-                                            <img src="media/<?=$type?>/m/smal_<?=dapost($tbl[$i]['file'])?>">
-                                        </div>
-                                    </div>
-                                </a>
-                            </td>
-                            <td class="enum5">
-                                <?php if ($i + 1 < count($tbl)) { //Если не конец массива ?>
-                                <a rel="group" href="media/<?=$type?>/<?=dapost($tbl[$i+1]['file'])?>" class="prevew">
-                                    <div class="sq1">
-                                        <div class="sq2">
-                                            <img src="media/<?=$type?>/m/smal_<?=dapost($tbl[$i+1]['file'])?>">
-                                        </div>
-                                    </div>
-                                </a>
-                                <?php }?>
-                            </td>
-                            <td class="enum5">
-                                <?php if ($i + 2 < count($tbl)) { //Если не конец массива ?>
-                                <a rel="group" href="media/<?=$type?>/<?=dapost($tbl[$i+2]['file'])?>" class="prevew">
-                                    <div class="sq1">
-                                        <div class="sq2">
-                                            <img src="media/<?=$type?>/m/smal_<?=dapost($tbl[$i+2]['file'])?>">
-                                        </div>
-                                    </div>
-                                </a>
-                                <?php }?>
-                            </td>
-                            <td class="enum5">
-                                <?php if ($i + 3 < count($tbl)) { //Если не конец массива ?>
-                                <a rel="group" href="media/<?=$type?>/<?=dapost($tbl[$i+3]['file'])?>" class="prevew">
-                                    <div class="sq1">
-                                        <div class="sq2">
-                                            <img src="media/<?=$type?>/m/smal_<?=dapost($tbl[$i+3]['file'])?>">
-                                        </div>
-                                    </div>
-                                </a>
-                                <?php }?>
-                            </td>
-                            <td class="enum5">
-                                <?php if ($i + 4 < count($tbl)) { //Если не конец массива ?>
-                                <a rel="group" href="media/<?=$type?>/<?=dapost($tbl[$i+4]['file'])?>" class="prevew">
-                                    <div class="sq1">
-                                        <div class="sq2">
-                                            <img src="media/<?=$type?>/m/smal_<?=dapost($tbl[$i+4]['file'])?>">
-                                        </div>
-                                    </div>
-                                </a>
-                                <?php }?>
-                            </td>
-                        </tr>
+        
+        <div class="btn_look">
+            <b><?=$array['album'][$t]?></b>
+        </div>
+        
+        <?php $tbl = $array['table'][$t]; ?>
+        <?php switch ($type) {
+            case 'foto': //Показ фоток ?>
+                <div class="grid-5">
+                    <?php for ($i = 0; $i < count($tbl); $i++) { //Для каждого элемента в альбоме ?>
+                    <div class="grid_cell">
+                        <a rel="group" href="media/<?=$type?>/<?=dapost($tbl[$i]['file'])?>" class="prevew">
+                            <div class="sq1">
+                                <div class="sq2">
+                                    <img src="media/<?=$type?>/m/smal_<?=dapost($tbl[$i]['file'])?>">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                     <?php }?>
-                    <?php break;
-                    case 'video': //Показ видео ?>
-                    <?php for ($i = 0; $i < count($tbl); $i += 1) { //Для каждого элемента в альбоме ?>
-                        <tr class="listHead">
-                            <td class="enum">
-                                <?php $file = dapost(get_youtube($tbl[$i]['file'])); ?>
-                                <iframe class="video" src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen></iframe>
-                                <div class="invis"><?=dapost($tbl[$i]['name'])?></div>
-                            </td>
-                         </tr>
-                    <?php }?>
-                    <?php break;
-                    case 'audio': //Показ аудио ?>
+                </div>
+                <?php break;
+            case 'video': //Показ видео ?>
+                <div class="grid-1">
+                <?php for ($i = 0; $i < count($tbl); $i++) { //Для каждого элемента в альбоме ?>
+                <?php $file = dapost(get_youtube($tbl[$i]['file'])); ?>
+                        <iframe class="video" src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen></iframe>
+                        <div class="invis"><?=dapost($tbl[$i]['name'])?></div>
+                        <div class="space"></div>
+                <?php }?>
+                </div>
+                <?php break;
+            case 'audio': //Показ аудио ?>
+                <div class="grid-1">
                     <?php foreach($tbl as $a): ?>
-                    <tr>
-                        <td class="list_text">
-                             <audio controls class="audio">
+                    <div class="grid-2_40-60">
+                        <div>
+                            <audio controls class="audio">
                                 <source src="media/audio/<?=dapost($a['file'])?>">
                                 <p>Ваш браузер не поддерживает аудио</p>
-                             </audio>
-                        </td>
-                        <td class="list_text">
-                            <?=dapost($a['name'])?><br>
-                        </td>
-                    </tr>
+                            </audio>
+                        </div>
+                        <div><?=dapost($a['name'])?></div>
+                    </div>
                     <?php endforeach ?>
-                    <?php break;
-                }?>
-            </tbody>
-        </table>
-
+                </div>
+                <?php break;
+        }?>
+        
+        
         <!--Навигация по страницам-->
-        <div class="space"></div>
         <?php if ($pc > 1) { //Если страниц больше одной ?>
         <?php
         if ($pc >= 7) { //Если количество страниц больше либо равно 7
@@ -391,7 +236,6 @@ if (isset($_GET['type'])) {
             &hellip; <li class="page_list"><a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$t]?>&p=<?=$pc?>&pa=<?=$pna?>">&gt;&gt;</a></li>
             <?php }?>
         </ul>
-        <div class="space"></div>
         <?php }?>
         <!--Конец навигации по страницам-->
 
@@ -400,7 +244,7 @@ if (isset($_GET['type'])) {
         <?php }?>
         <?php }?>
         <?php if ($album != '') { //Если выбран альбом, показываем кнопку к списку альбомов ?>
-        <a href="index.php?page=<?=$page?>&type=<?=$type?>&pa=<?=$pna?>"><img src="i/back.ico" width="40px" title="Вернуться к списку альбомов"></a>
+        <a href="index.php?page=<?=$page?>&type=<?=$type?>&pa=<?=$pna?>" class="arrow"><img src="i/back.ico" width="40px" title="Вернуться к списку альбомов"></a>
         <?php }?>
     </div>
 </div>
