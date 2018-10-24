@@ -19,11 +19,17 @@ else {
 
 <div>
     <h2><?=$podp?></h2>
+    
+    <div class="space"></div>
+    
     <form method="post" action="index.php?page=ministry&action=<?=$t?>" enctype="multipart/form-data">
         <label>
             Название:
             <input type="text" name="title" value="<?php if($mode == 'edit') {?><?=$ministry[0]['title']?><?php }?>" class="form-item" autofocus required>
         </label>
+        
+        <div class="space"></div>
+        
         <label>
             Содержание:
             <textarea name="content" class="form-item-ta" required><?php if($mode == 'edit') {?><?=$ministry[0]['content']?><?php }?></textarea>

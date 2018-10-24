@@ -17,7 +17,7 @@ if (isset($_GET['type']) && isset($_POST['article'])) { //Если переме�
 
 <div class="tbl_back">
     <div class="tbl_title">
-        <b>Блок</b>
+        Блок
     </div>
     <div class="tbl-2">
         <div class="col-1">

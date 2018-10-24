@@ -112,19 +112,6 @@ header {
     background-color: rgb(40, 59, 141);
 }
 
-/*Заголовок табличного списка в админке*/
-.list_back_admin .listHead {
-    color: white;
-}
-
-/*Задний фон для табличного списка админки. Ставится в Table*/
-.list_back_admin {
-    background-color: #2b57aa;
-    border-radius: 5px;
-    padding: 3px;
-    width: 80%;
-}
-
 /*Задний фон для табличного списка админки*/
 .tbl_back {
     background-color: #2b57aa;
@@ -138,6 +125,11 @@ header {
     background-color: rgb(103, 185, 237);
     border-radius: 50px;
     border-style: ridge;
+}
+
+/*Кнопка (на странице ввода и редактирования статей и файлов)*/
+.btn {
+    background-color: #62759a;
 }
 
 /*Подвал*/

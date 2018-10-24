@@ -77,8 +77,8 @@ if (isset($_GET['type'])) {
         </div>
         <div class="grid-5">
             <?php for($i = 0; $i < count(dapost($array['album'])); $i++) { //Для каждого альбома ?>
-            <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i]?>&pa=<?=$pna?>">
-                <div class="grid_cell">
+            <div class="grid_cell">
+                <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i]?>&pa=<?=$pna?>">
                     <?php if ($type == 'foto') { //Если тип данных фото ?>
                     <div class="alb_main">
                         <div class="sq1">
@@ -95,10 +95,10 @@ if (isset($_GET['type'])) {
                             <img src="../i/folder.png">
                         </div>
                     </div>
-                    <div><?=$array['album'][$i]?></div>
+                    <?=$array['album'][$i]?>
                     <?php }?>
-                </div>
-            </a>
+                </a>
+            </div>
             <?php }?>
         </div>
         

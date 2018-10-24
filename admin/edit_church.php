@@ -33,6 +33,8 @@ switch ($type) { //Для каждого типа статьи
 
 <h2>Редактирование статьи "<?=$podp?>"</h2>
 
+<div class="space"></div>
+
 <form method="post" action="index.php?page=church&type=<?=$type?>" enctype="multipart/form-data">
     <?php if ($type == 'episcop' || $type == 'pastor') { //Если редактирование епископ или пастор ?>
     <label>

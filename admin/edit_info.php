@@ -32,6 +32,8 @@ switch ($type) { //В зависимости от блока
 
 <h2>Редактирование блока "<?=$podp?>"</h2>
 
+<div class="space"></div>
+
 <form method="post" action="index.php?page=info&type=<?=$type?>" enctype="multipart/form-data">
     <?php if ($type == 'mailus') { //Если редактирование "Напишите нам" ?>
     <label>

@@ -47,50 +47,45 @@ if (isset($_GET['type'])) { //Если передаваемая переменн
 
 <div class="space"></div>
 
-<table class="list_back_admin">
-    <tbody>
-        <tr class="listHead">
-            <td><b>Статья</b></td>
-        </tr>        
-        <tr>
-            <td class="list_text_one">
+<div class="tbl_back">
+    <div class="tbl_title">
+        Статья
+    </div>
+    
+    <div class="tbl-2">
+        <div class="col-1">
                 Начальствующий епископ
-            </td>
-            <td class="list_but">
+        </div>
+        <div class="col-last">
                 <a href="index.php?page=edit_church&type=episcop"><img src="../i/edit.ico" title="Редактировать"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="list_text_one">
+        </div>
+        
+        <div class="col-1">
                 Старший пастор
-            </td>
-            <td class="list_but">
+        </div>
+        <div class="col-last">
                 <a href="index.php?page=edit_church&type=pastor"><img src="../i/edit.ico" title="Редактировать"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="list_text_one">
+        </div>
+        
+        <div class="col-1">
                 Основы вероучения
-            </td>
-            <td class="list_but">
+        </div>
+        <div class="col-last">
                 <a href="index.php?page=edit_church&type=faith"><img src="../i/edit.ico" title="Редактировать"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="list_text_one">
+        </div>
+        
+        <div class="col-1">
                 Процесс обучения
-            </td>
-            <td class="list_but">
+        </div>
+        <div class="col-last">
                 <a href="index.php?page=edit_church&type=teach"><img src="../i/edit.ico" title="Редактировать"></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="list_text_one">
+        </div>
+        
+        <div class="col-1">
                 Самая важная молитва
-            </td>
-            <td class="list_but">
+        </div>
+        <div class="col-last">
                 <a href="index.php?page=edit_church&type=pray"><img src="../i/edit.ico" title="Редактировать"></a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+        </div>
+    </div>
+</div>

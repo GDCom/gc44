@@ -55,149 +55,139 @@ else { //Иначе Значения по умолчанию
 
 <h2>Настройки</h2>
 
+<div class="space"></div>
+
 <div>
     <form method="post" action="index.php?page=settings" enctype="multipart/form-data">
-        <table class="list_back_admin">
-            <tbody>
-                <tr class="listHead">
-                    <td>
-                        <b>Настройки сайта</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="list_text_one">
-                        Количество альбомов на странице в разделе "Медиа материалы"
-                    </td>
-                    <td class="list_but">
-                        <label>
-                            <input type="text" name="main_alb" value="<?=$main_alb?>" class="form-item" autofocus required>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="list_text_one">
-                        Количество фотографий на странице в альбоме медиа
-                    </td>
-                    <td class="list_but">
-                        <label>
-                            <input type="text" name="main_foto" value="<?=$main_foto?>" class="form-item" autofocus required>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="list_text_one">
-                        Количество видео на странице в альбоме медиа
-                    </td>
-                    <td class="list_but">
-                        <label>
-                            <input type="text" name="main_video" value="<?=$main_video?>" class="form-item" autofocus required>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="list_text_one">
-                        Количество аудиозаписей на странице в альбоме медиа
-                    </td>
-                    <td class="list_but">
-                        <label>
-                            <input type="text" name="main_audio" value="<?=$main_audio?>" class="form-item" autofocus required>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="list_text_one">
-                        Количество новостей на странице
-                    </td>
-                    <td class="list_but">
-                        <label>
-                            <input type="text" name="main_news" value="<?=$main_news?>" class="form-item" autofocus required>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="list_text_one">
-                        Количество служений на странице
-                    </td>
-                    <td class="list_but">
-                        <label>
-                            <input type="text" name="main_ministry" value="<?=$main_ministry?>" class="form-item" autofocus required>
-                        </label>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="tbl_back">
+            <div class="tbl_title">
+                Настройки сайта
+            </div>
+            <div class="tbl-2">
+                <div class="col-1">
+                    Количество альбомов на странице в разделе "Медиа материалы"
+                </div>
+                <div class="col-last">
+                    <label>
+                        <input type="text" name="main_alb" value="<?=$main_alb?>" class="form-item" autofocus required>
+                    </label>
+                </div>
+                
+                <div class="col-1">
+                    Количество фотографий на странице в альбоме медиа
+                </div>
+                <div class="col-last">
+                    <label>
+                        <input type="text" name="main_foto" value="<?=$main_foto?>" class="form-item" autofocus required>
+                    </label>
+                </div>
+                
+                <div class="col-1">
+                    Количество видео на странице в альбоме медиа
+                </div>
+                <div class="col-last">
+                    <label>
+                        <input type="text" name="main_video" value="<?=$main_video?>" class="form-item" autofocus required>
+                    </label>
+                </div>
+                
+                <div class="col-1">
+                    Количество аудиозаписей на странице в альбоме медиа
+                </div>
+                <div class="col-last">
+                    <label>
+                        <input type="text" name="main_audio" value="<?=$main_audio?>" class="form-item" autofocus required>
+                    </label>
+                </div>
+                
+                <div class="col-1">
+                    Количество новостей на странице
+                </div>
+                <div class="col-last">
+                    <label>
+                        <input type="text" name="main_news" value="<?=$main_news?>" class="form-item" autofocus required>
+                    </label>
+                </div>
+                
+                <div class="col-1">
+                    Количество служений на странице
+                </div>
+                <div class="col-last">
+                    <label>
+                        <input type="text" name="main_ministry" value="<?=$main_ministry?>" class="form-item" autofocus required>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
         <div class="space"></div>
-        <table class="list_back_admin">
-            <tbody>
-                <tr class="listHead">
-                    <td>
-                        <b>Настройки административной панели</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="list_text_one">
-                        Количество альбомов на странице в разделе "Медиа материалы"
-                    </td>
-                    <td class="list_but">
-                        <label>
-                            <input type="text" name="adm_alb" value="<?=$adm_alb?>" class="form-item" autofocus required>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="list_text_one">
-                        Количество фотографий на странице в альбоме медиа
-                    </td>
-                    <td class="list_but">
-                        <label>
-                            <input type="text" name="adm_foto" value="<?=$adm_foto?>" class="form-item" autofocus required>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="list_text_one">
-                        Количество видео на странице в альбоме медиа
-                    </td>
-                    <td class="list_but">
-                        <label>
-                            <input type="text" name="adm_video" value="<?=$adm_video?>" class="form-item" autofocus required>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="list_text_one">
-                        Количество аудиозаписей на странице в альбоме медиа
-                    </td>
-                    <td class="list_but">
-                        <label>
-                            <input type="text" name="adm_audio" value="<?=$adm_audio?>" class="form-item" autofocus required>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="list_text_one">
-                        Количество новостей на странице
-                    </td>
-                    <td class="list_but">
-                        <label>
-                            <input type="text" name="adm_news" value="<?=$adm_news?>" class="form-item" autofocus required>
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="list_text_one">
-                        Количество служений на странице
-                    </td>
-                    <td class="list_but">
-                        <label>
-                            <input type="text" name="adm_ministry" value="<?=$adm_ministry?>" class="form-item" autofocus required>
-                        </label>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        
+        <div class="tbl_back">
+            <div class="tbl_title">
+                Настройки административной панели
+            </div>
+            
+            <div class="tbl-2">
+                <div class="col-1">
+                    Количество альбомов на странице в разделе "Медиа материалы"
+                </div>
+                <div class="col-last">
+                    <label>
+                        <input type="text" name="adm_alb" value="<?=$adm_alb?>" class="form-item" autofocus required>
+                    </label>
+                </div>
+                
+                <div class="col-1">
+                    Количество фотографий на странице в альбоме медиа
+                </div>
+                <div class="col-last">
+                    <label>
+                        <input type="text" name="adm_foto" value="<?=$adm_foto?>" class="form-item" autofocus required>
+                    </label>
+                </div>
+                
+                <div class="col-1">
+                    Количество видео на странице в альбоме медиа
+                </div>
+                <div class="col-last">
+                    <label>
+                        <input type="text" name="adm_video" value="<?=$adm_video?>" class="form-item" autofocus required>
+                    </label>
+                </div>
+                
+                <div class="col-1">
+                    Количество аудиозаписей на странице в альбоме медиа
+                </div>
+                <div class="col-last">
+                    <label>
+                        <input type="text" name="adm_audio" value="<?=$adm_audio?>" class="form-item" autofocus required>
+                    </label>
+                </div>
+                
+                <div class="col-1">
+                    Количество новостей на странице
+                </div>
+                <div class="col-last">
+                    <label>
+                        <input type="text" name="adm_news" value="<?=$adm_news?>" class="form-item" autofocus required>
+                    </label>
+                </div>
+                
+                <div class="col-1">
+                    Количество служений на странице
+                </div>
+                <div class="col-last">
+                    <label>
+                        <input type="text" name="adm_ministry" value="<?=$adm_ministry?>" class="form-item" autofocus required>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
         <div class="space"></div>
+        
         <h3>Тема сайта:</h3>
+        
         <div>
             <label>
                 <input name="style" type="radio" value="gray" <?php if($style == 'gray') {?> checked <?php }?> > Серая тема<br>

@@ -95,34 +95,33 @@ $news = get_table($link, "SELECT * FROM `news` Order By id DESC LIMIT ".($pn-1)*
 
 <a href="index.php?page=edit_news&mode=new" class="arrow"><img src="../i/add.ico" height="40px" title="Создать новую запись"></a>
 
-<table class="list_back_admin">
-    <tbody>
-        <tr class="listHead">
-            <td>
-                <b>Заголовок</b>
-            </td>
-            <td>
-                <b>Дата публикации</b>
-            </td>
-        </tr>
+<div class="tbl_back">
+    <div class="tbl-4">
+        <div class="tbl_title">
+                Заголовок
+        </div>
+        <div class="tbl_title">
+                Дата публикации
+        </div>
+        <div></div>
+        <div></div>
+        
         <?php foreach($news as $a): ?>
-        <tr>
-            <td class="list_text">
+        <div class="col-1">
                 <?=$a['title']?>
-            </td>
-            <td class="list_text">
+        </div>
+        <div class="col-midle">
                 <?=$a['date']?>
-            </td>
-            <td class="list_but">
+        </div>
+        <div class="col-midle">
                 <a href="index.php?page=edit_news&mode=edit&id=<?=$a['id']?>"><img src="../i/edit.ico" title="Редактировать"></a>
-            </td>
-            <td class="list_but">
+        </div>
+        <div class="col-last">
                 <a href="index.php?page=<?=$page?>&action=del&id=<?=$a['id']?>"><img src="../i/trash.ico" title="Удалить"></a>
-            </td>
-        </tr>
+        </div>
         <?php endforeach ?>
-    </tbody>
-</table>
+    </div>
+</div>
 
 <!--Навигация по страницам-->
 <div class="space"></div>

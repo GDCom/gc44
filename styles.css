@@ -148,11 +148,6 @@ header {
     right: 10px;
 }
 
-/*Таблица*/
-table {
-    width: 100%;
-}
-
 /*Кнопка*/
 .button {
     margin-left: 100px;
@@ -380,11 +375,6 @@ table {
     transition: all 1s;    
 }
 
-/*Текст в статье*/
-.articl_text {
-   
-}
-
 /*Изображение в статье*/
 .articl_img {
     float: left;
@@ -413,10 +403,13 @@ table {
     justify-content: space-between;
 }
 
+/*Фон таблиц для админки*/
 .tbl_back {
+    position: relative;
     border-radius: 5px;
 }
 
+/*Заглавия в таблицах*/
 .tbl_title {
     display: flex;
     flex-direction:row;
@@ -428,22 +421,59 @@ table {
     padding: 5px;
 }
 
+/*Формирование таблиц на два столбца с одним столбцом кнопок*/
 .tbl-2 {
     display: grid;
     grid-template-columns: auto 55px;
-    /*background-color: white;*/
 }
 
+/*Формирование таблиц на три столбца с двумя столбцами кнопок*/
+.tbl-3 {
+    display: grid;
+    grid-template-columns: auto 55px 55px;
+}
+
+/*Формирование таблиц на три столбца*/
+.tbl-instr {
+    display: grid;
+    grid-template-columns: auto auto 100px;
+}
+
+/*Формирование таблиц на четыре столбца с двумя столбцами кнопок*/
+.tbl-4 {
+    display: grid;
+    grid-template-columns: auto auto 55px 55px;
+}
+
+/*Изображение кнопок в таблицах на два, три и четыре столбца*/
+.tbl-2 img,
+.tbl-3 img,
+.tbl-4 img {
+    width: 35px;
+    padding: 3px;
+}
+
+/*Первая колонка в таблице*/
 .col-1 {
     display: flex;
     background-color: white;
     margin: 0 0 3px 3px;
     align-items: center;
-    padding-left: 5px;
+    padding: 5px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
 
+/*Колонка в середине таблицы*/
+.col-midle {
+    display: flex;
+    background-color: white;
+    margin: 0 0 3px 3px;;
+    align-items: center;
+    padding: 5px;
+}
+
+/*Последняя колонка в таблице*/
 .col-last {
     display: flex;
     background-color: white;
@@ -452,41 +482,13 @@ table {
     justify-content: center;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
+    padding: 5px;
 }
 
-.tbl-2 img {
+/*Поле ввода в списке настроек*/
+.col-last label input {
     width: 35px;
-}
-
-/*Таблица из трех столбцов*/
-.enum {
-    width: 33.33%;
-    max-width: 33.33%;
-    /*padding-left: 7px;*/
-    padding-right: 7px;
-    padding-bottom: 0;
-    text-align: justify;
-    vertical-align: top;
-    background-color: white;
-    color: black;
-}
-
-/*Параграф в таблице из трех столбцов*/
-.enum p {
-    margin: 0;
-}
-
-/*Ссылка в таблице из трех столбцов*/
-.enum a {
-    width: 100%;
-    text-decoration: none;
-    color: black;
-}
-
-/*параграф в таблице из трех столбцов*/
-.enum p.date_publ {
-    margin-top: 3px;
-    margin-bottom: 2px;
+    text-align: center;
 }
 
 /*Невидимый блок*/
@@ -642,33 +644,6 @@ table {
     vertical-align: bottom;
 }
 
-/*Изображение в ссылке таблицы из трех столбцов*/
-.enum a img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/*Таблица из пяти столбцов*/
-.enum5 {
-    position: relative;
-    width: 20%;
-    margin: 0px;
-    padding: 7px;
-    background-color: white;
-    color: black;
-    font-family: "AC Display";
-    font-size: 15px;
-    vertical-align: top;
-}
-
-/*Ссылка в таблице из пяти столбцов*/
-.enum5 a {
-    text-decoration: none;
-    color: black;
-    text-align: center;
-}
-
 /*Блок основной в списке альбомов фото*/
 .alb_main {
     position: relative;
@@ -749,14 +724,6 @@ img.fix2 {
     z-index: 9999;
 }
 
-/*Для надписи статьи про служение*/
-.enum_min {
-    width: 60%;
-    padding: 7px;
-    text-align: justify;
-    vertical-align: top;
-}
-
 /*Анимация Зум*/
 @keyframes zoom {
     from {
@@ -815,20 +782,6 @@ img.fix2 {
     animation: zoom 1s linear;
 }
 
-/*Картинка в ячейке таблицы*/
-td img {
-    align-items: center;
-    border-radius: 5px;
-    
-    transition: all 1s;
-}
-
-/*При наведении на картинку в ячейке таблицы*/
-td img:hover {
-    transform: scale(0.9);
-    transition: all 1s;
-}
-
 /*Список страниц*/
 .page_num {
     margin: 5px;
@@ -878,19 +831,6 @@ td img:hover {
     margin: 130px 20px 20px 20px;
 }
 
-/*Фото в разделе статьи про служение и в разделе церковь*/
-.foto1 {
-    text-align: center;
-    align-content: center;
-    /*width: 400px;*/
-    vertical-align: text-top;
-}
-
-/*Картинка в ячейке фото*/
-.foto1 a img {
-    width: 98%;
-}
-
 /*Блок для вывода контента с меню*/
 .WithMenu {
     display: flex;
@@ -911,22 +851,6 @@ td img:hover {
 /*Параграф в тексте на главной странице*/
 .Text p {
     margin-bottom: 0;
-}
-
-/*Заголовок табличного списка*/
-.listHead {
-    font-family: "AC Display";
-    font-size: 20px;
-    padding: 7px;
-    text-align: center;
-}
-
-/*Ячейка таблицы из трех столбцов с закрашеным заголовком списка (Видеофайлы)*/
-.listHead td.enum {
-    font-size: 15px;
-    text-align: center;
-    padding-bottom: 10px;
-    padding-top: 10px;
 }
 
 /*Параметры видеофрейма в списке видео*/
@@ -951,92 +875,14 @@ iframe.bible {
     height: 650px;
 }
 
-/*Ячейка в списке*/
-.list td {
-    background-color: #ffffff;
-    padding: 1px 10px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-/*Текстовое поле в табличном списке*/
-.list_text {
-    position: relative;
-    background-color: #ffffff;
-    padding: 1px 10px;
-    text-align: left;
-    vertical-align: middle;
-    width: 50%;
-    font-size: 18px;
-}
-
-/*Текстовое поле в табличном списке инструкций*/
-.list_text_instr {
-    position: relative;
-    background-color: #ffffff;
-    padding: 5px 20px;
-    text-align: left;
-    vertical-align: middle;
-}
-
-/*Одиночное текстовое поле в табличном списке*/
-.list_text_one {
-    background-color: #ffffff;
-    padding: 1px 10px;
-    text-align: left;
-    vertical-align: middle;
-    width: 100%;
-    font-size: 18px;
-}
-
-/*Ячейка для кнопки в табличном списке*/
-.list_but {
-    background-color: #ffffff;
-    padding: 5px;
-    text-align: center;
-}
-
-/*изображение в ячейке для кнопки*/
-.list_but img {
-    height: 30px;
-}
-
-/*Задний фон для табличного списка. Ставится в Table*/
-.listBack {
-    border-radius: 5px;
-    padding: 3px;
-    width: 100%;
-}
-
-/*Поле ввода в списке настроек*/
-.list_but label input {
-    margin-bottom: 0;
-    margin-left: 5px;
-    margin-right: 5px;
-    width: 40px;
-    text-align: center;
-}
-
 /*Минимальное расстояние блока (для разделения таблиц)*/
 .space {
     min-height: 20px;
 }
 
-/*Для блока контактов*/
-.contacts {
-    width: 48%;
-    vertical-align: top;
-}
-
-/*Положение блоков последовательно слева на право*/
-.flex {
-    display: flex;    
-}
-
 /*Формы создания и редактирования в админке*/
 .form-item {
     display: block;
-    margin: 0px 0px 15px 0px;
     width: 250px;
     border-radius: 5px;
     padding: 3px;
@@ -1089,7 +935,6 @@ iframe.bible {
     border-radius: 7px;
     padding: 7px;
     color: #fafafa;
-    background-color: #9b9b9b;
 }
 
 /*Блок в подвале*/
@@ -1127,15 +972,7 @@ footer div {
     opacity: 0.8;
 }
 
-/*Для сворачивающейся таблицы*/
-/*.labels tr td label {
-    display: block;
-}*/
-
-/*Скрытие чекбокса в сворачивающейся таблице*/
-[data-toggle="toggle"] {
-    display: none;
-}
+/*--------- Сворачивание блоков таблицы ------------*/
 
 /*Область кнопки сворачивания таблицы*/
 .hide_table {
@@ -1149,10 +986,32 @@ footer div {
     height: 20px;
 }
 
-/*Область шапки сворачиваемой таблицы*/
-.Str {
-    width: 100%;
+/* скрываем чекбоксы и блоки с содержанием */
+.hide, .hide + label ~ div {
+    display: none; 
 }
+
+/* вид текста label */
+.hide + label,
+.hide:checked + label {
+    position: absolute;
+    right: -10px;
+    top: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+/* вид текста label при активном переключателе */
+.hide:checked + label {
+    color: red;
+    border-bottom: 0;
+}
+
+/* когда чекбокс активен показываем блоки с содержанием  */
+.hide:checked + label + div {
+    display: grid; 
+}
+/*-------------- Конец настроек сворачивания -----------*/
 
 /*Плеер аудио*/
 .audio {

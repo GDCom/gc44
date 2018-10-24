@@ -208,7 +208,7 @@ else {
         
         <?php $tbl = $array['table'][$r]; //все элементы из текущего альбома в массив ?>
         <div class="grid-5">
-            <?php for ($i = 0; $i < count($tbl); $i++) { //Для каждого пятого элемента (таблица в пять колонок) ?>
+            <?php for ($i = 0; $i < count($tbl); $i++) { //Для каждого элемента ?>
             <div class="grid_cell">
                 <div class="sq1">
                     <div class="sq2">
@@ -339,39 +339,40 @@ else {
         <?php for($r = 0; $r < count($array['album']); $r++) { //Для каждого альбома ?>
         <?php $pc = $array['count'][$r]; //Кол-во станиц для альбома ?>
         <?php if ($array['album'][$r] == $album) { //Если название альбома совпадает с переменной (выбранный альбом)?>
-        <table class="list_back_admin">
-            <tbody>
-                <tr class="listHead">
-                    <td colspan="100%"><b><?=dapost($array['album'][$r])?></b></td>
-                </tr>
-                <tr class="listHead">
-                    <td>
+        <div class="tbl_back">
+            <div class="tbl_title">
+                    <?=dapost($array['album'][$r])?>
+            </div>
+            
+            <div class="tbl-4">
+                <div class="tbl_title">
                         Название
-                    </td>
-                    <td>
+                </div>
+                <div class="tbl_title">
                         <?php if ($type == 'audio') { ?>Имя файла<?php }
                         else {?>Ссылка на видео<?php }?>
-                    </td>
-                </tr>
+                </div>
+                <div></div>
+                <div></div>
+                
+                
                 <?php $tbl = $array['table'][$r]; ?>
                 <?php for ($i = 0; $i < count($tbl); $i++) {?>
-                <tr>
-                    <td class="list_text">
+                <div class="col-1">
                         <?=$tbl[$i]['name']?>
-                    </td>
-                    <td class="list_text">
-                        <?=$tbl[$i]['file']?>
-                    </td>
-                    <td class="list_but">
+                </div>
+                <div class="col-midle">
+                    <?=$tbl[$i]['file']?>
+                </div>
+                <div class="col-midle">
                         <a href="index.php?page=edit_media&action=edit&id=<?=$tbl[$i]['id']?>&type=<?=$type?>"><img src="../i/edit.ico" title="Редактировать"></a>
-                    </td>
-                    <td class="list_but">
+                </div>
+                <div class="col-last">
                         <a href="index.php?page=<?=$page?>&action=del&id=<?=$tbl[$i]['id']?>&type=<?=$type?>"><img src="../i/trash.ico" title="Удалить"></a>
-                    </td>
-                </tr>
+                </div>
                 <?php }?>
-            </tbody>
-        </table>
+            </div>
+        </div>
 
         <!--Навигация по страницам-->
         <div class="space"></div>        
@@ -415,50 +416,26 @@ else {
         <?php }?>
         <?php }
         else { //Иначе список альбомов ?>
-        <table class="list_back_admin">
-            <tbody>
-                <tr class="listHead">
-                    <td colspan="100%"><b>Список альбомов</b></td>
-                </tr>
-                <?php for($i = 0; $i < count($array['album']); $i += 5) { //Для всех альбомов с шагом 5 ?>
-                <tr class="listHead">
-                    <td class="enum5">
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=apost($array['album'][$i])?>&pa=<?=$pna?>">
-                            <?=$array['album'][$i]?>
-                        </a>
-                    </td>
-                    <td class="enum5">
-                        <?php if ($i + 1 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=apost($array['album'][$i+1])?>&pa=<?=$pna?>">
-                            <?=dapost($array['album'][$i+1])?>
-                        </a>
-                        <?php }?>
-                    </td>
-                    <td class="enum5">
-                        <?php if ($i + 2 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=apost($array['album'][$i+2])?>&pa=<?=$pna?>">
-                            <?=$array['album'][$i+2]?>
-                        </a>
-                        <?php }?>
-                    </td>
-                    <td class="enum5">
-                        <?php if ($i + 3 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=apost($array['album'][$i+3])?>&pa=<?=$pna?>">
-                            <?=$array['album'][$i+3]?>
-                        </a>
-                        <?php }?>
-                    </td>
-                    <td class="enum5">
-                        <?php if ($i + 4 < count($array['album'])) { //Если в массиве еще есть записи ?>
-                        <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=apost($array['album'][$i+4])?>&pa=<?=$pna?>">
-                            <?=$array['album'][$i+4]?>
-                        </a>
-                        <?php }?>
-                    </td>
-                </tr>
-                <?php }?>
-            </tbody>
-        </table>
+        
+        <div class="btn_look">
+            Список альбомов
+        </div>
+        
+        <div class="grid-5">
+            <?php for($i = 0; $i < count($array['album']); $i++) { //Для всех альбомов ?>
+            <div class="grid_cell">
+                <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=apost($array['album'][$i])?>&pa=<?=$pna?>">
+                    <div class="sq1">
+                        <div class="sq2">
+                            <img src="../i/folder.png">
+                        </div>
+                    </div>
+                
+                    <?=$array['album'][$i]?>
+                </a>
+            </div>
+            <?php }?>
+        </div>
 
         <!--Навигация по страницам-->
         <div class="space"></div>
@@ -507,110 +484,16 @@ else {
         <?php }?>
         <?php break;
     case 'albums': //Редактор альбомов ?>
-        <table class="list_back_admin">
-            <tbody class="labels">
-                <tr class="listHead">
-                    <td class="Str">
-                        <b>Фотографии</b>
-                    </td>
-                    <td>
-                        <label for="Foto" class="hide_table">
-                            <img src="../i/toggle.png">
-                        </label>
-                        <input type="checkbox" name="Foto" id="Foto" data-toggle="toggle">
-                    </td>
-                </tr>
-            </tbody>
-            <tbody class="hide">
-                <?php foreach ($array as $a): //Для каждой строки списка альбомов?>
-                <?php if($a['type'] == 'foto') { //Если фото ?>
-                <tr>
-                    <td class="list_text_one">
-                        <?=dapost($a['name'])?>
-                    </td>
-                    <td class="list_but">
-                        <a href="index.php?page=<?=$page?>&type=albums&action=del&id=<?=$a['id']?>"><img src="../i/trash.ico" title="Удалить"></a>
-                    </td>
-                </tr>
-                <?php }?>
-                <?php endforeach ?>
-            </tbody>
-        </table>
-        <div class="space"></div>
-        <table class="list_back_admin">
-            <tbody class="labels">
-                <tr class="listHead">
-                    <td class="Str">
-                        <b>Видео</b>
-                    </td>
-                    <td>
-                        <label for="Video" class="hide_table">
-                            <img src="../i/toggle.png">
-                        </label>
-                        <input type="checkbox" name="Video" id="Video" data-toggle="toggle">
-                    </td>
-                </tr>
-            </tbody>
-            <tbody class="hide">
-                <?php foreach ($array as $a): //Для каждой строки списка альбомов?>
-                <?php if($a['type'] == 'video') { //Если фото ?>
-                <tr>
-                    <td class="list_text_one">
-                        <?=dapost($a['name'])?>
-                    </td>
-                    <td class="list_but">
-                        <a href="index.php?page=<?=$page?>&type=albums&action=del&id=<?=$a['id']?>"><img src="../i/trash.ico" title="Удалить"></a>
-                    </td>
-                </tr>
-                <?php }?>
-                <?php endforeach ?>
-            </tbody>
-        </table>
-        <div class="space"></div>
-        <table class="list_back_admin">
-            <tbody class="labels">
-                <tr class="listHead">
-                    <td class="Str">
-                        <b>Аудио</b>
-                    </td>
-                    <td>
-                        <label for="Audio" class="hide_table">
-                            <img src="../i/toggle.png">
-                        </label>
-                        <input type="checkbox" name="Audio" id="Audio" data-toggle="toggle">
-                    </td>
-                </tr>
-            </tbody>
-            <tbody class="hide">
-                <?php foreach ($array as $a): //Для каждой строки списка альбомов?>
-                <?php if($a['type'] == 'audio') { //Если фото ?>
-                <tr>
-                    <td class="list_text_one">
-                        <?=dapost($a['name'])?>
-                    </td>
-                    <td class="list_but">
-                        <a href="index.php?page=<?=$page?>&type=albums&action=del&id=<?=$a['id']?>"><img src="../i/trash.ico" title="Удалить"></a>
-                    </td>
-                </tr>
-                <?php }?>
-                <?php endforeach ?>
-            </tbody>
-        </table>
-        <div class="space"></div>
-
         <div class="tbl_back">
-            <div class="tbl-2">
-                <div class="tbl_title">
-                    Фотографии
-                </div>
-                <div class="tbl_title">
-                    <input type="checkbox" name="Hide_foto" id="Hide_foto" data-toggle="toggle">
-                    <label for="Hide_foto" class="hide_table">
-                        <img src="../i/toggle.png">
-                    </label>
-                    
-                </div>
+            <div class="tbl_title">
+                Фотографии
+            </div>
+            <input type="checkbox" class="hide" id="Hide_foto" data-toggle="toggle">
+            <label for="Hide_foto" class="hide_table">
+                <img src="../i/toggle.png">
+            </label>
                 
+            <div class="tbl-2">    
                 <?php foreach ($array as $a): //Для каждой строки списка альбомов?>
                 <?php if($a['type'] == 'foto') { //Если фото ?>
                 <div class="col-1">
@@ -621,9 +504,61 @@ else {
                 </div>
                 <?php }?>
                 <?php endforeach ?>
+                    
+            </div>
+        </div>
+        
+        <div class="space"></div>
+
+        <div class="tbl_back">
+            <div class="tbl_title">
+                Видео
+            </div>
+            <input type="checkbox" class="hide" id="Hide_video" data-toggle="toggle">
+            <label for="Hide_video" class="hide_table">
+                <img src="../i/toggle.png">
+            </label>
+                
+            <div class="tbl-2">    
+                <?php foreach ($array as $a): //Для каждой строки списка альбомов?>
+                <?php if($a['type'] == 'video') { //Если видео ?>
+                <div class="col-1">
+                    <?=dapost($a['name'])?>
+                </div>
+                <div class="col-last">
+                        <a href="index.php?page=<?=$page?>&type=albums&action=del&id=<?=$a['id']?>"><img src="../i/trash.ico" title="Удалить"></a>
+                </div>
+                <?php }?>
+                <?php endforeach ?>
+                    
             </div>
         </div>
 
+        <div class="space"></div>
+
+        <div class="tbl_back">
+            <div class="tbl_title">
+                Аудио
+            </div>
+            <input type="checkbox" class="hide" id="Hide_audio" data-toggle="toggle">
+            <label for="Hide_audio" class="hide_table">
+                <img src="../i/toggle.png">
+            </label>
+                
+            <div class="tbl-2">    
+                <?php foreach ($array as $a): //Для каждой строки списка альбомов?>
+                <?php if($a['type'] == 'audio') { //Если видео ?>
+                <div class="col-1">
+                    <?=dapost($a['name'])?>
+                </div>
+                <div class="col-last">
+                        <a href="index.php?page=<?=$page?>&type=albums&action=del&id=<?=$a['id']?>"><img src="../i/trash.ico" title="Удалить"></a>
+                </div>
+                <?php }?>
+                <?php endforeach ?>
+                    
+            </div>
+        </div>
         <?php break;
 } ?>
 <?php if ($album != '') { //Если выбран какой-то альбом ?>

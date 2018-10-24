@@ -64,28 +64,25 @@ $ministry = get_table($link, "SELECT * FROM ministry ORDER BY title LIMIT ".($pn
 
 <a href="index.php?page=edit_ministry&mode=new" class="arrow"><img src="../i/add.ico" height="40px" title="Создать"></a>
 
-<table class="list_back_admin">
-    <tbody>
-        <tr class="listHead">
-            <td>
-                <b>Заголовок</b>
-            </td>
-        </tr>
+<div class="tbl_back">
+    <div class="tbl_title">
+        Название служения
+    </div>
+    
+    <div class="tbl-3">
         <?php foreach($ministry as $a): ?>
-        <tr>
-            <td class="list_text_one">
+        <div class="col-1">
                 <?=$a['title']?>
-            </td>
-            <td class="list_but">
+        </div>
+        <div class="col-midle">
                 <a href="index.php?page=edit_ministry&mode=edit&id=<?=$a['id']?>"><img src="../i/edit.ico" title="Редактировать"></a>
-            </td>
-            <td class="list_but">
+        </div>
+        <div class="col-last">
                 <a href="index.php?page=<?=$page?>&action=del&id=<?=$a['id']?>"><img src="../i/trash.ico" title="Удалить"></a>
-            </td>
-        </tr>
+        </div>
         <?php endforeach ?>
-    </tbody>
-</table>
+    </div>
+</div>
 
 <!--Навигация по страницам-->
 <div class="space"></div>

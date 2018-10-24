@@ -76,10 +76,16 @@ $albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER
                 <input type="text" name="file" class="form-item" value="" required>
             </label>
             <?php endif ?>
+    
+            <div class="space"></div>
+    
             <label>
                 Название видео:
                 <input type="text" name="name" class="form-item" value="<?=$name?>" required>
             </label>
+    
+            <div class="space"></div>
+    
             <label>
                 Название альбома:
                 <select type="input" name='album' class="form-item" required>
@@ -97,10 +103,14 @@ $albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER
                 <input type="file" name="files" accept="audio/mp3, audio/wav" class="form-item-file" required>
             </label>
             <?php endif ?>
+    
             <label>
                 Название файла:
                 <input type="text" name="name" class="form-item" value="<?=$name?>" required>
             </label>
+    
+            <div class="space"></div>
+    
             <label>
                 Название альбома:
                 <select type="input" name='album' class="form-item" required>
@@ -127,5 +137,8 @@ $albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER
             </label> 
         <?php break;
     }?>
+    
+    <div class="space"></div>
+    
     <input type="submit" value="<?=$btn?>" class="btn">
 </form>
