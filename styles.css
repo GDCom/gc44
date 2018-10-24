@@ -843,7 +843,7 @@ img.fix2 {
 
 /*Текст на главной странице*/
 .Text {
-    padding: 7px;
+    /*padding: 7px;*/
     text-align: justify;
     vertical-align: top;
 }

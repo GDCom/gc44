@@ -31,9 +31,9 @@ else { //Иначе
 
         <p class="date_publ">Опубликовано: <?=$news[0]['date']?></p>
             
-        <div class="Text">
+        <div>
+            <?php if ($news[0]['img1'] != NULL) { // Если есть первое изображение ?>
             <div class="articl_img">
-                <?php if ($news[0]['img1'] != NULL) { // Если есть первое изображение ?>
                 <a rel="group" href="img/<?=$news[0]['img1']?>" class="prevew">
                     <div class="rect1_32">
                         <div class="rect2_32">
@@ -41,9 +41,9 @@ else { //Иначе
                         </div>
                     </div>
                 </a>
-                <?php }?>
             </div>
-            <div class="articl_text">
+            <?php }?>
+            <div class="Text">
                 <?=dapost($news[0]['content'])?>
             </div>
         </div>
@@ -54,16 +54,16 @@ else { //Иначе
             $i = count($s); //Количество изображений
         ?>
         <div class="grid-3">
-            <?php for ($t = 0; $t < $i; $t++) { //Для всех изображений с шагом 3 ?>
-            <a rel="group" href="img/<?=$s[$t]?>" class="prevew">
-                <div class="grid_cell">
+            <?php for ($t = 0; $t < $i; $t++) { //Для всех изображений ?>
+            <div class="grid_cell">
+                <a rel="group" href="img/<?=$s[$t]?>" class="prevew">
                     <div class="rect1_32">
                         <div class="rect2_32">
                             <img src="img/m/smal_<?=$s[$t]?>">
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
             <?php }?>
         </div>
         <?php }?>

@@ -35,7 +35,6 @@ switch ($style) { //Выбираем файл стилей в зависимос
         <link rel="shortcut icon" href="../i/gc.png">
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="../js/scripts.js"></script>
-        <script src="../js/script-hide.js"></script>
     </head>
     <body>
         <header>
