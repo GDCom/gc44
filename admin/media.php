@@ -31,13 +31,13 @@ if (isset($_GET['action'])) { //Если доступна переменная a
     
     switch ($_GET['action']) { //Выбор режима
         case 'add': //Добавить
-             if (isset($_POST['type'])) { //Если доступна переменная type
-                 $type_al = $_POST['type'];
-                 $name = apost($_POST['name']);
+            if (isset($_POST['type'])) { //Если доступна переменная type
+                $type_al = $_POST['type'];
+                $name = apost($_POST['name']);
                  
-                 $str = "INSERT INTO albums (name, type, date) VALUES ('".$name."', '".$type_al."', '".date("Y-m-d")."')"; //Команда добавления
+                $str = "INSERT INTO albums (name, type, date) VALUES ('".$name."', '".$type_al."', '".date("Y-m-d")."')"; //Команда добавления
                  
-                 run_command($link, $str); //Добавляем альбом в базу
+                run_command($link, $str); //Добавляем альбом в базу
             }
             else { //Иначе
                 $album = apost($_POST['album']); //Название альбома
@@ -45,8 +45,7 @@ if (isset($_GET['action'])) { //Если доступна переменная a
                 run_command($link, "UPDATE albums SET date='".date("Y-m-d")."' WHERE name='".$album."'"); //Обновляем дату альбома в базе альбомов
                 
                 //Если доступны файлы
-                if (isset($_FILES['files']))
-                {
+                if (isset($_FILES['files']) || isset($_FILES['cover'])) {
                     if ($type == 'foto') { //Если это фотки
                         $files = upload_files($_FILES['files'], 'media/'.$type.'/', 300, $link, $type); //Копируем файлы и получаем строку для базы
 
@@ -65,9 +64,19 @@ if (isset($_GET['action'])) { //Если доступна переменная a
 
                             run_command($link, "UPDATE ".$type." SET main=1 WHERE id=".$tbl[0]['id']); //Устанавливаем новую обложку
                         }
-
                     }
-                    else { //Иначе только один файл
+                    else if ($type == 'video') { //Если видео
+                        $cover = upload_file($_FILES['cover'], 'media/video/', 500, $link, 'foto'); //Копируем файл и получаем строку для базы
+                        
+                        $f = apost($_POST['file']); //Меняем апострофы на его код
+
+                        $s = apost($_POST['name']); //Меняем апострофы на его код
+
+                        $str = "INSERT INTO ".$type." (file, name, album, cover, date) VALUES ('".$f."', '".$s."', '".$album."', '".$cover."', '".date("Y-m-d")."')"; //Создаем команду
+
+                        run_command($link, $str); //Посылаем команду в базу
+                    }
+                    else { //Иначе только один файл аудио
                         
                         $f = apost(upload_file($_FILES['files'], 'media/'.$type.'/', 0, $link, $type)); //Копируем файлы и получаем строку для базы
 
@@ -77,15 +86,6 @@ if (isset($_GET['action'])) { //Если доступна переменная a
 
                         run_command($link, $str); //Посылаем команду в базу
                     }
-                }
-                else { //Иначе
-                    $f = apost($_POST['file']); //Меняем апострофы на его код
-
-                    $s = apost($_POST['name']); //Меняем апострофы на его код
-
-                    $str = "INSERT INTO ".$type." (file, name, album, date) VALUES ('".$f."', '".$s."', '".$album."', '".date("Y-m-d")."')"; //Создаем команду
-
-                    run_command($link, $str); //Посылаем команду в базу
                 }
             }
             break;
@@ -101,11 +101,16 @@ if (isset($_GET['action'])) { //Если доступна переменная a
                 else $f = true;  //Иначе создаем перременную на ошибку
             }
             else {
-                $id = $_GET['id'];
-                $album = $_GET['album'];
-
-                del_img($link, $type, 'file', $id, '../media/'.$type.'/', '../media/'.$type.'/m/smal_');
-
+                $id = $_GET['id']; //id Записи
+                $album = $_GET['album']; //Название альбома
+                
+                if ($type == 'video') { //Если удаление видео
+                    del_img($link, $type, 'cover', $id, '../media/video/', '../media/video/m/smal_'); //Удаление обложки для видео
+                }
+                else {
+                    del_img($link, $type, 'file', $id, '../media/'.$type.'/', '../media/'.$type.'/m/smal_'); //Удаление изображения или аудио
+                }
+                
                 $t = "DELETE FROM ".$type." WHERE id=".$id; //Команда удаления новости
 
                 run_command($link, $t); //Посылаем команду в базу

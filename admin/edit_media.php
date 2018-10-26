@@ -75,17 +75,21 @@ $albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER
                 Ссылка на видео:
                 <input type="text" name="file" class="form-item" value="" required>
             </label>
-            <?php endif ?>
     
-            <div class="space"></div>
+            <div class="space"></div>        
+            <label>
+                Обложка:
+                <input type="file" name="cover" accept="image/gif, image/jpeg, image/png, image/jpg" class="form-item-file" include>
+            </label>
+            <?php endif ?>
     
             <label>
                 Название видео:
                 <input type="text" name="name" class="form-item" value="<?=$name?>" required>
             </label>
-    
+            
             <div class="space"></div>
-    
+            
             <label>
                 Название альбома:
                 <select type="input" name='album' class="form-item" required>

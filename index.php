@@ -196,10 +196,9 @@ switch ($style) { //Выбираем файл стилей в зависимос
                 }
                 else include("pages/main.php");
             ?>
-            <a href="#" id="toTop"><img src="../i/up.ico"></a> <!--Кнопка вверх-->
+            <a href="#" id="toTop"><img src="../i/up.ico"></a>
         </div>
         <footer>
-            <!--Кнопки поделиться-->
             <table width="100%">
                 <tr>
                     <td>

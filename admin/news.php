@@ -98,10 +98,10 @@ $news = get_table($link, "SELECT * FROM `news` Order By id DESC LIMIT ".($pn-1)*
 <div class="tbl_back">
     <div class="tbl-4">
         <div class="tbl_title">
-                Заголовок
+            Заголовок
         </div>
         <div class="tbl_title">
-                Дата публикации
+            Дата публикации
         </div>
         <div></div>
         <div></div>

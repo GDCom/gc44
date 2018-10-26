@@ -496,6 +496,71 @@ header {
     display: none;
 }
 
+/*Чекбокс для выбора просмотра видео */
+.video_frame {
+    display: none;
+}
+
+/*Поведение окна видео при отмеченном чекбоксе*/
+.video_frame:checked + label + .video_window {
+    display: flex;
+}
+
+/*Лейбл 1 для чекбокса*/
+.video_label {
+    cursor: pointer;
+}
+
+/*Блок нажатие на который останавливает видео*/
+.vid_close {
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*Лейбл 2 для чекбокса (для закрытия окна видео)*/
+.video_label-2 {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+/*Окно видео*/
+.video_window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+    display: none;
+    z-index: 99999;
+}
+
+/*Блок div в окне видео*/
+.video_window div{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    font-family: "AC Display Bold";
+    font-size: 18px;
+    text-align: right;
+    padding: 5px;
+    border-radius: 10px;
+    z-index: -1;
+}
+
 /*Первый блок для создания прямоугольника 16/9*/
 .rect1 {
     position: relative;
@@ -843,7 +908,6 @@ img.fix2 {
 
 /*Текст на главной странице*/
 .Text {
-    /*padding: 7px;*/
     text-align: justify;
     vertical-align: top;
 }
@@ -859,6 +923,12 @@ iframe.video {
     height: calc(70vw*9/16);
     max-width: 800px;
     max-height: 450px;
+    
+    /*Оформление рамки вокруг видео*/
+    border: 10px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #e5e5e5;
 }
 
 /*Параметры видеофрейма на главной*/

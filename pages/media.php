@@ -171,13 +171,33 @@ if (isset($_GET['type'])) {
                 </div>
                 <?php break;
             case 'video': //Показ видео ?>
-                <div class="grid-1">
-                <?php for ($i = 0; $i < count($tbl); $i++) { //Для каждого элемента в альбоме ?>
-                <?php $file = dapost(get_youtube($tbl[$i]['file'])); ?>
-                        <iframe class="video" src="https://www.youtube.com/embed/<?=$file?>" frameborder="0" allowfullscreen></iframe>
-                        <div class="invis"><?=dapost($tbl[$i]['name'])?></div>
-                        <div class="space"></div>
-                <?php }?>
+                <div class="grid-3">
+                    <?php for ($i = 0; $i < count($tbl); $i++) { //Для каждого элемента в альбоме ?>
+                    <?php $file = dapost(get_youtube($tbl[$i]['file'])); //Получаем ссылку для фрейма ?>
+                    <div class="grid_cell">
+                        <input class="video_frame" id="v<?=$i?>" type="checkbox">
+                        <label class="video_label" for="v<?=$i?>">
+                            <div class="rect1">
+                                <div class="rect2">
+                                    <?php if ($tbl[$i]['cover'] == '') { ?>
+                                    <img src="i/video.jpg">
+                                    <?php }
+                                    else { ?>
+                                    <img src="media/video/m/smal_<?=$tbl[$i]['cover']?>">
+                                    <?php }?>
+                                </div>
+                            </div>
+                        </label>
+                        <div class="video_window">
+                            <div id="close_vid<?=$i?>"><a href="">
+                                <label class="video_label-2" for="v<?=$i?>"></label>
+                                <div class="vid_close"></div>
+                            </a></div>
+                            <iframe class="video" src="https://www.youtube.com/embed/<?=$file?>?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="Text"><?=dapost($tbl[$i]['name'])?></div>
+                    </div>
+                    <?php }?>
                 </div>
                 <?php break;
             case 'audio': //Показ аудио ?>
