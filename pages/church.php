@@ -46,7 +46,7 @@ switch ($article) {
     <div class="content">
 
         <h1><?=$podp?></h1>
-        <div class="Text">
+        <div>
         <?php
         switch ($article) { //Для каждого пункта меню
             case  'episcop': //Начальствующий епископ
@@ -56,7 +56,7 @@ switch ($article) {
                 <div class="articl_img">
                     <a rel="group" href="img/<?=$array[0]['foto']?>" class="prevew"><img src="img/m/smal_<?=$array[0]['foto']?>"></a>
                 </div>
-                <div class="articl_text">
+                <div class="Text">
                     <?=$array[0]['article']?>
                 </div>
                 <?php }?>
@@ -65,7 +65,9 @@ switch ($article) {
             case 'teaching': //Процесс обучения
             case 'prayer': //Самая важная молитва ?>
                 <?php if ($array != NULL) { //Если массив не пустой ?>
-                <?=$array[0]['article']?>
+                <div class="Text">
+                    <?=$array[0]['article']?>
+                </div>
                 <?php }?>
                 <?php break;
             case 'bible': //Библия ?>

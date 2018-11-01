@@ -57,14 +57,14 @@ else { //Иначе статья про конкретное служение
             
             <h1><?=$ministry[0]['title']?></h1>
             
-            <div class="Text">
+            <div>
                 <div class="articl_img">
                     <a rel="group" href="img/<?=$ministry[0]['img']?>" class="prevew">
                         <img src="img/m/smal_<?=$ministry[0]['img']?>">
                     </a>
                     <div class="sign"><?=$ministry[0]['alt']?></div>
                 </div>
-                <div class="articl_text">
+                <div class="Text">
                     <?=$ministry[0]['content']?>
                 </div>
             </div>
