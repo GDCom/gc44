@@ -148,6 +148,45 @@ header {
     right: 10px;
 }
 
+/*Белая полоса в шапке для скрытия сонтентапод шапкой*/
+.white-line {
+    position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    top: 103px;
+    width: 100%;
+    height: 37px;
+    background-color: white;
+    /*opacity: 0.95;*/
+    z-index: -1;
+}
+
+/*Прозрачная полоса в шапке для отображения ссылок*/
+.opacity-line {
+    position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    top: 103px;
+    width: 100%;
+    height: 37px;
+}
+
+/*Блок для ссылок в шапке*/
+.link_page {
+    margin-left: 180px;
+    font-family: "Raleway-Light";
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+/*Оформление ссылки в шапке*/
+.link_page a {
+    text-decoration: none;
+    color: blue;
+}
+
 /*Кнопка*/
 .button {
     margin-left: 100px;
@@ -356,6 +395,7 @@ header {
     text-align: justify;
 }
 
+/*Ссылка в ячейке табличного расположения*/
 .grid_cell a {
     text-decoration: none;
     color: black;

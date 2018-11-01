@@ -23,6 +23,99 @@ switch ($style) { //Выбираем файл стилей в зависимос
         $style_file = 'styles_fon.css';
         break;
 }
+
+if (isset($_GET['page'])) { //Если доступен параметр page
+    $page = $_GET['page'];
+    $page_name = 'Главная';
+}
+else { //Иначе
+    $page = '';
+    $page_name = '';
+}
+
+switch ($page) {
+    case 'church':
+        $name1 = '\Церковь'; //Название ссылки
+        $link_name = 'article'; //имя ссылки
+        
+        if (isset($_GET['article'])) { //Если доступен параметр статья
+            $link2 = $_GET['article']; //Ссылка второго уровня на статью
+            switch ($link2) {
+                case 'episcop':
+                    $name2 = "\Начальствующий епископ";
+                    break;
+                case 'pastor':
+                    $name2 = "\Старший пастор";
+                    break;
+                case 'faith':
+                    $name2 = "\Основы вероучения";
+                    break;
+                case 'teaching':
+                    $name2 = "\Процесс обучения";
+                    break;
+                case 'prayer':
+                    $name2 = "\Самая важная молитва";
+                    break;
+                case 'bible':
+                    $name2 = "\Библия";
+                    break;
+            }
+        }
+        else { //Иначе ссылка второго уровня на первую статью о епископе
+            $link2 = "episcop";
+            $name2 = "\Начальствующий епископ";
+        }
+        
+        break;
+    case 'news':
+    case 'ministry':
+        if ($page == 'news') $name1 = '\Новости'; //Для новостей
+        else $name1 = '\Служения'; //Для служения
+        
+        $link_name = 'id';
+        
+        $id = $_GET['id'];
+        if ($id != 0) { //Если id не равен нулю
+            $tbl = get_table($link, "SELECT title FROM ".$page." WHERE id='".$id."'");
+            $name2 = '&#092;'.$tbl[0]['title'];
+        }
+        
+        break;
+    case 'media':
+        $name1 = '\Медиаматериалы';
+        $link_name = 'type';
+        $link_name2 = 'album';
+        
+        $link2 = $_GET['type'];
+        switch ($link2) {
+            case 'foto':
+            default:
+                $name2 = '\Фотографии';
+                break;
+            case 'video':
+                $name2 = '\Видеозаписи';
+                break;
+            case 'audio':
+                $name2 = '\Аудиозаписи';
+                break;
+        }
+        
+        if (isset($_GET['album'])) {
+            $name3 = '&#092;'.$_GET['album'];
+            $pa_link = $_GET['pa'];
+            $link3 = apost($_GET['album']).'&pa='.$pa_link;
+        }
+        
+        break;
+    case 'contacts':
+        $name1 = '\Контакты';
+        $link_name = 'contacts';
+        break;
+    default:
+        $page = '';
+        $page_name = '';
+        break;
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,8 +125,8 @@ switch ($style) { //Выбираем файл стилей в зависимос
         <meta charset="utf-8">
         <meta name="yandex-verification" content="61a6d318bbae3657" />
 		<title>"Церковь Божья" Кострома</title>
-        <link rel="stylesheet" href="<?=$style_file?>">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="<?=$style_file?>">
         
         <link rel="shortcut icon" href="i/gc.png">
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -80,9 +173,6 @@ switch ($style) { //Выбираем файл стилей в зависимос
 	</head>
 	<body>
         <header>
-            <?php if($style == 'background') { ?>
-            <div class="background"><img src="i/header.png"></div>
-            <?php } ?>
             <div class="head_main">
                 <div class="button">
                     <a href="index.php?page=contacts" title="Контакты">
@@ -95,7 +185,6 @@ switch ($style) { //Выбираем файл стилей в зависимос
                             </div>
                         </div>
                     </a>
-                    <!--<a href="index.php?page=prayerwall">Молитва</a>-->
                     <a href="index.php?page=media&type=foto" title="Медиаматериалы">
                         <div class="top_menu">
                             <div class="top_menu2">
@@ -156,6 +245,14 @@ switch ($style) { //Выбираем файл стилей в зависимос
                 
                 <div class="search">
                     <div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'http://gc44.ru/index.php?page=result','arrow':false,'bg':'transparent','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'Поиск по сайту gc44','suggest':true,'target':'_self','tld':'ru','type':2,'usebigdictionary':true,'searchid':2329906,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'поиск','input_placeholderColor':'#818181','input_borderColor':'#7f9db9'}"><form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2329906"/><input type="hidden" name="l10n" value="ru"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value=""/><input type="submit" value="Найти"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+                </div>
+            </div>
+            <div class="white-line">
+                
+            </div>
+            <div class="opacity-line">
+                <div class="link_page">
+                    <a href="index.php"><?=$page_name?></a><a href="index.php?page=<?=$page?>"><?=$name1?></a><a href="index.php?page=<?=$page?>&<?=$link_name?>=<?=$link2?>"><?=$name2?></a><a href="index.php?page=<?=$page?>&<?=$link_name?>=<?=$link2?>&<?=$link_name2?>=<?=$link3?>"><?=$name3?></a>
                 </div>
             </div>
          </header>

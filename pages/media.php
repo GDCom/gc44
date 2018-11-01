@@ -24,29 +24,26 @@ if (isset($_GET['album'])) {
 }
 else $album = '';
 
-if (isset($_GET['type'])) {
-    $type = $_GET['type'];
-    
-    switch ($type) {
-        case 'foto':
-            $podp = "Фотографии";
-            $pp = $tbl_p[0]['main_foto'];
-            break;
-        case 'video':
-            $podp = "Видеофайлы";
-            $pp = $tbl_p[0]['main_video'];
-            break;
-        case 'audio':
-            $podp = "Аудиофайлы";
-            $pp = $tbl_p[0]['main_audio'];
-            break;
-    }
-    
-    if ($type != '') { //Если тип медиа определен
-        $array = albums($link, $type, $pp, $pn, $ppa, $pna); //Выборка альбомов согласно страниц
-        $pca = $array['al_count']; //Кол-во страниц альбомов
-    }
+$type = $_GET['type'];
+if ($type == '') $type = 'foto';
+
+switch ($type) { //В зависимости от типа медиа
+    case 'foto':
+        $podp = "Фотографии";
+        $pp = $tbl_p[0]['main_foto'];
+        break;
+    case 'video':
+        $podp = "Видеофайлы";
+        $pp = $tbl_p[0]['main_video'];
+        break;
+    case 'audio':
+        $podp = "Аудиофайлы";
+        $pp = $tbl_p[0]['main_audio'];
+        break;
 }
+    
+$array = albums($link, $type, $pp, $pn, $ppa, $pna); //Выборка альбомов согласно страниц
+$pca = $array['al_count']; //Кол-во страниц альбомов
 
 ?>
 
