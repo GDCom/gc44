@@ -101,6 +101,11 @@ header {
     background-color: #343434;
 }
 
+/*Задний фон для табличного списка админки*/
+.tbl_back {
+    background-color: #626262;
+}
+
 /*разделяющий цветной блок*/
 .color_space {
     display: block;
