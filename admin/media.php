@@ -72,7 +72,7 @@ if (isset($_GET['action'])) { //Если доступна переменная a
 
                         $s = apost($_POST['name']); //Меняем апострофы на его код
 
-                        $str = "INSERT INTO ".$type." (file, name, album, cover, date) VALUES ('".$f."', '".$s."', '".$album."', '".$cover."', '".date("Y-m-d")."')"; //Создаем команду
+                        $str = "INSERT INTO ".$type." (file, name, album, cover, date) VALUES ('".$f."', '".$s."', '".$album."', '".apost($cover)."', '".date("Y-m-d")."')"; //Создаем команду
 
                         run_command($link, $str); //Посылаем команду в базу
                     }
