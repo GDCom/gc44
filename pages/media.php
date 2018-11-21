@@ -19,7 +19,7 @@ else $pn = 1; //Иначе первая страница
 if (isset($_GET['pa'])) $pna = $_GET['pa']; //Если доступен параметр номера страницы альбома, записываем в переменную
 else $pna = 1; //Иначе первая страница
 
-if (isset($_GET['album'])) {
+if (isset($_GET['album'])) { //Если доступен параметр альбом
     $album = apost($_GET['album']);
 }
 else $album = '';
@@ -72,11 +72,14 @@ $pca = $array['al_count']; //Кол-во страниц альбомов
         <div class="btn_look">
             <b>Альбомы</b>
         </div>
+        
+        
+        <?php if ($type == 'foto') { //Если тип данных фото ?>
         <div class="grid-5">
             <?php for($i = 0; $i < count(dapost($array['album'])); $i++) { //Для каждого альбома ?>
             <div class="grid_cell">
                 <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i]?>&pa=<?=$pna?>">
-                    <?php if ($type == 'foto') { //Если тип данных фото ?>
+                    
                     <div class="alb_main">
                         <div class="sq1">
                             <div class="sq2">
@@ -85,20 +88,43 @@ $pca = $array['al_count']; //Кол-во страниц альбомов
                         </div>
                         <div class="alb_title"><?=$array['album'][$i]?></div>
                     </div>
-                    <?php }
-                    else { //Иначе ?>
-                    <div class="sq1">
-                        <div class="sq2">
-                            <img src="../i/folder.png">
+                    
+                </a>
+            </div>
+            <?php }?>
+        </div>
+        <?php }
+        else { //Иначе ?>
+        <div class="grid-3">
+            <?php for($i = 0; $i < count(dapost($array['album'])); $i++) { //Для каждого альбома ?>
+            <div class="grid_cell">
+                <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i]?>&pa=<?=$pna?>">
+                <div class="rect1">
+                    <div class="rect2">
+                        <?php $tbl = get_table($link, "SELECT * FROM ".$type." WHERE album='".$array['album'][$i]."' ORDER BY date DESC") //Берем обложки видео выбранного альбома ?>
+                        
+                        <div class="folder_cover">
+                            <?php if($tbl[0]['cover'] != '') { //Если есть обложка на последнее видео  ?>
+                            <img src="media/video/m/smal_<?=$tbl[0]['cover']?>">
+                            <?php }
+                            else { //иначе ?>
+                            <img src="i/video.jpg">
+                            <?php } ?>
                         </div>
+                        
+                        <div class="folder_front">
+                            <div class="Text"><?=$array['album'][$i]?> (<?=count($tbl)?>)</div>
+                        </div>
+                        
                     </div>
-                    <?=$array['album'][$i]?>
-                    <?php }?>
+                </div>
+                
                 </a>
             </div>
             <?php }?>
         </div>
         
+        <?php }?>
         
         <!--Навигация по страницам-->
         <?php if ($pca > 1) { //Если страниц больше одной ?>
@@ -176,10 +202,10 @@ $pca = $array['al_count']; //Кол-во страниц альбомов
                         <label class="video_label" for="v<?=$i?>">
                             <div class="rect1">
                                 <div class="rect2">
-                                    <?php if ($tbl[$i]['cover'] == '') { ?>
+                                    <?php if ($tbl[$i]['cover'] == '') { //Если есть обложка на видео ?>
                                     <img src="i/video.jpg">
                                     <?php }
-                                    else { ?>
+                                    else { //Иначе ?>
                                     <img src="media/video/m/smal_<?=$tbl[$i]['cover']?>">
                                     <?php }?>
                                 </div>

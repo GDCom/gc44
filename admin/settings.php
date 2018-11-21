@@ -190,13 +190,16 @@ else { //Иначе Значения по умолчанию
         
         <div>
             <label>
+                <input name="style" type="radio" value="flat" <?php if($style == 'flat') {?> checked <?php }?> > Плоская тема<br>
+            </label>
+            <label>
                 <input name="style" type="radio" value="gray" <?php if($style == 'gray') {?> checked <?php }?> > Серая тема<br>
             </label>
              <label>
                 <input name="style" type="radio" value="blue" <?php if($style == 'blue') {?> checked <?php }?> > Голубая тема<br>
             </label>
             <label>
-                <input name="style" type="radio" value="background" <?php if($style == 'background') {?> checked <?php }?> > Тема с фоном
+                <input name="style" type="radio" value="fon" <?php if($style == 'fon') {?> checked <?php }?> > Тема с фоном
             </label>
         </div>
         <div class="space"></div>

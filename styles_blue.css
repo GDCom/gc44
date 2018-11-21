@@ -32,41 +32,57 @@ h6 {
 header {
     background-color: rgb(103, 185, 237);
     border-bottom-style: ridge;
+    height: 103px;
 }
 
 /*Блок для изображения значка в круге*/
 .Head_img {
-    position: absolute;
-    height: 120px;
-    width: 120px;
-    text-align: center;
-    vertical-align: middle;
-    margin: 10px 10px 10px 10px;
-    padding: 0;
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin: 10px 0 0 10px;
     background: rgb(83, 109, 139);
     border-radius: 50%;
-    border: 3px;
     border-style: ridge;
+    padding: 5px;
+    box-sizing: border-box;
 }
 
-/*Второй блок для изображения значка в круге*/
-.Head_img2 {
-    position: relative;
-    height: 100px;
-    width: 100px;
-    margin: 10px 10px 10px 10px;
-    border-radius: 50%;
-    display: block;
+/*Изображение логотипа в шапке*/
+.main_img img {
+    width: 94px;
+    height: 94px;
+}
+
+/*Надпись svg*/
+.name_svg {
+    width: 48%;
+    height: 48%;
+    margin-top: -25px;
+    margin-left: -17px;
+}
+
+/*Всплывающее меню*/
+.top_menu3 {
+    background-color:  rgb(40, 59, 141);
+    border: 2px;
+    border-style: outset;
+    border-top-style: none;
+}
+
+/*Наведение на пункт всплывающего меню*/
+.top_menu3 div:hover {
+    background-color: rgb(92, 118, 178);
 }
 
 /*Сноска в кнопке*/
-.button a {
+.button_link {
     color: #fafafa;
     background-color: rgb(92, 118, 178);
 }
 
 /*При наведении на ссылку в кнопке*/
-.button a:hover {
+.button_link:hover {
     background-color: rgb(40, 59, 141);
 }
 
@@ -74,6 +90,24 @@ header {
 .admHead {
     vertical-align: middle;
     color: white;
+}
+
+/*Белая полоса в шапке для скрытия сонтентапод шапкой*/
+.white-line {
+    position: absolute;
+    left: 0;
+    top: 106px;
+}
+
+/*Прозрачная полоса в шапке для отображения ссылок*/
+.opacity-line {
+    top: 106px;
+}
+
+/*Ячейка в табличном расположении эл-ов с тенью*/
+.grid_cell_shadow {
+    padding-top: 2px;
+    box-shadow: 0 0 0 0;
 }
 
 /*Надпись в виде кнопки (заголовки таблиц в медиа)*/

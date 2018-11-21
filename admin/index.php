@@ -9,20 +9,7 @@ $link = db_connect();
 $tbl_style = get_table($link, "SELECT style FROM settings"); //Берем информацию о стиле сайта
 $style = $tbl_style[0]['style'];
 
-switch ($style) { //Выбираем файл стилей в зависимости от настроек
-    case gray:
-        $style_file = 'styles_gray.css';
-        break;
-    case blue:
-        $style_file = 'styles_blue.css';
-        break;
-    case background:
-        $style_file = 'styles_fon.css';
-        break;
-    default:
-        $style_file = 'styles_fon.css';
-        break;
-}
+$style_file = 'styles_'.$style.'.css'; //Выбираем файл стилей в зависимости от настроек
 ?>
 
 <!DOCTYPE html>

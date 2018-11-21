@@ -31,33 +31,44 @@ h5 {
 /*Шапка сайта*/
 header {
     background-color: #7289be;
+    height: 140px;
 }
 
 /*Блок для изображения значка в круге*/
 .Head_img {
-    position: absolute;
-    text-align: center;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin: auto 10px;
+    background: #7b7b7b;
+    padding: 5px;
+    border-radius: 50%;
+    border-style: ridge;
+    box-sizing: border-box;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
-/*Второй блок для изображения значка*/
-.Head_img2 {
-    position: relative;
-    margin: 0 20px 20px 20px;
-    display: block;
-    background: rgba(111, 107, 107, 0.41);
+/*Всплывающее меню*/
+.top_menu3 {
+    background-color:  #212d89;
+    border: 2px;
+    border-style: outset;
+    border-top-style: none;
+}
+
+/*Наведение на пункт всплывающего меню*/
+.top_menu3 div:hover {
+    background-color: #7b7b7b;
 }
 
 /*Сноска в кнопке*/
-.button a {
+.button_link {
     color: #fafafa;
-    background-color: #9b9b9b;
+    background-color: #7b7b7b;
 }
 
 /*При наведении на ссылку в кнопке*/
-.button a:hover {
+.button_link:hover {
     background-color: #212d89;
 }
 
@@ -68,13 +79,24 @@ header {
 
 /*Прозрачная полоса в шапке для отображения ссылок*/
 .opacity-line {
-    display: none;
+    top: 110px;
+}
+
+/*Сноска в полосе для отображения ссылок*/
+.link_page a {
+    color: white;
 }
 
 /*Шапка админинки*/
 .admHead {
     vertical-align: middle;
     color: white;
+}
+
+/*Ячейка в табличном расположении эл-ов с тенью*/
+.grid_cell_shadow {
+    padding-top: 2px;
+    box-shadow: 0 0 0 0;
 }
 
 /*Надпись в виде кнопки (заголовки таблиц в медиа)*/
@@ -90,7 +112,7 @@ header {
 
 /*Ссылка в блоке меню*/
 .Menu a {
-    background-color: #717171;
+    background-color: #7b7b7b;
     border-color: white;
     color: #fafafa;
 }
@@ -108,6 +130,11 @@ header {
 /*При наведении на ссылку подменю*/
 .Menu a.second:hover {
     background-color: #212d89;
+}
+
+/*Центрирующий основной блок*/
+.cent {
+    margin-top: 160px;
 }
 
 /*Задний фон для табличного списка админки*/

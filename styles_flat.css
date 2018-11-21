@@ -1,0 +1,252 @@
+/*Заголовок 1*/
+h1 {
+    color: rgb(83, 109, 139);
+}
+
+/*Заголовок 2*/
+h2 {
+    color: rgb(83, 109, 139);
+}
+
+/*Заголовок 3*/
+h3 {
+    color: rgb(83, 109, 139);
+}
+
+/*Заголовок 4*/
+h4 {
+    color: white;
+}
+
+/*Заголовок 5*/
+h5 {
+    color: rgb(83, 109, 139);
+}
+
+/*Заголовок 6*/
+h6 {
+    color: white;
+}
+
+/*Шапка сайта*/
+header {
+    background-color: rgb(103, 185, 237);
+    height: 140px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+
+/*Блок для изображения значка в круге*/
+.Head_img {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin: auto 10px;
+    background: rgb(83, 109, 139);
+    border-radius: 50%;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/*Белая полоса в шапке для скрытия сонтентапод шапкой*/
+.white-line {
+    display: none;
+}
+
+/*Прозрачная полоса в шапке для отображения ссылок*/
+.opacity-line {
+    top: 110px;
+}
+
+/*Сноска в полосе для отображения ссылок*/
+.link_page a {
+    color: white;
+}
+
+/*Изображения в шапке на кнопках*/
+.btn_img {
+    padding-top: 2px;
+}
+
+/*Внешний вид кнопки*/
+.button_link {
+    margin-top: -20px;
+    border: 0;
+    border-radius: 0;
+    
+    background-color: rgb(83, 109, 139);
+}
+
+/*При наведении на ссылку в кнопке*/
+.button_link:hover {
+
+}
+
+/*Всплывающее меню*/
+.top_menu3 {
+    background-color:  rgb(83, 109, 139);
+}
+
+/*Наведение на пункт всплывающего меню*/
+.top_menu3 div:hover {
+    background-color: #818181;
+}
+
+/*Шапка админинки*/
+.admHead {
+    vertical-align: middle;
+    color: white;
+}
+
+/*Надпись в виде кнопки (заголовки таблиц в медиа)*/
+.btn_look {
+    width: auto;
+    background-color: rgb(83, 109, 139);
+    color: white;
+    padding: 5px;
+    font-family: "AC Display Bold";
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+
+/*Центрирующий блок для основного контента*/
+.cent {
+    margin-top: 150px;
+}
+
+/*Основной блок контента*/
+.content {
+    max-width: 940px;
+}
+
+/*Создание кнопки из ссылки*/
+.butn {
+    padding: 5px;
+    font-family: "AC Display Bold";
+    font-size: 15px;
+    color: #537bd6;
+    text-decoration: none;
+}
+
+/*Ячейка в табличном расположении эл-ов с тенью*/
+.grid_cell_shadow {
+    border-radius: 0;
+}
+
+/*Блок для контролера аудио*/
+.audio_frame audio {
+    background-color: rgb(83, 109, 139);
+}
+
+/*Блок с названием аудио*/
+.audio_name {
+    background-color: rgb(83, 109, 139);
+    color: white;
+}
+
+/*Блок для отображения передней части папки*/
+.folder_front {
+    background-color: rgb(83, 109, 139);
+}
+
+/*Оформление блока 1*/
+.block_1 {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+    padding: 40px 20px;
+    margin-bottom: 40px;
+}
+
+/*Оформление блока 2*/
+.block_2 {
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+
+/*Ссылка в блоке меню*/
+.Menu a {
+    background-color: rgb(83, 109, 139);
+    border: 0;
+    border-radius: 0;
+    color: #fafafa;
+}
+
+/*При наведении на ссылку в меню*/
+.Menu a:hover {
+
+}
+
+/*Подменю*/
+.Menu a.second {
+    background-color: rgb(103, 185, 237);
+}
+
+/*При наведении на ссылку подменю*/
+.Menu a.second:hover {
+
+}
+
+/*Изображение в ячейке табличного расположения эл-ов*/
+.grid_cell img {
+    border-radius: 0;
+}
+
+/*Изображение в ячейке табличного расположения эл-ов*/
+.grid_cell_shadow img {
+    border-radius: 0;
+}
+
+
+/*Изображение в ячейке с изображением в статье*/
+.articl_img img {
+    border-radius: 0;
+}
+
+/*Задний фон для табличного списка админки*/
+.tbl_back {
+    background-color: rgb(83, 109, 139);
+    border-radius: 0;
+}
+
+/*Первая колонка в таблице*/
+.col-1 {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+/*Последняя колонка в таблице*/
+.col-last {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/*Кнопка (на странице ввода и редактирования статей и файлов)*/
+.btn {
+    background-color: rgb(83, 109, 139);
+    border-radius: 0;
+    border: 0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+/*Подвал*/
+footer {
+    margin: 0;
+    height: 120px;
+    width: 100%;
+    background-color: rgb(103, 185, 237);
+    box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.5);
+    border: 0;
+    color: white;
+}
+
+/*Сноска в подвале*/
+footer a{
+    color: #ffffff;
+}
+
+/*Изображение кнопки вверх*/
+#toTop img {
+    border-radius: 50px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}

@@ -84,14 +84,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-blend-mode: lighten;
-    min-width: 800px;
-}
-
-/*Шапка сайта*/
-.head_main {
-    position: absolute;
-    width: 100%;
-    height: 140px;
+    min-width: 1000px;
 }
 
 /*Шапка сайта*/
@@ -108,11 +101,213 @@ header {
     z-index: 10;
 }
 
-/*Изображения в шапке*/
-.head_main img {
+/*Шапка сайта*/
+.head_main {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    height: 140px;
+}
+
+/*Блок div в шапке сайта*/
+.head_block {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 120px);
+}
+
+/*Основная надпись*/
+.mine_name {
+    position: absolute;
+    width: 430px;
+    color: white;
+    margin: 5px 0 0 5px;
+    font-family: "AC Display Bold";
+    font-size: 30px;
+    z-index: -1;
+}
+
+/*Логотип svg*/
+.logo_svg {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    -o-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+/*рисунок логотипа*/
+.logo_svg path {
+    fill: white;
+    stroke: white;
+    stroke-width: 5;
+    
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    stroke-dasharray: 1900;
+    stroke-dashoffset: 1;
+    -webkit-animation: londing 20s linear 0s, change_color 20s linear 20s infinite;
+    -o-animation: londing 20s linear 0s, change_color 20s linear 20s infinite;
+    animation: londing 20s linear 0s, change_color 20s linear 20s infinite;
+}
+
+/*При наведении на ссылку лого*/
+.Head_img a:hover svg {
+    transform: rotate(360deg);
+    
+    animation: rotate_logo 0.5s linear 0s;
+    -webkit-animation: rotate_logo 0.5s linear 0s;
+    -o-animation: rotate_logo 0.5s linear 0s;
+}
+
+/*Анимация поворота на 360 градусов*/
+@keyframes rotate_logo {
+    from {
+        transform: rotate(0deg);
+    }
+    
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*Надпись svg*/
+.name_svg {
+    width: 50%;
+    height: 50%;
+    margin: -17px;
+}
+
+/*Рисунок надписи*/
+.name_svg path {
+    fill: white;
+    stroke: white;
+    stroke-width: 5;
+    
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 1;
+    -webkit-animation: londing_n 20s linear 0s;
+    -o-animation: londing_n 20s linear 0s;
+    animation: londing_n 20s linear 0s;
+}
+
+/*Анимация прорисовки svg для лого*/
+@keyframes londing {
+    0% {
+        stroke-dashoffset: -1900;
+        fill-opacity: 0;
+        fill: none;
+    }
+
+    20% {
+        stroke-dashoffset: 0;
+        fill: white;
+        fill-opacity: 0;
+    }
+
+    40% {
+        stroke-dashoffset: 0;
+        fill-opacity: 2;
+        fill: white;
+    }
+    
+    100% {
+        stroke-dashoffset: 0;
+        fill-opacity: 2;
+        fill: white;
+    }
+}
+
+/*Анимация прорисовки svg для надписи*/
+@keyframes londing_n {
+    0% {
+        stroke-dashoffset: -800;
+        fill-opacity: 0;
+        fill: none;
+    }
+
+    20% {
+        stroke-dashoffset: 0;
+        fill: white;
+        fill-opacity: 0;
+    }
+
+    40% {
+        stroke-dashoffset: 0;
+        fill-opacity: 2;
+        fill: white;
+    }
+    
+    100% {
+        stroke-dashoffset: 0;
+        fill-opacity: 2;
+        fill: white;
+    }
+}
+
+/*Анимация смены цвета*/
+@keyframes change_color {
+    0% {
+        fill: white;
+    }
+
+    10% {
+        fill: #dee5ff;
+    }
+
+    20% {
+        fill: #d8efff;
+    }
+
+    30% {
+        fill: #d7f7f3;
+    }
+
+    40% {
+        fill: #e4f6d6;
+    }
+    
+    50% {
+        fill: #f1efcc;
+    }
+    
+    60% {
+        fill: #f8e4db;
+    }
+    
+    70% {
+        fill: #f3d3e2;
+    }
+    
+    80% {
+        fill: #f0e1ff;
+    }
+    
+    90% {
+        fill: white;
+    }
+    
+    100% {
+        fill: white;
+    }
+}
+
+/*Изображения в шапке на кнопках*/
+.btn_img {
     display: block;
     margin: auto;
-    height: 98%;
+    background: none;
+    width: 25px;
+    height: 25px;
 }
 
 /*Фон блока*/
@@ -135,19 +330,6 @@ header {
     margin-top: 28px;
 }
 
-/*Блок поискового запроса*/
-.search {
-    display: block;
-    position: absolute;
-    width: 250px;
-    height: 30px;
-    margin: 0 10px 0 auto;
-    text-align: right;
-    vertical-align: middle;
-    top: 70px;
-    right: 10px;
-}
-
 /*Белая полоса в шапке для скрытия сонтентапод шапкой*/
 .white-line {
     position: fixed;
@@ -156,9 +338,8 @@ header {
     align-items: center;
     top: 103px;
     width: 100%;
-    height: 37px;
+    height: 30px;
     background-color: white;
-    /*opacity: 0.95;*/
     z-index: -1;
 }
 
@@ -170,12 +351,12 @@ header {
     align-items: center;
     top: 103px;
     width: 100%;
-    height: 37px;
+    height: 30px;
 }
 
 /*Блок для ссылок в шапке*/
 .link_page {
-    margin-left: 180px;
+    margin-left: 9px;
     font-family: "Raleway-Light";
     font-size: 15px;
     text-transform: capitalize;
@@ -189,10 +370,7 @@ header {
 
 /*Кнопка*/
 .button {
-    margin-left: 100px;
     margin-right: 20px;
-    align-items: center;
-    flex-direction: row;
 }
 
 /*Основной блок в элементе верхнего меню*/
@@ -220,16 +398,49 @@ header {
     font-size: 13px;
 }
 
-/*Изображение в кнопке*/
-.button img {
-    background: none;
-    background-color: none;
-    width: 25px;
-    height: 25px;
+/*Всплывающее меню*/
+.top_menu3 {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 55px;
+    right: -2px;
+    padding: 5px 0;
+    width: 0;
+    height: 0;
+    align-items: flex-end;
+    visibility: hidden;
+    overflow: hidden;
+    z-index: 9;
+}
+
+.top_menu3 div {
+    padding: 5px 10px;
+    text-align: right;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/*При наведении на всплывающее меню*/
+.top_menu3:hover {
+    visibility: visible;
+    width: 200px;
+    height: auto;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /*Тень*/
+}
+
+/*Наведение на пункт всплывающего меню*/
+.top_menu3 div:hover {
+    margin: 0;
+    padding: 5px 10px;
+    width: 100%;
+    height: 100%;
 }
 
 /*Сноска в кнопке*/
-.button a {
+.button_link {
+    position: relative;
     display: block;
     margin: -23px 5px 10px 5px;
     width: 70px;
@@ -241,28 +452,57 @@ header {
     vertical-align: middle;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
-    overflow: hidden;
     border: 2px;
     border-style: outset;
-    
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /*Тень*/
+        
     animation: width_menu_up 0.5s linear;
 }
 
+/*Сноска в кнопке*/
+.button_link a {
+    text-decoration: none;
+    color: #fafafa;
+}
+
 /*При наведении на ссылку в кнопке*/
-.button a:hover {
+.button_link:hover {
     display: block;
     height: 43px;
     text-align: center;
+    border-radius: 0;
     
     /*Анимация*/
     margin-top: -2px;
     animation: width_menu_down 0.5s linear;
 }
 
+/*При наведении на ссылку в кнопке*/
+.button_link:hover .top_menu3 {
+    visibility: visible;
+    width: 200px;
+    height: auto;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /*Тень*/
+        
+    animation: menu_zoom 0.5s linear;
+}
+
+@keyframes menu_zoom {
+    from {
+        width: 0;
+        height: 0;
+    }
+    
+    to {
+        width: 200px;
+        height: 100%;
+    }
+}
+
 /*Анимация опускания кнопки меню*/
 @keyframes width_menu_down {
     from {
-        margin-top: -23px;
+        margin-top: -20px;
      }
     
     to {
@@ -277,7 +517,7 @@ header {
      }
     
     to {
-        margin-top: -23px;
+        margin-top: -20px;
     }
 }
 
@@ -310,6 +550,7 @@ header {
     text-decoration: none;
     border-bottom-right-radius: 50px;
     border-top-right-radius: 50px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /*Тень*/
     
     transition: all 0.5s;
 }
@@ -342,7 +583,9 @@ header {
 
 /*Расположение элементов в одну колонку*/
 .grid-1 {
+    position: relative;
     display: flex;
+    margin-bottom: 15px;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -367,7 +610,6 @@ header {
     display: grid;
     grid-template-columns: 59% 1% 40%;
     width: 100%;
-    
 }
 
 /*Расположение элементов в три колонки*/
@@ -413,6 +655,113 @@ header {
 .grid_cell img:hover {
     transform: scale(0.9);
     transition: all 1s;    
+}
+
+/*Ячейка в табличном расположении эл-ов с тенью*/
+.grid_cell_shadow {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 25px 10px;
+    text-decoration: none;
+    color: black;
+    text-align: justify;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+    width: 32%;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+/*Ссылка в ячейке табличного расположения с тенью*/
+.grid_cell_shadow a {
+    text-decoration: none;
+    color: black;
+}
+
+/*Изображение в ячейке табличного расположения эл-ов с тенью*/
+.grid_cell_shadow img {
+    object-fit: cover;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+/*Наведение курсора на ссылку в сетке на три колонки с тенью*/
+.grid_cell_shadow img:hover {
+    transform: scale(0.9);
+    transition: all 1s;    
+}
+
+/*Изображение для аудио проповеди на главной*/
+.audio_preach {
+    width: 100%;
+}
+
+/*Блок для контролера аудио*/
+.audio_frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/*Фрейм контроллера аудио*/
+.audio_frame audio {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    width: 50%;
+    height: 10%;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+/*Блок с названием аудио*/
+.audio_name {
+    padding: 5px 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 8%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: "AC Display";
+    font-size: 150%;
+}
+
+/*Блок для расположения обложки в папке*/
+.folder_cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/*Блок для отображения передней части папки*/
+.folder_front {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    bottom: 15px;
+    padding: 5px;
+    background-color: gray;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+    opacity: 0.99;
+    color: white;
+    font-family: "AC Display";
+    font-size: 16px;
+}
+
+/*Блок трех последних новостей*/
+.flex_news-3 {
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: space-between;
 }
 
 /*Изображение в статье*/
@@ -541,9 +890,14 @@ header {
     display: none;
 }
 
-/*Поведение окна видео при отмеченном чекбоксе*/
+/*Поведение блока видео при отмеченном чекбоксе*/
 .video_frame:checked + label + .video_window {
     display: flex;
+}
+
+/*Поведение окна видео при отмеченном чекбоксе*/
+.video_frame:checked + label + .video_window .video {
+    animation: window_zoom 1.5s linear;
 }
 
 /*Лейбл 1 для чекбокса*/
@@ -556,7 +910,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    
+
     background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -597,8 +951,20 @@ header {
     font-size: 18px;
     text-align: right;
     padding: 5px;
-    border-radius: 10px;
     z-index: -1;
+}
+
+/*Анимация зума окна*/
+@keyframes window_zoom {
+    from {
+        width: 0;
+        height: 0;
+    }
+    
+    to {
+        widows: 100%;
+        height: 100%;
+    }
 }
 
 /*Первый блок для создания прямоугольника 16/9*/
@@ -742,8 +1108,8 @@ header {
 /*контейнеры для оформления новостного блока. Подпись "читать далее..."*/
 .tn_22 {
     width: 100%;
+    margin-top: 10px;
     font-size: 15px;
-    font-style: italic;
     color: #537bd6;
     text-align: right;
     vertical-align: bottom;
@@ -777,7 +1143,6 @@ header {
     position: relative;
 	width: 100%;
     height: 100%;
-    border-radius: 5px;
     overflow: hidden;
 }
 
@@ -918,11 +1283,11 @@ img.fix2 {
 
 /*Основное поле контента*/
 .content {
-    width: calc(100% - 30px);
+    width: calc(100% - 40px);
     padding: 15px;
     background: #ffffff;
     border-radius: 10px;
-    min-height: calc(100vh - 303px);
+    min-height: calc(100vh - 330px);
     
     margin: 0 auto;
     display: flex;
@@ -973,10 +1338,10 @@ iframe.video {
 
 /*Параметры видеофрейма на главной*/
 iframe.video_main {
-    width: calc(90vw);
-    height: calc(90vw*9/16);
-    max-width: 900px;
-    max-height: 506.25px;
+    width: 100%;
+    height: calc(100vw*9/16);
+    max-width: 1000px;
+    max-height: 562.5px;
 }
 
 /*Параметры фрейма Библии*/
@@ -1049,17 +1414,73 @@ iframe.bible {
 
 /*Блок в подвале*/
 footer div {
-    padding-top: 7px;
-    vertical-align: text-top;
-    margin: 0 auto;
+    margin: 10px;
     text-align: center;
     font-size: 12px;
 }
 
+.flex {
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: center;
+}
+
+/*Блок поискового запроса*/
+.search {
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 30px;
+    vertical-align: middle;
+}
+
 /*Для блока Поделиться в соцсетях*/
 .share {
-    width: 250px;
-    padding: 5px 0px 10px 5px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 200px;
+    background-color: white;
+    right: -105px;
+    padding: 5px;
+    
+    animation: slide_off 0.5s linear;
+    z-index: 3;
+}
+
+/*Блок Поделиться в соцсетях при наведении*/
+.share:hover {
+    right: 5px;
+    
+    animation: slide_on 0.5s linear;
+}
+
+/*Анимация выезда блока*/
+@keyframes slide_on {
+    from {
+        right: -105px;
+    }
+
+    to {
+        right: 5px;
+    }
+}
+
+/*Анимация заезда блока*/
+@keyframes slide_off {
+    from {
+        right: 5px;
+        left: auto;
+    }
+    
+    10% {
+        right: auto;
+        left: calc(100vw - 150px);
+    }
+    
+    to {
+        right: auto;
+        left: calc(100vw - 50px);
+    }
 }
 
 /*Кнопка вверх*/
