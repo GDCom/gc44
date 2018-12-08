@@ -28,7 +28,7 @@ else { //Иначе статья про конкретное служение
     <script>$(function(){$('h3').hyphenate();})</script>
     <div class="Menu">
         <div>
-            <?php foreach($menu as $a): //Для каждого элемента всписке служений ?>
+            <?php foreach($menu as $a): //Для каждого элемента в списке служений ?>
             <a href="index.php?page=<?=$page?>&id=<?=$a['id']?>"><?=$a['title']?></a><br>
             <?php endforeach?>
         </div>
@@ -60,7 +60,11 @@ else { //Иначе статья про конкретное служение
             <div>
                 <div class="articl_img">
                     <a rel="group" href="img/<?=$ministry[0]['img']?>" class="prevew">
-                        <img src="img/m/smal_<?=$ministry[0]['img']?>">
+                        <div class="rect1_32">
+                            <div class="rect2_32">
+                                <img src="img/m/smal_<?=$ministry[0]['img']?>">
+                            </div>
+                        </div>
                     </a>
                     <div class="sign"><?=$ministry[0]['alt']?></div>
                 </div>

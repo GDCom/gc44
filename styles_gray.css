@@ -26,8 +26,16 @@ h5 {
 /*Шапка сайта*/
 header {
     background-color: rgb(156, 166, 186);
-    border-bottom-style: ridge;
-    height: 103px;
+}
+
+/*Шапка админки*/
+.admHead {
+    background-color: rgb(156, 166, 186);
+}
+
+/*Задник для кнопок верхнего меню*/
+.button_back {
+    background-color: rgb(156, 166, 186);
 }
 
 /*Блок для изображения значка в круге*/
@@ -85,6 +93,12 @@ header {
     position: absolute;
     top: 106px;
     left: 0;
+    visibility: hidden;
+}
+
+/*Сноска в полосе для отображения ссылок*/
+.link_page a {
+    color: white;
 }
 
 /*Прозрачная полоса в шапке для отображения ссылок*/
@@ -92,10 +106,9 @@ header {
     top: 106px;
 }
 
-/*Шапка админинки*/
-.admHead {
-    vertical-align: middle;
-    color: white;
+/*Основное поле контента*/
+.content {
+    min-height: calc(100vh - 333px);
 }
 
 /*Ячейка в табличном расположении эл-ов с тенью*/

@@ -89,25 +89,17 @@ body {
 
 /*Шапка сайта*/
 header {
-    position: fixed;
-    display: block;
+    position: relative;
+    display: flex;
     font-family: "AC Display";
     text-transform: uppercase; /* Заглавные буквы */
+    justify-content: space-between;
     font-size: 15px;
     width: 100%;
-    height: 100px;
+    height: 140px;
     padding: 0;
     vertical-align: top;
-    z-index: 10;
-}
-
-/*Шапка сайта*/
-.head_main {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    width: 100%;
-    height: 140px;
+    z-index: 6;
 }
 
 /*Блок div в шапке сайта*/
@@ -115,6 +107,16 @@ header {
     display: flex;
     flex-direction: column;
     width: calc(100% - 120px);
+    z-index: 1;
+}
+
+/*Шапка админинки*/
+.admHead {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: white;
 }
 
 /*Основная надпись*/
@@ -157,13 +159,11 @@ header {
     animation: londing 20s linear 0s, change_color 20s linear 20s infinite;
 }
 
-/*При наведении на ссылку лого*/
-.Head_img a:hover svg {
-    transform: rotate(360deg);
-    
-    animation: rotate_logo 0.5s linear 0s;
-    -webkit-animation: rotate_logo 0.5s linear 0s;
-    -o-animation: rotate_logo 0.5s linear 0s;
+/*При наведении на лого*/
+.main_img:hover .blink_rect {
+    animation: blink_img 0.5s linear;
+    -webkit-animation: blink_img 0.5s linear;
+    -o-animation: blink_img 0.5s linear;
 }
 
 /*Анимация поворота на 360 градусов*/
@@ -332,7 +332,7 @@ header {
 
 /*Белая полоса в шапке для скрытия сонтентапод шапкой*/
 .white-line {
-    position: fixed;
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -345,13 +345,14 @@ header {
 
 /*Прозрачная полоса в шапке для отображения ссылок*/
 .opacity-line {
-    position: fixed;
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     top: 103px;
     width: 100%;
     height: 30px;
+    z-index: -1;
 }
 
 /*Блок для ссылок в шапке*/
@@ -365,12 +366,27 @@ header {
 /*Оформление ссылки в шапке*/
 .link_page a {
     text-decoration: none;
-    color: blue;
+    color: white;
 }
 
 /*Кнопка*/
 .button {
-    margin-right: 20px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin-right: 0;
+    padding-right: 20px;
+    min-width: 580px;
+}
+
+/*Задник для кнопок верхнего меню*/
+.button_back {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 53px;
+    background-color: white;
+    /*z-index: 5;*/
 }
 
 /*Основной блок в элементе верхнего меню*/
@@ -406,14 +422,15 @@ header {
     top: 55px;
     right: -2px;
     padding: 5px 0;
-    width: 0;
-    height: 0;
+    /*width: 0;
+    height: 0;*/
     align-items: flex-end;
     visibility: hidden;
     overflow: hidden;
     z-index: 9;
 }
 
+/*Блок во всплывающем меню*/
 .top_menu3 div {
     padding: 5px 10px;
     text-align: right;
@@ -457,6 +474,8 @@ header {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /*Тень*/
         
     animation: width_menu_up 0.5s linear;
+    -o-animation: width_menu_up 0.5s linear;
+    -webkit-animation: width_menu_up 0.5s linear;
 }
 
 /*Сноска в кнопке*/
@@ -475,6 +494,8 @@ header {
     /*Анимация*/
     margin-top: -2px;
     animation: width_menu_down 0.5s linear;
+    -o-animation: width_menu_down 0.5s linear;
+    -webkit-animation: width_menu_down 0.5s linear;
 }
 
 /*При наведении на ссылку в кнопке*/
@@ -483,19 +504,33 @@ header {
     width: 200px;
     height: auto;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /*Тень*/
-        
-    animation: menu_zoom 0.5s linear;
+    
+    animation: menu_zoom 0.8s linear 0s;
+    -o-animation: menu_zoom 0.8s linear 0s;
+    -moz-animation: menu_zoom 0.8s linear 0s;
+    -webkit-animation: menu_zoom 0.8s linear 0s;
 }
 
+/*Анимация выезда меню*/
 @keyframes menu_zoom {
     from {
-        width: 0;
-        height: 0;
+        /*width: 0;
+        height: 0;*/
+        /*top: -100%;*/
+
+        opacity: 0;
     }
     
-    to {
+    /*80% {
         width: 200px;
-        height: 100%;
+        height: 25px;
+    }*/
+    
+    to {
+        /*width: 200px;
+        height: 200px;*/
+        /*top: 55px;*/
+        opacity: 1;
     }
 }
 
@@ -525,7 +560,7 @@ header {
 .Menu {
     display: inherit;
     width: 220px;
-    margin: 200px 0px 20px 0px;
+    margin: 90px 0px 20px 0px;
     font-family: "AC Display";
     text-transform: uppercase; /* Заглавные буквы */
     font-size: 15px;
@@ -553,12 +588,17 @@ header {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /*Тень*/
     
     transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
 }
 
 /*При наведении на ссылку в меню*/
 .Menu a:hover {
     /*Анимация*/
     transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    
     padding-left: 25px;
 }
 
@@ -651,10 +691,11 @@ header {
     height: 100%;
 }
 
-/*Наведение курсора на ссылку в сетке на три колонки*/
-.grid_cell img:hover {
-    transform: scale(0.9);
-    transition: all 1s;    
+/*Наведение курсора на ссылку в сетке*/
+.prevew:hover .blink_rect {
+    animation: blink_img 0.5s linear;
+    -o-animation: blink_img 0.5s linear;
+    -webkit-animation: blink_img 0.5s linear;
 }
 
 /*Ячейка в табличном расположении эл-ов с тенью*/
@@ -690,17 +731,23 @@ header {
 /*Наведение курсора на ссылку в сетке на три колонки с тенью*/
 .grid_cell_shadow img:hover {
     transform: scale(0.9);
-    transition: all 1s;    
+    
+    transition: all 1s;
+    -o-transition: all 1s;
+    -webkit-transition: all 1s;
 }
 
 /*Изображение для аудио проповеди на главной*/
 .audio_preach {
     width: 100%;
+    /*box-shadow: 0 6px 16px 3px rgba(0, 0, 0, 0.5);*/
 }
 
 /*Блок для контролера аудио*/
 .audio_frame {
     position: absolute;
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 100%;
 }
@@ -708,27 +755,65 @@ header {
 /*Фрейм контроллера аудио*/
 .audio_frame audio {
     position: absolute;
-    bottom: 20%;
-    left: 10%;
-    width: 50%;
-    height: 10%;
-    padding: 10px;
+    bottom: 12%;
+    width: 90%;
+    padding: 5px;
     border-radius: 50px;
 }
 
 /*Блок с названием аудио*/
 .audio_name {
-    padding: 5px 10px;
+    padding: 5px 10px 30px 10px;
     position: absolute;
     width: 100%;
-    bottom: 8%;
+    top: 0;
     background-color: white;
     display: flex;
+    justify-content: center;
     align-items: center;
     box-sizing: border-box;
     font-family: "AC Display";
     font-size: 150%;
+    opacity: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(255, 255, 255, 0));
+    color: white;
+    
+    animation: visible_name_rev 0.5s linear;
+    -o-animation: visible_name_rev 0.5s linear;
+    -webkit-animation: visible_name_rev 0.5s linear;
 }
+
+/*При наведении на блок*/
+.grid-1:hover .audio_name {
+    opacity: 1;
+    
+    animation: visible_name 0.5s linear;
+    -o-animation: visible_name 0.5s linear;
+    -webkit-animation: visible_name 0.5s linear;
+}
+
+/*Анимация показа названия*/
+@keyframes visible_name {
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+}
+
+/*Анимация показа названия*/
+@keyframes visible_name_rev {
+    from {
+        opacity: 1;
+    }
+    
+    to {
+        opacity: 0;
+    }
+}
+
 
 /*Блок для расположения обложки в папке*/
 .folder_cover {
@@ -766,6 +851,7 @@ header {
 
 /*Изображение в статье*/
 .articl_img {
+    position: relative;
     float: left;
     margin: 0 15px 13px 0;
     width: calc(100vw/3 - 100px);
@@ -778,6 +864,25 @@ header {
     object-fit: cover;
     width: 100%;
     border-radius: 5px;
+}
+
+/*Блок для эффекта бликоа на фотке*/
+.blink_rect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+/*При наведении на изображение в статье*/
+a:hover .rect1_32 .rect2_32 img {
+    transform: scale(1.1);
+    
+    transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
 }
 
 /*Ссылка для кнопки назад к списку альбомов*/
@@ -898,6 +1003,8 @@ header {
 /*Поведение окна видео при отмеченном чекбоксе*/
 .video_frame:checked + label + .video_window .video {
     animation: window_zoom 1.5s linear;
+    -o-animation: window_zoom 1.5s linear;
+    -webkit-animation: window_zoom 1.5s linear;
 }
 
 /*Лейбл 1 для чекбокса*/
@@ -1077,6 +1184,9 @@ header {
     right: 0;
         
     animation: slider_r 1s linear;
+    -o-animation: slider_r 1s linear;
+    -webkit-animation: slider_r 1s linear;
+    
     transform: translateX(0) scale(1);
 }
 
@@ -1089,6 +1199,9 @@ header {
 /*При наведении мыши на новостной блок*/
 .top_news2:hover {
     animation: slider 1s linear;
+    -o-animation: slider 1s linear;
+    -webkit-animation: slider 1s linear;
+    
     transform: translateX(-50%) scale(1);
 }
 
@@ -1120,6 +1233,15 @@ header {
     position: relative;
     display: block;
     overflow: hidden;
+}
+
+/*При наведении курсора на ссылку в ячейке в списке фото- альбомов*/
+.grid_cell a:hover .alb_main .sq1 {
+    opacity: 0.4;
+    
+    transition: all 1s;
+    -o-transition: all 1s;
+    -webkit-transition: all 1s;
 }
 
 /*Блок для подписи альбома*/
@@ -1161,13 +1283,6 @@ header {
     bottom: 0;
     right: 0;
     z-index: 2;
-}
-
-/*При наведении курсора на картинку в квадрате*/
-.sq2 img:hover {
-    opacity: 0.3;
-    transition: all 1s;
-    z-index: 0;
 }
 
 /*Абсолютная позиция 1-го элемента (кнопка удалить в админке фото)*/
@@ -1245,11 +1360,10 @@ img.fix2 {
 }
 
 /*Для превьюшек фоток*/
-.prevew img:hover {
+.prevew:hover {
     transform: scale(0.9);
     opacity: 1;
     cursor: zoom-in;
-    animation: zoom 1s linear;
 }
 
 /*Список страниц*/
@@ -1287,18 +1401,18 @@ img.fix2 {
     padding: 15px;
     background: #ffffff;
     border-radius: 10px;
-    min-height: calc(100vh - 330px);
+    min-height: calc(100vh - 340px);
     
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    max-width: 900px;
+    max-width: 940px;
 }
 
 /*Центрирующий блок для основного контента*/
 .cent {
     width: 100%;
-    margin: 130px 20px 20px 20px;
+    margin: 20px;
 }
 
 /*Блок для вывода контента с меню*/
@@ -1419,9 +1533,16 @@ footer div {
     font-size: 12px;
 }
 
+/*Плоский стиль в подвале*/
+.flex_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Плоский стиль*/
 .flex {
     display: flex;
-    /*justify-content: space-between;*/
     align-items: center;
 }
 
@@ -1444,6 +1565,8 @@ footer div {
     padding: 5px;
     
     animation: slide_off 0.5s linear;
+    -o-animation: slide_off 0.5s linear;
+    -webkit-animation: slide_off 0.5s linear;
     z-index: 3;
 }
 
@@ -1548,4 +1671,51 @@ footer div {
 .audio {
     width: 100%;
     margin: 5px;
+}
+
+/*Анимация блика изображения*/
+@keyframes blink_img {
+    from {
+        background: linear-gradient(135deg, rgba(123, 123, 123, 0),  rgba(255, 255, 255, 0.4) 10%, rgba(123, 123, 123, 0));
+    }
+    
+    10% {
+        background: linear-gradient(135deg, rgba(123, 123, 123, 0), rgba(255, 255, 255, 0.4) 20%, rgba(123, 123, 123, 0));
+    }
+    
+    20% {
+        background: linear-gradient(135deg, rgba(123, 123, 123, 0), rgba(255, 255, 255, 0.4) 30%, rgba(123, 123, 123, 0));
+    }
+    
+    30% {
+        background: linear-gradient(135deg, rgba(123, 123, 123, 0), rgba(255, 255, 255, 0.4) 40%, rgba(123, 123, 123, 0));
+    }
+    
+    40% {
+        background: linear-gradient(135deg, rgba(123, 123, 123, 0), rgba(255, 255, 255, 0.4) 50%, rgba(123, 123, 123, 0));
+    }
+    
+    50% {
+        background: linear-gradient(135deg, rgba(123, 123, 123, 0), rgba(123, 123, 123, 0) 10%, rgba(255, 255, 255, 0.4) 60%, rgba(123, 123, 123, 0));
+    }
+    
+    60% {
+        background: linear-gradient(135deg, rgba(123, 123, 123, 0), rgba(123, 123, 123, 0) 30%, rgba(255, 255, 255, 0.4) 70%, rgba(123, 123, 123, 0));
+    }
+
+    70% {
+        background: linear-gradient(135deg, rgba(123, 123, 123, 0), rgba(123, 123, 123, 0) 50%, rgba(255, 255, 255, 0.4) 80%, rgba(123, 123, 123, 0));
+    }
+    
+    80% {
+        background: linear-gradient(135deg, rgba(123, 123, 123, 0), rgba(123, 123, 123, 0) 70%, rgba(255, 255, 255, 0.4) 90%, rgba(123, 123, 123, 0));
+    }
+        
+    90% {
+        background: linear-gradient(135deg, rgba(123, 123, 123, 0), rgba(123, 123, 123, 0) 90%, rgba(255, 255, 255, 0.4) 100%, rgba(123, 123, 123, 0));
+    }
+        
+    to {
+        background: linear-gradient(135deg, rgba(123, 123, 123, 0), rgba(123, 123, 123, 0) 110%, rgba(255, 255, 255, 0.4) 110%, rgba(123, 123, 123, 0));
+    }
 }

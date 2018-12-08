@@ -32,7 +32,16 @@ h6 {
 header {
     background-color: rgb(103, 185, 237);
     border-bottom-style: ridge;
-    height: 103px;
+}
+
+/*Шапка админки*/
+.admHead {
+    background-color: rgb(103, 185, 237);
+}
+
+/*Задник для кнопок верхнего меню*/
+.button_back {
+    background-color: rgb(103, 185, 237);
 }
 
 /*Блок для изображения значка в круге*/
@@ -43,6 +52,7 @@ header {
     margin: 10px 0 0 10px;
     background: rgb(83, 109, 139);
     border-radius: 50%;
+    overflow: hidden;
     border-style: ridge;
     padding: 5px;
     box-sizing: border-box;
@@ -86,12 +96,6 @@ header {
     background-color: rgb(40, 59, 141);
 }
 
-/*Шапка админинки*/
-.admHead {
-    vertical-align: middle;
-    color: white;
-}
-
 /*Белая полоса в шапке для скрытия сонтентапод шапкой*/
 .white-line {
     position: absolute;
@@ -102,6 +106,11 @@ header {
 /*Прозрачная полоса в шапке для отображения ссылок*/
 .opacity-line {
     top: 106px;
+}
+
+/*Основное поле контента*/
+.content {
+    min-height: calc(100vh - 336px);
 }
 
 /*Ячейка в табличном расположении эл-ов с тенью*/

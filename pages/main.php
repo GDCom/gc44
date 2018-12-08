@@ -69,8 +69,10 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
         <div class="color_space"></div>
         <?php }?>
         
+        
+        <?php if(count($audio_pr) != 0) { //Если есть аудио проповеди ?>
         <div class="block_2">
-            <h2>Аудио проповеди:</h2>
+            <h2>Аудио- проповедь:</h2>
             <div class="grid-1">
                 <img class="audio_preach" src="../i/audio.png">
                 <div class="audio_frame">
@@ -85,14 +87,16 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
                     </div>
                 </div>
             </div>
+            <div class="tn_22"><a href="index.php?page=media&type=audio&album=Проповеди" class="butn">Другие аудио- проповеди...</a></div>
         </div>
+        <?php }?>
         
+
         <?php if ($style != 'flat') { //Если не плоская тема ?>
         <div class="color_space"></div>
         <?php }?>
 
         <?php if(count($video_pr) != 0) { //Если видео проповеди есть ?>
-        
         <div class="block_2">
             <h2>Проповедь:</h2>
             <div class="grid-1">
@@ -100,15 +104,16 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
                 <iframe class="video_main" src="https://www.youtube.com/embed/<?=$fileV?>" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="tn_22"><a href="index.php?page=media&type=video&album=Проповеди" class="butn">Другие проповеди...</a></div>
-
-            <?php } ?>
-            <?php if(count($foto) != 0) { //Если фотки есть ?>
         </div>
+        <?php } ?>
         
-            <?php if ($style != 'flat') { //Если не плоская тема ?>
-            <div class="color_space"></div>
-            <?php }?>
-            
+        
+                
+        <?php if ($style != 'flat') { //Если не плоская тема ?>
+        <div class="color_space"></div>
+        <?php }?>
+        
+        <?php if(count($foto) != 0) { //Если фотки есть ?>    
         <div class="block_1">
             <h2>Фотографии:</h2>
 
@@ -116,6 +121,7 @@ $array = get_table($link, "SELECT concept, service FROM info"); //Получае
                 <?php for ($i = 0; $i < count($foto); $i++) { //Для каждого элемента в выборке ?>
                 <div class="grid_cell">
                     <a rel="group" href="media/foto/<?=dapost($foto[$i]['file'])?>" class="prevew">
+                        <div class="blink_rect"></div>
                         <div class="sq1">
                             <div class="sq2">
                                 <img src="media/foto/m/smal_<?=dapost($foto[$i]['file'])?>">

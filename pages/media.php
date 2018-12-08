@@ -79,7 +79,6 @@ $pca = $array['al_count']; //Кол-во страниц альбомов
             <?php for($i = 0; $i < count(dapost($array['album'])); $i++) { //Для каждого альбома ?>
             <div class="grid_cell">
                 <a href="index.php?page=<?=$page?>&type=<?=$type?>&album=<?=$array['album'][$i]?>&pa=<?=$pna?>">
-                    
                     <div class="alb_main">
                         <div class="sq1">
                             <div class="sq2">
@@ -88,7 +87,6 @@ $pca = $array['al_count']; //Кол-во страниц альбомов
                         </div>
                         <div class="alb_title"><?=$array['album'][$i]?></div>
                     </div>
-                    
                 </a>
             </div>
             <?php }?>
@@ -107,8 +105,11 @@ $pca = $array['al_count']; //Кол-во страниц альбомов
                             <?php if($tbl[0]['cover'] != '') { //Если есть обложка на последнее видео  ?>
                             <img src="media/video/m/smal_<?=$tbl[0]['cover']?>">
                             <?php }
-                            else { //иначе ?>
+                            elseif ($type == 'video') { //иначе, если тип видео ?>
                             <img src="i/video.jpg">
+                            <?php }
+                            elseif ($type == 'audio') { //Иначе, если тип аудио ?>
+                            <img src="i/audio_s.png">
                             <?php } ?>
                         </div>
                         
@@ -183,6 +184,7 @@ $pca = $array['al_count']; //Кол-во страниц альбомов
                     <?php for ($i = 0; $i < count($tbl); $i++) { //Для каждого элемента в альбоме ?>
                     <div class="grid_cell">
                         <a rel="group" href="media/<?=$type?>/<?=dapost($tbl[$i]['file'])?>" class="prevew">
+                            <div class="blink_rect"></div>
                             <div class="sq1">
                                 <div class="sq2">
                                     <img src="media/<?=$type?>/m/smal_<?=dapost($tbl[$i]['file'])?>">

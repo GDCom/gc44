@@ -28,11 +28,20 @@ h6 {
     color: white;
 }
 
-/*Шапка сайта*/
+/*Основной блок шапки*/
 header {
     background-color: rgb(103, 185, 237);
-    height: 140px;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+
+/*Шапка админки*/
+.admHead {
+    background-color: rgb(103, 185, 237);
+}
+
+/*Задник для кнопок верхнего меню*/
+.button_back {
+    background-color: rgb(103, 185, 237);
 }
 
 /*Блок для изображения значка в круге*/
@@ -43,6 +52,7 @@ header {
     margin: auto 10px;
     background: rgb(83, 109, 139);
     border-radius: 50%;
+    overflow: hidden;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
     padding: 8px;
     box-sizing: border-box;
@@ -84,18 +94,13 @@ header {
 
 /*Всплывающее меню*/
 .top_menu3 {
+    right: 0;
     background-color:  rgb(83, 109, 139);
 }
 
 /*Наведение на пункт всплывающего меню*/
 .top_menu3 div:hover {
     background-color: #818181;
-}
-
-/*Шапка админинки*/
-.admHead {
-    vertical-align: middle;
-    color: white;
 }
 
 /*Надпись в виде кнопки (заголовки таблиц в медиа)*/
@@ -109,16 +114,6 @@ header {
     text-align: center;
     margin-bottom: 5px;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
-}
-
-/*Центрирующий блок для основного контента*/
-.cent {
-    margin-top: 150px;
-}
-
-/*Основной блок контента*/
-.content {
-    max-width: 940px;
 }
 
 /*Создание кнопки из ссылки*/
@@ -138,12 +133,6 @@ header {
 /*Блок для контролера аудио*/
 .audio_frame audio {
     background-color: rgb(83, 109, 139);
-}
-
-/*Блок с названием аудио*/
-.audio_name {
-    background-color: rgb(83, 109, 139);
-    color: white;
 }
 
 /*Блок для отображения передней части папки*/

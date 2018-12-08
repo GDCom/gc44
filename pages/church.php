@@ -54,7 +54,13 @@ switch ($article) {
             default: //По умолчанию ?>
                 <?php if ($array != NULL) { //Если массив не пустой ?>
                 <div class="articl_img">
-                    <a rel="group" href="img/<?=$array[0]['foto']?>" class="prevew"><img src="img/m/smal_<?=$array[0]['foto']?>"></a>
+                    <a rel="group" href="img/<?=$array[0]['foto']?>" class="prevew">
+                        <div class="rect1_32">
+                            <div class="rect2_32">
+                                <img src="img/m/smal_<?=$array[0]['foto']?>">
+                            </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="Text">
                     <?=$array[0]['article']?>
