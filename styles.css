@@ -389,6 +389,15 @@ header {
     /*z-index: 5;*/
 }
 
+/*Блок для скрытия тени блока кнопок*/
+.clear_block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
 /*Основной блок в элементе верхнего меню*/
 .top_menu {
     position: relative;
@@ -1397,7 +1406,7 @@ img.fix2 {
 
 /*Основное поле контента*/
 .content {
-    width: calc(100% - 40px);
+    width: 940px;
     padding: 15px;
     background: #ffffff;
     border-radius: 10px;
@@ -1406,7 +1415,6 @@ img.fix2 {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    max-width: 940px;
 }
 
 /*Центрирующий блок для основного контента*/
@@ -1452,10 +1460,8 @@ iframe.video {
 
 /*Параметры видеофрейма на главной*/
 iframe.video_main {
-    width: 100%;
-    height: calc(100vw*9/16);
-    max-width: 1000px;
-    max-height: 562.5px;
+    width: 940px;
+    height: 528.75px;
 }
 
 /*Параметры фрейма Библии*/

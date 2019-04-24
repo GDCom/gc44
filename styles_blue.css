@@ -42,6 +42,12 @@ header {
 /*Задник для кнопок верхнего меню*/
 .button_back {
     background-color: rgb(103, 185, 237);
+    border-bottom-style: ridge;
+}
+
+/*Блок для скрытия тени блока кнопок*/
+.clear_block {
+    background-color: rgb(103, 185, 237);
 }
 
 /*Блок для изображения значка в круге*/

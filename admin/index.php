@@ -16,7 +16,7 @@ $style_file = 'styles_'.$style.'.css'; //Выбираем файл стилей 
 <html lang="ru">
     <head>
         <meta charset="utf-8">
-        <title>"Церковь Божья" Кострома</title>
+        <title>Административная панель сайта</title>
         <link rel="stylesheet" href="../styles.css">
         <link rel="stylesheet" href="../<?=$style_file?>">
         <link rel="shortcut icon" href="../i/gc.png">

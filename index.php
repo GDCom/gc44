@@ -163,6 +163,7 @@ switch ($page) {
 	<body>
         <header>
             <div class="button_back"></div>
+            <div class="clear_block"></div>
             <div class="Head_img">
                 <a href="index.php" class="main_img">
                     <div class="blink_rect"></div>

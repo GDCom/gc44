@@ -38,6 +38,11 @@ header {
     background-color: rgb(156, 166, 186);
 }
 
+/*Блок для скрытия тени блока кнопок*/
+.clear_block {
+    visibility: hidden;
+}
+
 /*Блок для изображения значка в круге*/
 .Head_img {
     position: relative;
