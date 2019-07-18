@@ -368,7 +368,7 @@ function translit($text) {
     $text = str_replace("х", "h", $text);
     $text = str_replace("ц", "c", $text);
     $text = str_replace("ч", "ch", $text);
-    $text = str_replace("ш", "si", $text);
+    $text = str_replace("ш", "sh", $text);
     $text = str_replace("щ", "sch", $text);
     $text = str_replace("ъ", "'", $text);
     $text = str_replace("ы", "yi", $text);
@@ -402,7 +402,7 @@ function translit($text) {
     $text = str_replace("Х", "h", $text);
     $text = str_replace("Ц", "c", $text);
     $text = str_replace("Ч", "ch", $text);
-    $text = str_replace("Ш", "si", $text);
+    $text = str_replace("Ш", "sh", $text);
     $text = str_replace("Щ", "sch", $text);
     $text = str_replace("Ъ", "'", $text);
     $text = str_replace("Ы", "yi", $text);
