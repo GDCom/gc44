@@ -162,7 +162,7 @@ function make_watermark($file){
 
 //Функция для создания массива альбомов аудио, видео, фото
 function albums ($link, $base_table, $pp, $pn, $ppa, $pna) {
-    $name_album = get_table($link, "SELECT name FROM albums WHERE type='".$base_table."'"); //Названия всех альбомов
+    $name_album = get_table($link, "SELECT name FROM albums WHERE type='".$base_table."'"); //Названия всех альбомов в родительском альбоме
 
     if (count($name_album) > 0) { //Если база не пустая
         
@@ -173,9 +173,9 @@ function albums ($link, $base_table, $pp, $pn, $ppa, $pna) {
         $name_album = get_table($link, "SELECT name FROM albums WHERE type='".$base_table."' ORDER BY date DESC LIMIT ".($pna-1)*$ppa.", ".$ppa); //Названия всех альбомов согласно выбранной странице с сортировкой по дате от новых к старым
         
         $t = 0; //Переменная для массива альбомов
-        
+    
         for ($i = 0; $i < count($name_album); $i++) { //Для каждого альбома
-            
+            //echo "<li>get in</li>";
             $tbl_tmp = get_table($link, "SELECT * FROM ".$base_table." WHERE album='".$name_album[$i]['name']."' ORDER BY date DESC");
             
             if (count($tbl_tmp) > 0) { //Если медиа есть в альбоме    

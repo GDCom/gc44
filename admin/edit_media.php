@@ -40,12 +40,34 @@ else { //иначе
         case 'audio'://Аудио
             $podp = "Загрузка новой аудиозаписи";
             break;
+        case 'fotoAlbums': //Фотоальбом
+            $type = 'albums';
+            $type_album = 'foto';
+            $podp = "Создание нового фотоальбома";
+            break;
+        case 'videoAlbums': //Фотоальбом
+            $type = 'albums';
+            $type_album = 'video';
+            $podp = "Создание нового видеоальбома";
+            break;
+        case 'audioAlbums': //Фотоальбом
+            $type = 'albums';
+            $type_album = 'audio';
+            $podp = "Создание нового аудиоальбома";
+            break;
     }
     
     $btn = 'Загрузить'; //Подпись кнопки подтверждения
 }
 
-$albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER BY date DESC"); //Выбираем название альбомов для определенного типа
+switch ($type) { //В зависимости от типа
+    case 'albums': //Добавление альбома
+        $albums = get_table($link, "SELECT name, id FROM albums WHERE type='".$type_album."' AND parentId=0 ORDER BY date DESC"); //Выбираем названия корневых альбомов для определенного типа
+        break;
+    default: //Для остальных случаев
+        $albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER BY date DESC"); //Выбираем название альбомов для определенного типа
+        break;
+}
 
 ?>
 
@@ -126,19 +148,25 @@ $albums = get_table($link, "SELECT name FROM albums WHERE type='".$type."' ORDER
             </label>
         <?php break;
         case 'albums': //Альбомы ?>
-           <label>
+            <label style="visibility: hidden"> <?php //Скрываем, чтобы не смущало ?>
+                Тип медиа:
+                <input type="text" name="type" class="form-item" value="<?=$type_album?>" required readonly>
+            </label>
+            <label>
                 Название альбома:
                 <input type="text" name="name" class="form-item" required>
             </label>
+            <?php if ($type_album != 'foto') { //Если тип альбома не фото ?>
             <label>
-                Тип медиа:
-                <select type="input" name='type' class="form-item" required>
-                    <option value="">Выберите тип медиа</option>
-                    <option value="foto">Фотографии</option>
-                    <option value="video">Видеофайлы</option>
-                    <option value="audio">Аудиофайлы</option>
+                Выбор родительского альбома:
+                <select type="input" name='parent_album' class="form-item" required>
+                    <option value="0">Корневой альбом</option>
+                    <?php foreach($albums as $a): ?>
+                    <option value="<?=$a['id']?>"><?=$a['name']?></option>
+                    <?php endforeach ?>
                 </select>
-            </label> 
+            </label>
+            <?php }?>
         <?php break;
     }?>
     
