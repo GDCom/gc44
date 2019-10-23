@@ -24,6 +24,8 @@ else { //Иначе статья про конкретное служение
 }
 ?>
 
+<link rel="canonical" href="http://www.gc44.ru/index.php?page=ministry">
+
 <?php if(count($menu) > 0) { //Если есть служения в базе ?>
     <script>$(function(){$('h3').hyphenate();})</script>
     <div class="Menu">

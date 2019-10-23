@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+        <url>
+            <loc>http://www.gc44.ru/index.php</loc>
+        </url>
+        <url>
+            <loc>http://www.gc44.ru/index.php?page=church</loc>
+        </url>
+        <url>
+            <loc>http://www.gc44.ru/index.php?page=news</loc>
+        </url>
+        <url>
+            <loc>http://www.gc44.ru/index.php?page=ministry</loc>
+        </url>
+        <url>
+            <loc>http://www.gc44.ru/index.php?page=media</loc>
+        </url>
+        <url>
+            <loc>http://www.gc44.ru/index.php?page=contacts</loc>
+        </url>
+    </urlset>

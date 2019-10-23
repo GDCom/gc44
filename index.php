@@ -113,6 +113,7 @@ switch ($page) {
 	<head>
         <meta charset="utf-8">
         <meta name="yandex-verification" content="61a6d318bbae3657" />
+        <meta name="Description" content="Официальный сайт местной религиозной организации христиан веры евангельской (пятидесятников) 'Церковь Божья' г. Костромы, Костромской области."/>
 		<title>"Церковь Божья" Кострома</title>
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="<?=$style_file?>">

@@ -31,6 +31,8 @@ switch ($article) {
 
 ?>
 
+<link rel="canonical" href="http://www.gc44.ru/index.php?page=church">
+
 <div class="Menu">
     <div>
         <a href="index.php?page=church&article=episcop">Начальствующий епископ</a>

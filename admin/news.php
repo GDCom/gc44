@@ -30,13 +30,13 @@ if (isset($_GET['action'])) {
             
             if (isset($_POST['imgs_check']) && $_POST['imgs_check'] == 'YES') { //Если чекбокс отмечен
                 for ($i = 0; $i < count($imgs); $i++) { //для каждого элемента массива названий файлов
-                    if ($i == 0) $imgs_t = $imgs[$i]; //Если первый элемент
+                    if ($i == 0) $imgs_t = apost($imgs[$i]); //Если первый элемент
                     else $imgs_t = $imgs_t.";".$imgs[$i]; //Последующие элементы
                 }
             }
             else $imgs_t = ''; //Иначе пропускаем
             
-            $t = "INSERT INTO news (title, date, content, img1, imgs) VALUES ('".apost($_POST['title'])."', '".date("Y-m-d")."', '".apost($_POST['content'])."', '".$img1_t."', '".$imgs_t."')"; //Команда на добавление новой записи
+            $t = "INSERT INTO news (title, date, content, img1, imgs) VALUES ('".apost($_POST['title'])."', '".date("Y-m-d")."', '".apost($_POST['content'])."', '".apost($img1_t)."', '".apost($imgs_t)."')"; //Команда на добавление новой записи
             
             break;
         case "edit": //Редактирование записи
@@ -46,7 +46,7 @@ if (isset($_GET['action'])) {
             if (isset($_POST['img1_check']) && $_POST['img1_check'] == 'YES') { //Если чекбокс отмечен
                 del_img($link, 'news', 'img1', $id, '../img/', '../img/m/smal_'); //Удаляем первый файл
                                
-                $img1_t = ", img1='".$img1."'"; //меняем изображение в базе
+                $img1_t = ", img1='".apost($img1)."'"; //меняем изображение в базе
             }
             else $img1_t = ''; //Иначе пропускаем
             
@@ -55,8 +55,8 @@ if (isset($_GET['action'])) {
                 del_imgs($link, 'news', 'imgs', $id, '../img/', '../img/m/smal_'); //Удаляем остальные файлы
                 
                 for ($i = 0; $i < count($imgs); $i++) { //для каждого элемента массива названий файлов
-                    if ($i == 0) $imgs_t = $imgs[$i]; //Если первый элемент
-                    else $imgs_t = $imgs_t.";".$imgs[$i]; //Последующие элементы
+                    if ($i == 0) $imgs_t = apost($imgs[$i]); //Если первый элемент
+                    else $imgs_t = $imgs_t.";".apost($imgs[$i]); //Последующие элементы
                 }
                 $imgs_t = ", imgs='".$imgs_t."'"; //Добавляем строки для внесения в команду
             }

@@ -1,3 +1,5 @@
+<link rel="canonical" href="http://www.gc44.ru/index.php?page=pers_dat">
+
 <div class="cent">
     <div class="content">
         <h2>Политика в отношении обработки персональных данных</h2>

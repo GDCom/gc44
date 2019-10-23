@@ -1,0 +1,8 @@
+User-agent: Yandex
+Disallow: /admin
+Disallow: /fonts
+Disallow: /base
+Disallow: /i
+Disallow: /img
+Disallow: /js
+Sitemap: http://gc44.ru/sitemap

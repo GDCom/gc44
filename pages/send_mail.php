@@ -36,3 +36,5 @@ else $f = 2; //Иначе код сообщения 2
 header('Location: ../index.php?page=contacts&alert='.$f); //Перенаправляем на страницу контактов с кодом сообщения
 
 ?>
+
+<link rel="canonical" href="http://www.gc44.ru/index.php?page=send_mail">

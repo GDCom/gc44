@@ -22,6 +22,8 @@ if (isset($_GET['alert'])) {
 
 ?>
 
+<link rel="canonical" href="http://www.gc44.ru/index.php?page=contacts">
+
 <div class="cent">
     <div class="content">
         <h1>Контакты</h1>

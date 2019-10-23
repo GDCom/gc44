@@ -22,6 +22,8 @@ else { //Иначе
 }
 ?>
 
+<link rel="canonical" href="http://www.gc44.ru/index.php?page=news">
+
 <div class="cent">
     <div class="content">
         

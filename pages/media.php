@@ -64,6 +64,8 @@ $pca = $array['al_count']; //Кол-во страниц альбомов
 
 ?>
 
+<link rel="canonical" href="http://www.gc44.ru/index.php?page=media">
+
 <div class="Menu">
     <div>
         <a href="index.php?page=<?=$page?>&type=foto">Фотографии</a><br>

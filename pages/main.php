@@ -14,6 +14,8 @@ check_base($link, 'info'); //Проверяем, пустая ли база и �
 $array = get_table($link, "SELECT concept, service FROM info"); //Получаем информацию из базы
 ?>
 
+<link rel="canonical" href="http://www.gc44.ru/index.php?page=main">
+
 <div class="cent">
     <div class="content">
         <div class="block_2">
